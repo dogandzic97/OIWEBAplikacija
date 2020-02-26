@@ -182,9 +182,6 @@ namespace OIWEB.Controllers
             }
         }
 
-        public ActionResult Proba()
-        {
-            return View();
-        }
+      
     }
 }
