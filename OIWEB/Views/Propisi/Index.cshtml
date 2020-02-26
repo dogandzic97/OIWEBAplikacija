@@ -1,0 +1,124 @@
+﻿@model IEnumerable<OIWEB.Propi>
+
+@{
+    ViewBag.Title = "Index";
+    string text = "";
+}
+@if (Session["Korisnik"] == null)
+{
+    <h2>Propisi</h2>
+
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Broj)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Naslov)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Datum)
+            </th>
+            <th>
+                @Html.DisplayName("Tekst")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+
+            List<PropisTxt> tekstovi = (List<PropisTxt>)ViewBag.Tekst;
+            foreach (PropisTxt m in tekstovi)
+            {
+                if (m.IDPropisa == item.IDPropisa)
+                {
+                    text = m.Tekst;
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Broj)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Naslov)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Datum)
+                        </td>
+                        <td>
+                            <p>@text</p>
+                        </td>
+                    </tr>
+                }
+            }
+        }
+
+    </table>
+}
+
+@if (Session["Korisnik"] != null)
+{
+    Korisnik k = (Korisnik)Session["Korisnk"];
+    {
+        <h2>Propisi</h2>
+        <a href="https://localhost:44390/Propisi/Create" class="btn-outline-dark btn-lg" style="background-color: plum">Додај нови пропис  </a>
+
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Broj)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Naslov)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Datum)
+                </th>
+                <th>
+                    @Html.DisplayName("Tekst")
+                </th>
+                <th>
+
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+
+
+                List<PropisTxt> tekstovi = (List<PropisTxt>)ViewBag.Tekst;
+                foreach (PropisTxt m in tekstovi)
+                {
+                    if (m.IDPropisa == item.IDPropisa)
+                    {
+                        text = m.Tekst;
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Broj)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Naslov)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Datum)
+                            </td>
+                            <td>
+                                <p>@text</p>
+                            </td>
+                            <th>
+
+                            </th>
+                        </tr>
+                    }
+                }
+            }
+
+        </table>
+    }
+
+}
+
