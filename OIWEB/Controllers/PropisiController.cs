@@ -27,6 +27,8 @@ namespace OIWEB.Controllers
                                                  select v).ToList();
             List<SpecificnostiBudzetskihKorisnika> specificnosti = (from s in oi.SpecificnostiBudzetskihKorisnikas
                                                                     select s).ToList();
+           
+            
             ViewBag.Vrste = vrste;
             ViewBag.Specificnosti = specificnosti;
             return View();
