@@ -66,5 +66,36 @@ namespace OIWEB.Controllers
                 return View();
             }
         }
+
+        public ActionResult Delete(int id)
+        {
+            Propi propis = (from p in oi.Propis
+                            where p.IDPropisa == id
+                            select p).Single();
+           List<PropisTxt> tekst = (from t in oi.PropisTxts
+                               where t.IDPropisa == id
+                               select t).ToList();
+            try
+            {
+                foreach (PropisTxt t in tekst)
+                    oi.PropisTxts.DeleteOnSubmit(t);
+                oi.SubmitChanges();
+            }
+            catch
+            {
+                ViewBag.Message = "Greska";
+            }
+
+            try
+            {
+                oi.Propis.DeleteOnSubmit(propis);
+                oi.SubmitChanges();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return RedirectToAction("Index");
+            }
+        }
     }
 }
