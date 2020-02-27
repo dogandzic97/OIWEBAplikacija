@@ -91,8 +91,7 @@
 
 
                 List<PropisTxt> tekstovi = (List<PropisTxt>)ViewBag.Tekst;
-                using (Html.BeginForm("Delete", "Propisi", new { id = item.IDPropisa }))
-                {
+               
                     foreach (PropisTxt m in tekstovi)
                     {
                         if (m.IDPropisa == item.IDPropisa)
@@ -113,14 +112,16 @@
                             </td>
                             <th>
                                 <p> @Html.ActionLink("Измени", "Edit", new { id = item.IDPropisa }, new { @class = "edit" }) |</p>
-
-                                <p> <input type="submit" onclick="confirm('Да ли сте сигурни да желите да избришете чланак @item.Naslov')" value="Избриши" class="btn-danger"> |</p>
+                                @using (Html.BeginForm("Delete", "Propisi", new { id = item.IDPropisa }))
+                                {
+                                <p> <input type="submit" onclick="return confirm('Да ли сте сигурни да желите да избришете чланак @item.Naslov')" value="Избриши" class="btn-danger"> |</p>
+                                }
                             </th>
                         </tr>
                         }
                     }
                 }
-            }
+           
 
         </table>
     }

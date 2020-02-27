@@ -97,5 +97,50 @@ namespace OIWEB.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            Propi propis = (from p in oi.Propis
+                            where p.IDPropisa==id
+                            select p).Single();
+            List<PropisTxt> tekstvoi = (from text in oi.PropisTxts
+                                        where text.IDPropisa == id
+                                        select text).ToList();
+            ViewBag.Tekstovi = tekstvoi;
+            return View(propis);
+        }
+        [HttpPost]
+        public ActionResult Edit(int id,FormCollection fc)
+        {
+            Korisnik k = (Korisnik)Session["Korisnik"];
+            Propi propis = (from p in oi.Propis
+                            where p.IDPropisa == id
+                            select p).Single();
+            PropisTxt text = (from t in oi.PropisTxts
+                              where t.IDPropisa == id
+                              select t).Single();
+            propis.Broj = Convert.ToInt32(fc["Broj"]);
+            propis.Datum = fc["Datum"];
+            propis.Naslov = fc["Naslov"];
+            propis.IDVrste = Convert.ToInt32(fc["IDVrste"]);
+            propis.IDSBK = Convert.ToInt32(fc["IDSBK"]);
+            propis.IDKorisnik = k.IDKorisnik;
+            
+           
+            text.Tekst = fc["Tekst"];
+            try
+            {
+                oi.SubmitChanges();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                ViewBag.Message = "Greska";
+                return View();
+
+            }
+        }
     }
 }

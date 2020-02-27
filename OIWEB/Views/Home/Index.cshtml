@@ -471,7 +471,7 @@
                                             <p>@item.Datum</p>
                                             <p> @Html.ActionLink("Измени", "Edit", new { id = item.IDClanak }, new { @class = "edit" }) |</p>
 
-                                            <p> <input type="submit" onclick="confirm('Да ли сте сигурни да желите да избришете чланак @tekst.Naslov')" value="Избриши" class="btn-danger"> |</p>
+                                            <p> <input type="submit" onclick="return confirm('Да ли сте сигурни да желите да избришете чланак @tekst.Naslov')" value="Избриши" class="btn-danger"> |</p>
                                         </div>
                                     </div>
                                 }
