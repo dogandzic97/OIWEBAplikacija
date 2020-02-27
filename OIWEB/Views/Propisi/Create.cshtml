@@ -4,13 +4,8 @@
 
     Korisnik k = (Korisnik)Session["Korisnik"];
     Layout = null;
-
-}
-@{
-
     List<SpecificnostiBudzetskihKorisnika> specificnosti = (List<SpecificnostiBudzetskihKorisnika>)ViewBag.Specificnosti;
-    List<VrstaSluzbenihGlasila> vrste = (List<VrstaSluzbenihGlasila>)ViewBag.Vrste;
-
+    List<VrstaSluzbenihGlasila> sluzbenaGlasila =ViewBag.SluzbenaGlasila;
 }
 
 
@@ -168,80 +163,80 @@
         {
             @Html.AntiForgeryToken()
         <br /><br /><br /><br /><br />
-            <div class="form-horizontal">
-                <h2>Креирај пропис</h2>
-                <hr />
+                                <div class="form-horizontal">
+                                    <h2>Креирај пропис</h2>
+                                    <hr />
 
 
-                <div class="form-group">
-                    @Html.Label("Број:")<br />
-                    <div class="col-md-6 form-group">
-                        <input type="number" name="Broj" class="form-control" id="Broj" data-rule="minlen:4" data-msg="Морате унети цео број" />
-                        <div class="validate"> </div>
-                    </div>
-                </div>
+                                    <div class="form-group">
+                                        @Html.Label("Број:")<br />
+                                        <div class="col-md-6 form-group">
+                                            <input type="number" name="Broj" class="form-control" id="Broj" data-rule="minlen:4" data-msg="Морате унети цео број" />
+                                            <div class="validate"> </div>
+                                        </div>
+                                    </div>
 
-                <div class="form-group">
-                    @Html.Label("Наслов:")<br />
-                    <div class="col-md-6 form-group">
-                        <input type="text" name="Naslov" class="form-control" id="Naslov" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
-                        <div class="validate"> </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.Label("Текст: ")
-                    <div class="col-md-6 form-group">
-                        <textarea name="Tekst"></textarea>
+                                    <div class="form-group">
+                                        @Html.Label("Наслов:")<br />
+                                        <div class="col-md-6 form-group">
+                                            <input type="text" name="Naslov" class="form-control" id="Naslov" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                                            <div class="validate"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label("Текст: ")
+                                        <div class="col-md-6 form-group">
+                                            <textarea name="Tekst" height="100px" width="100px"></textarea>
 
-                    </div>
-                </div>
+                                        </div>
+                                    </div>
 
-                <div class="form-group">
-                    @Html.Label("Датум:")<br />
-                    <div class="col-md-6 form-group">
-                        <input type="date" name="Datum" class="form-control" id="Datum" data-rule="minlen:4" data-msg="Морате унети датум" />
-                        <div class="validate"> </div>
-                    </div>
-                </div>
+                                    <div class="form-group">
+                                        @Html.Label("Датум:")<br />
+                                        <div class="col-md-6 form-group">
+                                            <input type="date" name="Datum" class="form-control" id="Datum" data-rule="minlen:4" data-msg="Морате унети датум" />
+                                            <div class="validate"> </div>
+                                        </div>
+                                    </div>
 
-                <div class="form-group">
-                    @Html.Label("Врсте службених гласила")
-                    <div class="col-md-6 form-group">
-                        <select name="IDVrstePropisa">
-                            @foreach (VrstaSluzbenihGlasila vr in vrste)
-                            {
-                                <option value="@vr.IDVrstePropisa">@vr.Naziv</option>
-                            }
-                        </select>
-                    </div>
-                </div>
+                                    <div class="form-group">
+                                        @Html.Label("Врсте Службених гласила:")
+                                        <div class="col-md-6 form-group">
+                                            <select name="IDVrstePropisa">
+                                                @foreach(VrstaSluzbenihGlasila vg in sluzbenaGlasila)
+                                                {
+                                                    <option value="@vg.IDVrstePropisa">@vg.Naziv</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
 
-                <div class="form-group">
-                    @Html.Label("Специфичности буџетских корисника")
-                    <div class="col-md-6 form-group">
-                        <select name="IDSBK">
-                            @foreach (SpecificnostiBudzetskihKorisnika sp in specificnosti)
-                            {
-                                <option value="@sp.IDSBK">@sp.Naziv</option>
-                            }
-                        </select>
-                    </div>
-                </div>
+                                    <div class="form-group">
+                                        @Html.Label("Специфичности буџетских корисника")
+                                        <div class="col-md-6 form-group">
+                                            <select name="IDSBK">
+                                                @foreach (SpecificnostiBudzetskihKorisnika sp in specificnosti)
+                                                {
+                                                    <option value="@sp.IDSBK">@sp.Naziv</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
 
 
-                <div class="form-group">
-                    <p>Корисник:</p>
-                    <div class="col-md-6 form-group">
-                        <input type="text" name="IDKorisnik" value="@k.IDKorisnik" disabled />
-                    </div>
-                </div>
+                                    <div class="form-group">
+                                        <p>Корисник:</p>
+                                        <div class="col-md-6 form-group">
+                                            <input type="text" name="IDKorisnik" value="@k.IDKorisnik" disabled />
+                                        </div>
+                                    </div>
 
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Креирај пропис" class="btn btn-outline-success" />
-                    </div>
-                </div>
-            </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Креирај пропис" class="btn btn-outline-success" />
+                                        </div>
+                                    </div>
+                                </div>
         }
 
         <div>

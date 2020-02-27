@@ -123,6 +123,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PropisiController.cs" />
     <Compile Include="Controllers\SpecificnostiBudzetskihKorisnikaController.cs" />
     <Compile Include="Controllers\StatistikaIPodaciController.cs" />
     <Compile Include="Global.asax.cs">
@@ -237,6 +238,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="obj\Debug\OIWEB.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\OIWEB.dll" />
+    <Content Include="obj\Debug\OIWEB.pdb" />
+    <Content Include="obj\Debug\TempPE\ObrazovniInformator.designer.cs.dll" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-grid.css.map" />
@@ -258,11 +263,6 @@
     <Content Include="Content\assets\vendor\jquery\jquery.min.map" />
     <Content Include="Content\assets\vendor\owl.carousel\LICENSE" />
     <Content Include="Content\assets\vendor\owl.carousel\README.md" />
-    <Content Include="ObrazovniInformator.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>ObrazovniInformator.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Content\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
@@ -324,6 +324,14 @@
     <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="ObrazovniInformator.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ObrazovniInformator.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\OIWEB.csproj.CopyComplete" />
+    <Content Include="obj\Debug\OIWEB.csprojAssemblyReference.cache" />
     <None Include="ObrazovniInformator.dbml.layout">
       <DependentUpon>ObrazovniInformator.dbml</DependentUpon>
     </None>
@@ -367,6 +375,9 @@
     <Content Include="Views\SpecificnostiBudzetskihKorisnika\OmladinaISport.cshtml" />
     <Content Include="Views\SpecificnostiBudzetskihKorisnika\JavnaPreduzeca.cshtml" />
     <Content Include="Views\StatistikaIPodaci\Index.cshtml" />
+    <Content Include="Views\Propisi\Create.cshtml" />
+    <Content Include="Views\Propisi\Edit.cshtml" />
+    <Content Include="Views\Propisi\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
