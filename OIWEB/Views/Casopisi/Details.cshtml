@@ -1,0 +1,66 @@
+﻿@model OIWEB.Casopi
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Casopi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Naslov)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Naslov)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tekst)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tekst)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sadrzaj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sadrzaj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Datum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Datum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BrojIzdanja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrojIzdanja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDKorisnika)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDKorisnika)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDCasopis }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

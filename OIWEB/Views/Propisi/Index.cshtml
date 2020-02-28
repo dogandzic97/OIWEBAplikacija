@@ -52,15 +52,16 @@
                 background: #fff;
                 color: rgb(123, 87, 140);
             }
-        #header{
-            background:rgb(123, 87, 140) !important;
-            height:auto;
-        }
 
-        #header.header-scrolled {
+        #header {
             background: rgb(123, 87, 140) !important;
             height: auto;
         }
+
+            #header.header-scrolled {
+                background: rgb(123, 87, 140) !important;
+                height: auto;
+            }
 
         a {
             color: #ffffff;
@@ -157,6 +158,10 @@
         #hero .btn-get-started:hover {
             background: rgba(117, 80, 135, 0.8) !important;
         }
+
+        .propis {
+            border: 1px solid;
+        }
     </style>
 </head>
 
@@ -185,7 +190,7 @@
                         <li><a href="https://localhost:44390/Home/About">О Нама</a></li>
                         <li><a href="https://localhost:44390/StatistikaIPodaci/Index">Статистика и Подаци </a></li>
                         <li class="drop-down">
-                            <a href="#">Специфичности буџетских корисника </a>
+                            <a href="#">Делатности </a>
                             <ul>
 
                                 <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа</a></li>
@@ -201,7 +206,16 @@
                                 <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca">Јавна предузећа </a></li>
                             </ul>
                         </li>
-                        <li><a href="https://localhost:44390/Propisi/Index">Прописи</a></li>
+                        <li class="drop-down">
+                            <a href="#">Прописи</a>
+                            <ul>
+                                <li><a href="https://localhost:44390/Propisi/Index">Службени гласник РС</a></li>
+                                <li><a href="https://localhost:44390/Propisi/ProsvetniGlasnik">Службени гласник РС Просветни гласник</a></li>
+                                <li><a href="https://localhost:44390/Propisi/MedjunarodniUgovori">Службени гласник РС Међународни уговори </a></li>
+                                <li><a href="https://localhost:44390/Propisi/SluzbeniListAPVojvodine">Службени лист АП Војводине </a></li>
+                                <li><a href="https://localhost:44390/Propisi/SluzbeniListGradaBeograda">Службени лист града Београда</a></li>
+                            </ul>
+                        </li>
                         <li class="drop-down">
                             <a href="#">Публикације </a>
                             <ul>
@@ -253,19 +267,17 @@
                         {
                             if (m.IDPropisa == item.IDPropisa)
                             {
-                                text = m.Tekst;
-                                <div class="row" data-aos="fade-up">
-
-                                    <div class="col-md-7 pt-4">
-                                        <h3>Број: @item.Broj</h3>
-                                        <h2>
-                                            @item.Naslov
-                                        </h2>
-                                        <p>
-                                            @text
-                                        </p>
-                                        <p>@item.Datum</p>
-
+                                <div class="propis">
+                                    <div class="row" data-aos="fade-up">
+                                        <div class="col-md-7 pt-4">
+                                            <b>Број: @item.Broj</b> - <i>@item.Datum</i>
+                                            <h3>
+                                                @item.Naslov
+                                            </h3>
+                                            <p>
+                                                @m.Tekst
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             }
@@ -303,7 +315,7 @@
                             <li><a href="https://localhost:44390/Home/About">О Нама</a></li>
                             <li><a href="https://localhost:44390/StatistikaIPodaci/Index">Статистика и Подаци </a></li>
                             <li class="drop-down">
-                                <a href="#">Специфичности буџетских корисника </a>
+                                <a href="#">Делатности </a>
                                 <ul>
 
                                     <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа</a></li>
@@ -319,7 +331,16 @@
                                     <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca">Јавна предузећа </a></li>
                                 </ul>
                             </li>
-                            <li><a href="https://localhost:44390/Propisi/Index">Прописи</a></li>
+                            <li class="drop-down">
+                                <a href="#">Прописи</a>
+                                <ul>
+                                    <li><a href="https://localhost:44390/Propisi/Index">Службени гласник РС</a></li>
+                                    <li><a href="https://localhost:44390/Propisi/ProsvetniGlasnik">Службени гласник РС Просветни гласник</a></li>
+                                    <li><a href="https://localhost:44390/Propisi/MedjunarodniUgovori">Службени гласник РС Међународни уговори </a></li>
+                                    <li><a href="https://localhost:44390/Propisi/SluzbeniListAPVojvodine">Службени лист АП Војводине </a></li>
+                                    <li><a href="https://localhost:44390/Propisi/SluzbeniListGradaBeograda">Службени лист града Београда</a></li>
+                                </ul>
+                            </li>
                             <li class="drop-down">
                                 <a href="#">Публикације </a>
                                 <ul>
@@ -373,37 +394,39 @@
                             {
                                 if (m.IDPropisa == item.IDPropisa)
                                 {
-                                    text = m.Tekst;
-                                    <div class="row" data-aos="fade-up">
+                                    <div class="propis">
+                                        <div class="row" data-aos="fade-up">
+                                            <div class="col-md-7 pt-4">
+                                                <b>Број: @item.Broj</b> - <i>@item.Datum</i>
+                                                <h3>
+                                                    @item.Naslov
+                                                </h3>
+                                                <p>
+                                                    @m.Tekst
+                                                </p>
 
-                                        <div class="col-md-7 pt-4">
-                                            <h3>Број: @item.Broj</h3>
-                                            <h2>
-                                                @item.Naslov
-                                            </h2>
-                                            <p>
-                                                @text
-                                            </p>
-                                            <p>@item.Datum</p>
-                                          <p>  @Html.ActionLink("Измени", "Edit", new { id = item.IDPropisa }, new { @class = "edit" }) |</p>
-                                            @using (Html.BeginForm("Delete", "Propisi", new { id = item.IDPropisa }))
-                                            {
-                                                <p> <input type="submit" onclick="return confirm('Да ли сте сигурни да желите да избришете чланак @item.Naslov')" value="Избриши" class="btn-danger"> |</p>
-                                            }
 
+
+                                                <p>  @Html.ActionLink("Измени", "Edit", new { id = item.IDPropisa }, new { @class = "edit" }) |</p>
+                                                @using (Html.BeginForm("Delete", "Propisi", new { id = item.IDPropisa }))
+                                                {
+                                                    <p> <input type="submit" onclick="return confirm('Да ли сте сигурни да желите да избришете чланак @item.Naslov')" value="Избриши" class="btn-danger"> |</p>
+                                                }
+                                            </div>
                                         </div>
                                     </div>
+
                                 }
                             }
                         }
 
 
                     </div>
-                </section><!-- End Features Section -->
+                    </section><!-- End Features Section -->
             </main><!-- End #main -->
-           
+
         }
-   
+
 
     }
     <nav aria-label="Page navigation example">

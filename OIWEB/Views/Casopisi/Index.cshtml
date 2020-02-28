@@ -1,0 +1,66 @@
+﻿@model IEnumerable<OIWEB.Casopi>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Naslov)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tekst)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sadrzaj)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Datum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrojIzdanja)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDKorisnika)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naslov)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tekst)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sadrzaj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrojIzdanja)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDKorisnika)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDCasopis }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDCasopis }) |
+            @using (Html.BeginForm("Delete","Casopisi",new { id = item.IDCasopis }))
+            {
+                <input type="submit" value="Бриши" onclick="return confirm('Да ли сте сигурни да желите да избришете @item.Naslov часопис?' )"/>
+            }
+        </td>
+    </tr>
+}
+
+</table>

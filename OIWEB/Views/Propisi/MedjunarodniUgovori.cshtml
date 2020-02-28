@@ -1,12 +1,11 @@
-﻿@model IEnumerable<OIWEB.Clanci>
+﻿@model IEnumerable<OIWEB.Propi>
 
-Could not find a part of the path 'C:\Users\Informator\Source\Repos\OIWEBAplikacija2\OIWEB\bin\roslyn\csc.exe'.@{
+@{
+    ViewBag.Title = "Propisi";
     Layout = null;
 }
-
-
 <!DOCTYPE html>
-<html lang="en">n 
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -53,10 +52,15 @@ Could not find a part of the path 'C:\Users\Informator\Source\Repos\OIWEBAplikac
                 color: rgb(123, 87, 140);
             }
 
-        #header.header-scrolled {
+        #header {
             background: rgb(123, 87, 140) !important;
             height: auto;
         }
+
+            #header.header-scrolled {
+                background: rgb(123, 87, 140) !important;
+                height: auto;
+            }
 
         a {
             color: #ffffff;
@@ -153,13 +157,17 @@ Could not find a part of the path 'C:\Users\Informator\Source\Repos\OIWEBAplikac
         #hero .btn-get-started:hover {
             background: rgba(117, 80, 135, 0.8) !important;
         }
+
+        .propis {
+            border: 1px solid;
+        }
     </style>
 </head>
 
 <body>
     <!-- ======= NIKO NIJE PRIJAVLJEN ======= -->
     <!-- ======= Header ======= -->
-    @if (Session["korisnik"] == null)
+    @if (Session["Korisnik"] == null)
     {
         <header id="header" class="fixed-top header-transparent">
             <div class="container">
@@ -181,177 +189,6 @@ Could not find a part of the path 'C:\Users\Informator\Source\Repos\OIWEBAplikac
                         <li><a href="https://localhost:44390/Home/About">О Нама</a></li>
                         <li><a href="https://localhost:44390/StatistikaIPodaci/Index">Статистика и Подаци </a></li>
                         <li class="drop-down">
-                            <a href="#">Делатности </a>
-                            <ul>
-
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа</a></li>
-
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/LokalnaSamouprava">Локална самоуправа</a></li>
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Zdravstvo">Здравство </a></li>
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Prosveta">Просвета </a></li>
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/SocijalnaZastita">Социјална заштита </a></li>
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Kultura">Култура </a></li>
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Nauka">Наука </a></li>
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Pravosudje">Правосуђе </a></li>
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/OmladinaISport">Омладина и спорт </a></li>
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca">Јавна предузећа </a></li>
-                            </ul>
-                        </li>
-                        <li class="drop-down">
-                            <a href="#">Прописи</a>
-                            <ul>
-                                <li><a href="https://localhost:44390/Propisi/Index">Службени гласник РС</a></li>
-                                <li><a href="https://localhost:44390/Propisi/ProsvetniGlasnik">Службени гласник РС Просветни гласник</a></li>
-                                <li><a href="https://localhost:44390/Propisi/MedjunarodniUgovori">Службени гласник РС Међународни уговори </a></li>
-                                <li><a href="https://localhost:44390/Propisi/SluzbeniListAPVojvodine">Службени лист АП Војводине </a></li>
-                                <li><a href="https://localhost:44390/Propisi/SluzbeniListGradaBeograda">Службени лист града Београда</a></li>
-                            </ul>
-                        </li>
-                        <li class="drop-down">
-                            <a href="#">Публикације </a>
-                            <ul>
-
-                                <li><a href="#">Часописи</a></li>
-
-                                <li><a href="#">Друга издања</a></li>
-                            </ul>
-                        </li>
-
-
-                        <li class="drop-down">
-                            <a href="">Стручни скупови</a>
-
-
-                            <ul>
-                                <li><a href="#">Саветовања и семинари</a></li>
-                                <li><a href="#">Курсеви и обуке</a></li>
-                                <li><a href="#">Стицање стрчних звања</a></li>
-                                <li><a href="#">Вебинари</a></li>
-
-                            </ul>
-
-
-                        </li>
-                        <li><a href="https://localhost:44390/Home/Contact">Продаја и претплата</a></li>
-                        <li><a href="Contact">Контакт</a></li>
-                    </ul>
-                </nav><!-- .nav-menu -->
-
-            </div>
-        </header><!-- End Header -->
-        <!-- ======= Hero Section ======= -->
-
-        <section id="hero" class="d-flex justify-cntent-center align-items-center">
-            <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
-
-                <!-- Slide 1 -->
-                <div class="carousel-item active">
-                    <div class="carousel-container">
-                        <h2 class="animated fadeInDown">Добро дошли на сајт <span> Образовног Информатора </span></h2>
-                        <p class="animated fadeInUp">Едукативна кућа за савремено пословање, Србија, Цара Лазара 5А, Београд.</p>
-                        <a href="" class="btn-get-started animated fadeInUp">Read More</a>
-                    </div>
-                </div>
-
-                <!-- Slide 2 -->
-                <div class="carousel-item">
-                    <div class="carousel-container">
-                        <h2 class="animated fadeInDown">Lorem Ipsum Dolor</h2>
-                        <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                        <a href="" class="btn-get-started animated fadeInUp">Read More</a>
-                    </div>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="carousel-item">
-                    <div class="carousel-container">
-                        <h2 class="animated fadeInDown">Sequi ea ut et est quaerat</h2>
-                        <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                        <a href="" class="btn-get-started animated fadeInUp">Read More</a>
-                    </div>
-                </div>
-
-                <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-
-                <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-
-            </div>
-        </section><!-- End Hero -->
-
-        <main id="main">
-
-
-            <!-- ======= Features Section ======= -->
-            <section class="features">
-                <div class="container">
-
-                    <div class="section-title">
-                        <h2>АКТУЕЛНО У ЈАВНОМ СЕКТОРУ</h2>
-
-                    </div>
-                    @foreach (var item in Model)
-                    {
-                        List<ClanciTxt> clanciTxt = (List<ClanciTxt>)ViewBag.Tekstovi;
-                        foreach (var tekst in clanciTxt)
-                        {
-                            if (item.IDClanak == tekst.IDClanak)
-                            {
-
-
-
-                                <div class="row" data-aos="fade-up">
-
-                                    <div class="col-md-7 pt-4">
-                                        <h2>@item.Tip</h2>
-                                        <h3>
-                                            @tekst.Naslov
-                                        </h3>
-                                        <p>
-                                            @tekst.Tekst
-                                        </p>
-                                        <p>@item.Datum</p>
-
-                                    </div>
-                                </div>
-                            }
-                        }
-                    }
-
-
-                </div>
-            </section><!-- End Features Section -->
-        </main><!-- End #main -->
-    }
-    <!-- ======= ADMIN PRIJAVA ======= -->
-    @if (Session["korisnik"] != null)
-    {
-        Korisnik korisnik = (Korisnik)Session["korisnik"];
-        <!-- ======= Header ======= -->
-        <header id="header" class="fixed-top header-transparent">
-            <div class="container">
-
-                <div class="logo float-left">
-                    <h3 class="text-light">
-                        <a href="Index">
-                            <span>
-                                Образовни Информатор
-                            </span>
-                        </a>
-                    </h3>
-                    <!-- <a href="index.html"><img src="~/Content/images/LOGO COREL OI FINAL.jpg" alt="" class="img-fluid"></a>-->
-                </div>
-
-                <nav class="nav-menu float-right d-none d-lg-block">
-                    <ul>
-                        <li class="active"><a href="https://localhost:44390/Home/Index">Почетна <i class="la la-angle-down"></i></a></li>
-                        <li><a href="https://localhost:44390/Home/About">О Нама</a></li>
-                        <li><a href="https://localhost:44390/StatistikaIPodaci/Index">Статистика и Подаци </a></li>
                         <li class="drop-down">
                             <a href="#">Делатности </a>
                             <ul>
@@ -412,92 +249,37 @@ Could not find a part of the path 'C:\Users\Informator\Source\Repos\OIWEBAplikac
             </div>
         </header><!-- End Header -->
         <!-- ======= Hero Section ======= -->
-
-        <section id="hero" class="d-flex justify-cntent-center align-items-center">
-            <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
-
-                <!-- Slide 1 -->
-                <div class="carousel-item active">
-                    <div class="carousel-container">
-                        <h2 class="animated fadeInDown">Добро дошли на сајт <span> Образовног Информатора </span></h2>
-                        <p class="animated fadeInUp">Едукативна кућа за савремено пословање, Србија, Цара Лазара 5А, Београд.</p>
-                        <a href="" class="btn-get-started animated fadeInUp">Read More</a>
-                    </div>
-                </div>
-
-                <!-- Slide 2 -->
-                <div class="carousel-item">
-                    <div class="carousel-container">
-                        <h2 class="animated fadeInDown">Lorem Ipsum Dolor</h2>
-                        <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                        <a href="" class="btn-get-started animated fadeInUp">Read More</a>
-                    </div>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="carousel-item">
-                    <div class="carousel-container">
-                        <h2 class="animated fadeInDown">Sequi ea ut et est quaerat</h2>
-                        <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                        <a href="" class="btn-get-started animated fadeInUp">Read More</a>
-                    </div>
-                </div>
-
-                <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-
-                <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-
-            </div>
-        </section><!-- End Hero -->
-
         <main id="main">
-
-
-            <a href="https://localhost:44390/Home/Create" class="btn-outline-dark btn-lg" style="background-color: plum">Додај нови пост </a>
             <!-- ======= Features Section ======= -->
             <section class="features">
                 <div class="container">
-
+                    <br /><br /><br /><br /><br />
                     <div class="section-title">
-                        <h2>АКТУЕЛНО У ЈАВНОМ СЕКТОРУ</h2>
+                        <h2>ПРОПИСИ</h2>
 
                     </div>
                     @foreach (var item in Model)
                     {
-                        List<ClanciTxt> clanciTxt = (List<ClanciTxt>)ViewBag.Tekstovi;
-                        using (Html.BeginForm("Delete", "Home", new { id = item.IDClanak }))
+
+
+                        List<PropisTxt> tekstovi = (List<PropisTxt>)ViewBag.Tekst;
+                        foreach (PropisTxt m in tekstovi)
                         {
-
-                            foreach (var tekst in clanciTxt)
+                            if (m.IDPropisa == item.IDPropisa)
                             {
-                                if (item.IDClanak == tekst.IDClanak)
-                                {
-
-
-
+                                <div class="propis">
                                     <div class="row" data-aos="fade-up">
-
                                         <div class="col-md-7 pt-4">
-                                            <h2>@item.Tip</h2>
+                                            <b>Број: @item.Broj</b> - <i>@item.Datum</i>
                                             <h3>
-                                                @tekst.Naslov
+                                                @item.Naslov
                                             </h3>
                                             <p>
-                                                @tekst.Tekst
+                                                @m.Tekst
                                             </p>
-                                            <p>@item.Datum</p>
-                                            <p> @Html.ActionLink("Измени", "Edit", new { id = item.IDClanak }, new { @class = "edit" }) |</p>
-
-                                            <p> <input type="submit" onclick="return confirm('Да ли сте сигурни да желите да избришете чланак @tekst.Naslov')" value="Избриши" class="btn-danger"> |</p>
                                         </div>
                                     </div>
-                                }
+                                </div>
                             }
                         }
                     }
@@ -506,9 +288,146 @@ Could not find a part of the path 'C:\Users\Informator\Source\Repos\OIWEBAplikac
                 </div>
             </section><!-- End Features Section -->
         </main><!-- End #main -->
-
     }
 
+    <!--ADMIN PRIJAVA-->
+    @if (Session["Korisnik"] != null)
+    {
+        Korisnik k = (Korisnik)Session["Korisnk"];
+        {
+            <header id="header" class="fixed-top header-transparent">
+                <div class="container">
+
+                    <div class="logo float-left">
+                        <h3 class="text-light">
+                            <a href="Index">
+                                <span>
+                                    Образовни Информатор
+                                </span>
+                            </a>
+                        </h3>
+                        <!-- <a href="index.html"><img src="~/Content/images/LOGO COREL OI FINAL.jpg" alt="" class="img-fluid"></a>-->
+                    </div>
+
+                    <nav class="nav-menu float-right d-none d-lg-block">
+                        <ul>
+                            <li class="active"><a href="https://localhost:44390/Home/Index">Почетна <i class="la la-angle-down"></i></a></li>
+                            <li><a href="https://localhost:44390/Home/About">О Нама</a></li>
+                            <li><a href="https://localhost:44390/StatistikaIPodaci/Index">Статистика и Подаци </a></li>
+                            <li class="drop-down">
+                                <a href="#">Делатности </a>
+                                <ul>
+
+                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа</a></li>
+
+                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/LokalnaSamouprava">Локална самоуправа</a></li>
+                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Zdravstvo">Здравство </a></li>
+                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Prosveta">Просвета </a></li>
+                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/SocijalnaZastita">Социјална заштита </a></li>
+                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Kultura">Култура </a></li>
+                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Nauka">Наука </a></li>
+                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Pravosudje">Правосуђе </a></li>
+                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/OmladinaISport">Омладина и спорт </a></li>
+                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca">Јавна предузећа </a></li>
+                                </ul>
+                            </li>
+                            <li class="drop-down">
+                                <a href="#">Прописи</a>
+                                <ul>
+                                    <li><a href="https://localhost:44390/Propisi/Index">Службени гласник РС</a></li>
+                                    <li><a href="https://localhost:44390/Propisi/ProsvetniGlasnik">Службени гласник РС Просветни гласник</a></li>
+                                    <li><a href="https://localhost:44390/Propisi/MedjunarodniUgovori">Службени гласник РС Међународни уговори </a></li>
+                                    <li><a href="https://localhost:44390/Propisi/SluzbeniListAPVojvodine">Службени лист АП Војводине </a></li>
+                                    <li><a href="https://localhost:44390/Propisi/SluzbeniListGradaBeograda">Службени лист града Београда</a></li>
+                                </ul>
+                            </li>
+                            <li class="drop-down">
+                                <a href="#">Публикације </a>
+                                <ul>
+
+                                    <li><a href="#">Часописи</a></li>
+
+                                    <li><a href="#">Друга издања</a></li>
+                                </ul>
+                            </li>
+
+
+                            <li class="drop-down">
+                                <a href="">Стручно усавршавање</a>
+
+
+                                <ul>
+                                    <li><a href="#">Саветовања и семинари</a></li>
+                                    <li><a href="#">Курсеви и обуке</a></li>
+                                    <li><a href="#">Стицање стрчних звања</a></li>
+                                    <li><a href="#">Вебинари</a></li>
+
+                                </ul>
+
+
+                            </li>
+                            <li><a href="https://localhost:44390/Home/Contact">Продаја и претплата</a></li>
+                            <li><a href="Contact">Контакт</a></li>
+                        </ul>
+                    </nav><!-- .nav-menu -->
+
+                </div>
+            </header><!-- End Header -->
+            <!-- ======= Hero Section ======= -->
+            <main id="main">
+                <!-- ======= Features Section ======= -->
+                <section class="features">
+                    <div class="container">
+                        <br /><br /><br /><br /><br />
+                        <div class="section-title">
+                            <h2>ПРОПИСИ</h2><br />
+                        </div>
+                        <a href="https://localhost:44390/Propisi/Create" class="btn-outline-dark btn-lg" style="background-color: plum">Додај нови пропис  </a>
+
+
+                        @foreach (var item in Model)
+                        {
+
+
+                            List<PropisTxt> tekstovi = (List<PropisTxt>)ViewBag.Tekst;
+                            foreach (PropisTxt m in tekstovi)
+                            {
+                                if (m.IDPropisa == item.IDPropisa)
+                                {
+                                    <div class="propis">
+                                        <div class="row" data-aos="fade-up">
+                                            <div class="col-md-7 pt-4">
+                                                <b>Број: @item.Broj</b> - <i>@item.Datum</i>
+                                                <h3>
+                                                    @item.Naslov
+                                                </h3>
+                                                <p>
+                                                    @m.Tekst
+                                                </p>
+
+
+
+                                                <p>  @Html.ActionLink("Измени", "Edit", new { id = item.IDPropisa }, new { @class = "edit" }) |</p>
+                                                @using (Html.BeginForm("Delete", "Propisi", new { id = item.IDPropisa }))
+                                                {
+                                                    <p> <input type="submit" onclick="return confirm('Да ли сте сигурни да желите да избришете чланак @item.Naslov')" value="Избриши" class="btn-danger"> |</p>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        }
+
+
+                    </div>
+                </section><!-- End Features Section -->
+            </main><!-- End #main -->
+
+        }
+
+
+    }
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item disabled">
