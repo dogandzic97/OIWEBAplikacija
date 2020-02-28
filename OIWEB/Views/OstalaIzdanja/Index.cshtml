@@ -1,0 +1,59 @@
+﻿@model IEnumerable<OIWEB.OstalaIzdanja>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Naslov)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sadrzaj)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Opis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDKorisnik)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naslov)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sadrzaj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDKorisnik)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDOstalihIzdanja }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDOstalihIzdanja }) |
+            @using(Html.BeginForm("Delete", "OstalaIzdanja",new { id=item.IDOstalihIzdanja})){ 
+            <input type="submit" onclick="return confirm('Да ли сте сигурни да желите да избришете издање @item.Naslov')" value="Бриши" />
+            }
+        </td>
+    </tr>
+}
+
+</table>

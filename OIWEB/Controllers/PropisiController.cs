@@ -81,37 +81,52 @@ namespace OIWEB.Controllers
         {
             List<VrstaSluzbenihGlasila> vrste = (from v in oi.VrstaSluzbenihGlasilas
                                                  select v).ToList();
+
+
             List<SpecificnostiBudzetskihKorisnika> specificnosti = (from s in oi.SpecificnostiBudzetskihKorisnikas
                                                                     select s).ToList();
            
             
-            ViewBag.Vrste = vrste;
+            ViewBag.SluzbenaGlasila = vrste;
             ViewBag.Specificnosti = specificnosti;
             return View();
         }
          [HttpPost]
+
         public ActionResult Create(FormCollection fc)
         {
+            Korisnik k = (Korisnik)Session["Korisnik"];
+
+
             Propi propis = new Propi();
             propis.Broj = Convert.ToInt32(fc["Broj"]);
             propis.Datum = fc["Datum"];
             propis.Naslov = fc["Naslov"];
             propis.IDVrste = Convert.ToInt32(fc["IDVrstePropisa"]);
             propis.IDSBK = Convert.ToInt32(fc["IDSBK"]);
-            propis.IDKorisnik = Convert.ToInt32(fc["IDKorisnik"]);
+            propis.IDKorisnik = k.IDKorisnik;
             try
             {
                 oi.Propis.InsertOnSubmit(propis);
                 oi.SubmitChanges();
                
             }
-            catch
+            catch(Exception exc)
             {
+                List<VrstaSluzbenihGlasila> vrste = (from v in oi.VrstaSluzbenihGlasilas
+                                                     select v).ToList();
+                List<SpecificnostiBudzetskihKorisnika> specificnosti = (from s in oi.SpecificnostiBudzetskihKorisnikas
+                                                                        select s).ToList();
+                ViewBag.SluzbenaGlasila = vrste;
+                ViewBag.Specificnosti = specificnosti;
+                ViewBag.Greska = "Greska: " + exc.Message;
                 return View();
             }
             PropisTxt tekst = new PropisTxt();
             tekst.Tekst = fc["Tekst"];
-            tekst.IDPropisa = propis.IDPropisa;
+            int id = (from o in oi.Propis
+                      select o.IDPropisa).Max();
+            tekst.IDPropisa = id;
             try
             {
                 oi.PropisTxts.InsertOnSubmit(tekst);
@@ -119,8 +134,17 @@ namespace OIWEB.Controllers
                 return RedirectToAction("Index");
 
             }
-            catch
+            catch(Exception exc)
             {
+                List<VrstaSluzbenihGlasila> vrste = (from v in oi.VrstaSluzbenihGlasilas
+                                                     select v).ToList();
+
+
+                List<SpecificnostiBudzetskihKorisnika> specificnosti = (from s in oi.SpecificnostiBudzetskihKorisnikas
+                                                                        select s).ToList();
+                ViewBag.SluzbenaGlasila = vrste;
+                ViewBag.Specificnosti = specificnosti;
+                ViewBag.Greska = "Greska: " + exc.Message;
                 return View();
             }
         }
