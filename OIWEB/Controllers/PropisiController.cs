@@ -8,11 +8,16 @@ namespace OIWEB.Controllers
 {
     public class PropisiController : Controller
     {
+         
         ObrazovniInformatorDataContext oi = new ObrazovniInformatorDataContext();
         // GET: Propisi
+
+
+        //ISPIS Службени гласник РС tipa propisa
         public ActionResult Index()
         {
             var propisi = from p in oi.Propis
+                          where p.IDVrste==1
                           select p;
             List<PropisTxt> tekst = (from t in oi.PropisTxts
                         select t).ToList();
@@ -20,6 +25,57 @@ namespace OIWEB.Controllers
             return View(propisi.ToList());
         }
 
+        //ISPIS Службени гласник РС Просветни гласник tipa propisa:
+
+        public ActionResult ProsvetniGlasnik()
+        {
+            var propisi = from p in oi.Propis
+                          where p.IDVrste == 2
+                          select p;
+            List<PropisTxt> tekst = (from t in oi.PropisTxts
+                                     select t).ToList();
+            ViewBag.Tekst = tekst;
+            return View(propisi.ToList());
+        }
+
+        //ISPIS Службени гласник РС Међународни уговори tipa propisa
+        public ActionResult MedjunarodniUgovori()
+        {
+            var propisi = from p in oi.Propis
+                          where p.IDVrste == 3
+                          select p;
+            List<PropisTxt> tekst = (from t in oi.PropisTxts
+                                     select t).ToList();
+            ViewBag.Tekst = tekst;
+            return View(propisi.ToList());
+        }
+
+        //ISPI Службени лист АП Војводине tipa propisa:
+        public ActionResult SluznebiListAPVojvodine()
+        {
+            var propisi = from p in oi.Propis
+                          where p.IDVrste == 4
+                          select p;
+            List<PropisTxt> tekst = (from t in oi.PropisTxts
+                                     select t).ToList();
+            ViewBag.Tekst = tekst;
+            return View(propisi.ToList());
+        }
+
+        //ISPIS Службени лист града Београда tipa propisa
+        public ActionResult SluzbeniListGradaBeograda()
+        {
+            var propisi = from p in oi.Propis
+                          where p.IDVrste == 5
+                          select p;
+            List<PropisTxt> tekst = (from t in oi.PropisTxts
+                                     select t).ToList();
+            ViewBag.Tekst = tekst;
+            return View(propisi.ToList());
+        }
+
+
+        //KREIRAJ NOVI PROPIS, POZIVANJE FORME I PROSLEDJIVANJE PARAMETARA IZ BAZE ZA ISPIS COMBO BOX PARAMETARA
         [HttpGet]
         public ActionResult Create()
         {
@@ -33,7 +89,7 @@ namespace OIWEB.Controllers
             ViewBag.Specificnosti = specificnosti;
             return View();
         }
-        [HttpPost]
+         [HttpPost]
         public ActionResult Create(FormCollection fc)
         {
             Propi propis = new Propi();

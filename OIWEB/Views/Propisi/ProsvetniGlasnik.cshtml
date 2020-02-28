@@ -158,9 +158,8 @@
         #hero .btn-get-started:hover {
             background: rgba(117, 80, 135, 0.8) !important;
         }
-
-        .propis {
-            border: 1px solid;
+        .propis{
+            border:1px solid;
         }
     </style>
 </head>
@@ -189,6 +188,7 @@
                         <li class="active"><a href="https://localhost:44390/Home/Index">Почетна <i class="la la-angle-down"></i></a></li>
                         <li><a href="https://localhost:44390/Home/About">О Нама</a></li>
                         <li><a href="https://localhost:44390/StatistikaIPodaci/Index">Статистика и Подаци </a></li>
+                        <li class="drop-down">
                         <li class="drop-down">
                             <a href="#">Делатности </a>
                             <ul>
@@ -267,19 +267,19 @@
                         {
                             if (m.IDPropisa == item.IDPropisa)
                             {
-                                <div class="propis">
-                                    <div class="row" data-aos="fade-up">
-                                        <div class="col-md-7 pt-4">
-                                            <b>Број: @item.Broj</b> - <i>@item.Datum</i>
-                                            <h3>
-                                                @item.Naslov
-                                            </h3>
-                                            <p>
-                                                @m.Tekst
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="propis">
+                    <div class="row" data-aos="fade-up">
+                        <div class="col-md-7 pt-4">
+                            <b>Број: @item.Broj</b> - <i>@item.Datum</i>
+                            <h3>
+                                @item.Naslov
+                            </h3>
+                            <p>
+                                @m.Tekst
+                            </p>
+                        </div>
+                    </div>
+                </div>
                             }
                         }
                     }
@@ -415,14 +415,13 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 }
                             }
                         }
 
 
                     </div>
-                    </section><!-- End Features Section -->
+                </section><!-- End Features Section -->
             </main><!-- End #main -->
 
         }
