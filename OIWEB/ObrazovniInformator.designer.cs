@@ -30,12 +30,12 @@ namespace OIWEB
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertCasopi(Casopi instance);
-    partial void UpdateCasopi(Casopi instance);
-    partial void DeleteCasopi(Casopi instance);
     partial void InsertVrsteStrucnogUsavrsavanja(VrsteStrucnogUsavrsavanja instance);
     partial void UpdateVrsteStrucnogUsavrsavanja(VrsteStrucnogUsavrsavanja instance);
     partial void DeleteVrsteStrucnogUsavrsavanja(VrsteStrucnogUsavrsavanja instance);
+    partial void InsertCasopi(Casopi instance);
+    partial void UpdateCasopi(Casopi instance);
+    partial void DeleteCasopi(Casopi instance);
     partial void InsertClanci(Clanci instance);
     partial void UpdateClanci(Clanci instance);
     partial void DeleteClanci(Clanci instance);
@@ -119,19 +119,19 @@ namespace OIWEB
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Casopi> Casopis
-		{
-			get
-			{
-				return this.GetTable<Casopi>();
-			}
-		}
-		
 		public System.Data.Linq.Table<VrsteStrucnogUsavrsavanja> VrsteStrucnogUsavrsavanjas
 		{
 			get
 			{
 				return this.GetTable<VrsteStrucnogUsavrsavanja>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Casopi> Casopis
+		{
+			get
+			{
+				return this.GetTable<Casopi>();
 			}
 		}
 		
@@ -269,6 +269,120 @@ namespace OIWEB
 			{
 				return this.GetTable<VrstaSluzbenihGlasila>();
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VrsteStrucnogUsavrsavanja")]
+	public partial class VrsteStrucnogUsavrsavanja : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IDVrsteStrucnogUsavrsavanja;
+		
+		private string _Naziv;
+		
+		private EntitySet<StrucnoUsavrsavanje> _StrucnoUsavrsavanjes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDVrsteStrucnogUsavrsavanjaChanging(int value);
+    partial void OnIDVrsteStrucnogUsavrsavanjaChanged();
+    partial void OnNazivChanging(string value);
+    partial void OnNazivChanged();
+    #endregion
+		
+		public VrsteStrucnogUsavrsavanja()
+		{
+			this._StrucnoUsavrsavanjes = new EntitySet<StrucnoUsavrsavanje>(new Action<StrucnoUsavrsavanje>(this.attach_StrucnoUsavrsavanjes), new Action<StrucnoUsavrsavanje>(this.detach_StrucnoUsavrsavanjes));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDVrsteStrucnogUsavrsavanja", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IDVrsteStrucnogUsavrsavanja
+		{
+			get
+			{
+				return this._IDVrsteStrucnogUsavrsavanja;
+			}
+			set
+			{
+				if ((this._IDVrsteStrucnogUsavrsavanja != value))
+				{
+					this.OnIDVrsteStrucnogUsavrsavanjaChanging(value);
+					this.SendPropertyChanging();
+					this._IDVrsteStrucnogUsavrsavanja = value;
+					this.SendPropertyChanged("IDVrsteStrucnogUsavrsavanja");
+					this.OnIDVrsteStrucnogUsavrsavanjaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Naziv", DbType="NChar(10)")]
+		public string Naziv
+		{
+			get
+			{
+				return this._Naziv;
+			}
+			set
+			{
+				if ((this._Naziv != value))
+				{
+					this.OnNazivChanging(value);
+					this.SendPropertyChanging();
+					this._Naziv = value;
+					this.SendPropertyChanged("Naziv");
+					this.OnNazivChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VrsteStrucnogUsavrsavanja_StrucnoUsavrsavanje", Storage="_StrucnoUsavrsavanjes", ThisKey="IDVrsteStrucnogUsavrsavanja", OtherKey="IDVrsteStrucnogUsavrsavanja")]
+		public EntitySet<StrucnoUsavrsavanje> StrucnoUsavrsavanjes
+		{
+			get
+			{
+				return this._StrucnoUsavrsavanjes;
+			}
+			set
+			{
+				this._StrucnoUsavrsavanjes.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_StrucnoUsavrsavanjes(StrucnoUsavrsavanje entity)
+		{
+			this.SendPropertyChanging();
+			entity.VrsteStrucnogUsavrsavanja = this;
+		}
+		
+		private void detach_StrucnoUsavrsavanjes(StrucnoUsavrsavanje entity)
+		{
+			this.SendPropertyChanging();
+			entity.VrsteStrucnogUsavrsavanja = null;
 		}
 	}
 	
@@ -544,120 +658,6 @@ namespace OIWEB
 		{
 			this.SendPropertyChanging();
 			entity.Casopi = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VrsteStrucnogUsavrsavanja")]
-	public partial class VrsteStrucnogUsavrsavanja : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IDVrsteStrucnogUsavrsavanja;
-		
-		private string _Naziv;
-		
-		private EntitySet<StrucnoUsavrsavanje> _StrucnoUsavrsavanjes;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDVrsteStrucnogUsavrsavanjaChanging(int value);
-    partial void OnIDVrsteStrucnogUsavrsavanjaChanged();
-    partial void OnNazivChanging(string value);
-    partial void OnNazivChanged();
-    #endregion
-		
-		public VrsteStrucnogUsavrsavanja()
-		{
-			this._StrucnoUsavrsavanjes = new EntitySet<StrucnoUsavrsavanje>(new Action<StrucnoUsavrsavanje>(this.attach_StrucnoUsavrsavanjes), new Action<StrucnoUsavrsavanje>(this.detach_StrucnoUsavrsavanjes));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDVrsteStrucnogUsavrsavanja", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IDVrsteStrucnogUsavrsavanja
-		{
-			get
-			{
-				return this._IDVrsteStrucnogUsavrsavanja;
-			}
-			set
-			{
-				if ((this._IDVrsteStrucnogUsavrsavanja != value))
-				{
-					this.OnIDVrsteStrucnogUsavrsavanjaChanging(value);
-					this.SendPropertyChanging();
-					this._IDVrsteStrucnogUsavrsavanja = value;
-					this.SendPropertyChanged("IDVrsteStrucnogUsavrsavanja");
-					this.OnIDVrsteStrucnogUsavrsavanjaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Naziv", DbType="NChar(10)")]
-		public string Naziv
-		{
-			get
-			{
-				return this._Naziv;
-			}
-			set
-			{
-				if ((this._Naziv != value))
-				{
-					this.OnNazivChanging(value);
-					this.SendPropertyChanging();
-					this._Naziv = value;
-					this.SendPropertyChanged("Naziv");
-					this.OnNazivChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VrsteStrucnogUsavrsavanja_StrucnoUsavrsavanje", Storage="_StrucnoUsavrsavanjes", ThisKey="IDVrsteStrucnogUsavrsavanja", OtherKey="IDVrsteStrucnogUsavrsavanja")]
-		public EntitySet<StrucnoUsavrsavanje> StrucnoUsavrsavanjes
-		{
-			get
-			{
-				return this._StrucnoUsavrsavanjes;
-			}
-			set
-			{
-				this._StrucnoUsavrsavanjes.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_StrucnoUsavrsavanjes(StrucnoUsavrsavanje entity)
-		{
-			this.SendPropertyChanging();
-			entity.VrsteStrucnogUsavrsavanja = this;
-		}
-		
-		private void detach_StrucnoUsavrsavanjes(StrucnoUsavrsavanje entity)
-		{
-			this.SendPropertyChanging();
-			entity.VrsteStrucnogUsavrsavanja = null;
 		}
 	}
 	

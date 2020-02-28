@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ObrazovniInformator" Class="ObrazovniInformatorDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-DLHDK3B\MSSQLSERVER01;Initial Catalog=ObrazovniInformator;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ObrazovniInformatorConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.VrsteStrucnogUsavrsavanja" Member="VrsteStrucnogUsavrsavanjas">
+    <Type Name="VrsteStrucnogUsavrsavanja">
+      <Column Name="IDVrsteStrucnogUsavrsavanja" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Naziv" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="VrsteStrucnogUsavrsavanja_StrucnoUsavrsavanje" Member="StrucnoUsavrsavanjes" ThisKey="IDVrsteStrucnogUsavrsavanja" OtherKey="IDVrsteStrucnogUsavrsavanja" Type="StrucnoUsavrsavanje" />
+    </Type>
+  </Table>
   <Table Name="dbo.Casopis" Member="Casopis">
     <Type Name="Casopi">
       <Column Name="IDCasopis" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -11,13 +18,6 @@
       <Column Name="IDKorisnika" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Casopi_Pretplata" Member="Pretplatas" ThisKey="IDCasopis" OtherKey="IDCasopis" Type="Pretplata" />
       <Association Name="Korisnik_Casopi" Member="Korisnik" ThisKey="IDKorisnika" OtherKey="IDKorisnik" Type="Korisnik" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.VrsteStrucnogUsavrsavanja" Member="VrsteStrucnogUsavrsavanjas">
-    <Type Name="VrsteStrucnogUsavrsavanja">
-      <Column Name="IDVrsteStrucnogUsavrsavanja" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Naziv" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Association Name="VrsteStrucnogUsavrsavanja_StrucnoUsavrsavanje" Member="StrucnoUsavrsavanjes" ThisKey="IDVrsteStrucnogUsavrsavanja" OtherKey="IDVrsteStrucnogUsavrsavanja" Type="StrucnoUsavrsavanje" />
     </Type>
   </Table>
   <Table Name="dbo.Clanci" Member="Clancis">
