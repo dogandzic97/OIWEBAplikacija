@@ -56,6 +56,10 @@
             background: rgb(123, 87, 140) !important;
             height: auto;
         }
+        #header{
+            background: rgb(123, 87, 140) !important;
+            height: auto;
+        }
 
         a {
             color: #ffffff;
@@ -225,8 +229,8 @@
 
 
                         </li>
-                        <li><a href="https://localhost:44390/Home/Contact">Продаја и претплата</a></li>
-                        <li><a href="Contact">Контакт</a></li>
+                        <li><a href="#">Продаја и претплата</a></li>
+                        <li><a href="https://localhost:44390/Home/Contact">Контакт</a></li>
                     </ul>
                 </nav><!-- .nav-menu -->
 
@@ -238,13 +242,13 @@
             <!-- ======= Features Section ======= -->
             <section class="features">
                 <div class="container">
-
+                    <br /><br /><br /><br />
                     <div class="section-title">
                         <h2>СТАТИСТИКА И ПОДАЦИ</h2>
 
                     </div>
                     <div class="row" data-aos="fade-up">
-                        <ul>
+                        <ul style="list-style-type:disc">
                             @foreach (var item in Model)
                             {
 
@@ -253,6 +257,112 @@
                                     <a href="../@item.PDF" id="stavke">@item.Naslov</a>
                                     @*<a href="~/Content/Statistika/CeneRadaZaDelatnostVanprivrede.htm">~/Content/Statistika/CeneRadaZaDelatnostVanprivrede.htm</a>*@
                                 </li>
+
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </section><!-- End Features Section -->
+        </main><!-- End #main -->
+    }
+    @if (Session["Korisnik"] != null)
+    {
+        <header id="header" class="fixed-top header-transparent">
+            <div class="container">
+
+                <div class="logo float-left">
+                    <h3 class="text-light">
+                        <a href="Index">
+                            <span>
+                                Образовни Информатор
+                            </span>
+                        </a>
+                    </h3>
+                    <!-- <a href="index.html"><img src="~/Content/images/LOGO COREL OI FINAL.jpg" alt="" class="img-fluid"></a>-->
+                </div>
+
+                <nav class="nav-menu float-right d-none d-lg-block">
+                    <ul>
+                        <li class="active"><a href="https://localhost:44390/Home/Index">Почетна <i class="la la-angle-down"></i></a></li>
+                        <li><a href="https://localhost:44390/Home/About">О Нама</a></li>
+                        <li><a href="https://localhost:44390/StatistikaIPodaci/Index">Статистика и Подаци </a></li>
+                        <li class="drop-down">
+                            <a href="#">Специфичности буџетских корисника </a>
+                            <ul>
+
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа</a></li>
+
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/LokalnaSamouprava">Локална самоуправа</a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Zdravstvo">Здравство </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Prosveta">Просвета </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/SocijalnaZastita">Социјална заштита </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Kultura">Култура </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Nauka">Наука </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Pravosudje">Правосуђе </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/OmladinaISport">Омладина и спорт </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca">Јавна предузећа </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="team.html">Прописи</a></li>
+                        <li class="drop-down">
+                            <a href="#">Публикације </a>
+                            <ul>
+
+                                <li><a href="#">Часописи</a></li>
+
+                                <li><a href="#">Друга издања</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="drop-down">
+                            <a href="">Стручно усавршавање</a>
+
+
+                            <ul>
+                                <li><a href="#">Саветовања и семинари</a></li>
+                                <li><a href="#">Курсеви и обуке</a></li>
+                                <li><a href="#">Стицање стрчних звања</a></li>
+                                <li><a href="#">Вебинари</a></li>
+
+                            </ul>
+
+
+                        </li>
+                        <li><a href="">Продаја и претплата</a></li>
+                        <li><a href="https://localhost:44390/Home/Contact">Контакт</a></li>
+                    </ul>
+                </nav><!-- .nav-menu -->
+
+            </div>
+        </header><!-- End Header -->
+        <main id="main">
+
+
+            <!-- ======= Features Section ======= -->
+            <section class="features">
+                <div class="container">
+                    <br /><br /><br /><br />
+                    <div class="section-title">
+                        <h2>СТАТИСТИКА И ПОДАЦИ</h2>
+
+                    </div>
+                    <a href="https://localhost:44390/StatistikaIPodaci/Create" class="btn-outline-dark btn-lg" style="background-color: plum">Додај фајл </a>
+                    <br /><br />
+                    <div class="row" data-aos="fade-up">
+                        <ul style="list-style-type:disc">
+                            @foreach (var item in Model)
+                            {
+
+                            <li>
+
+                                <a href="../@item.PDF" id="stavke">@item.Naslov</a>
+                                @*<a href="~/Content/Statistika/CeneRadaZaDelatnostVanprivrede.htm">~/Content/Statistika/CeneRadaZaDelatnostVanprivrede.htm</a>*@
+                                @using (Html.BeginForm("Delete", "StatistikaIPodaci", new { id = item.IDStatistickihPodataka }))
+                                {
+                                    <input type="submit" onclick="return confirm('Да ли сте сигурни да желите да избришете фајл @item.Naslov')" value="Бриши" />
+                                }
+                            </li>
 
                             }
                         </ul>
