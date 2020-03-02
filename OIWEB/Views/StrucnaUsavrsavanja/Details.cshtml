@@ -1,0 +1,66 @@
+﻿@model OIWEB.StrucnoUsavrsavanje
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StrucnoUsavrsavanje</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Naslov)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Naslov)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumOdrzavanja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumOdrzavanja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdresaOdrzavanja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdresaOdrzavanja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Program)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Program)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDVrsteStrucnogUsavrsavanja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDVrsteStrucnogUsavrsavanja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDKorisnik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDKorisnik)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDUsavrsavanja }) |
+    @Html.ActionLink("Назад на листу", "Index")
+</p>
