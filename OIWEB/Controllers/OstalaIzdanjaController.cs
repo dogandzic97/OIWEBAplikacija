@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
 
@@ -26,18 +27,21 @@ namespace OIWEB.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection fc)
         {
+           
             Korisnik k = (Korisnik)Session["Korisnik"];
             OstalaIzdanja izdanja = new OstalaIzdanja();
             izdanja.Naslov = fc["Naslov"];
             izdanja.Sadrzaj = fc["Sadrzaj"];
             izdanja.Opis = fc["Opis"];
+            izdanja.Slika = "~/Content/images/"+fc["Slika"];
             izdanja.Cena = Convert.ToDouble(fc["Cena"]);
             izdanja.IDKorisnik = k.IDKorisnik;
-
             try{
                 oi.OstalaIzdanjas.InsertOnSubmit(izdanja);
                 oi.SubmitChanges();
+                
                 return RedirectToAction("Index");
+                
             }
             catch
             {

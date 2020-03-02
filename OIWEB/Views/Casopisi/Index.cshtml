@@ -27,6 +27,9 @@
             @Html.DisplayNameFor(model => model.BrojIzdanja)
         </th>
         <th>
+            @Html.DisplayNameFor(model=>model.Slika)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.IDKorisnika)
         </th>
         <th></th>
@@ -48,6 +51,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.BrojIzdanja)
+        </td>
+        <td>
+            <img src="@Url.Content(item.Slika)" width="250" height="250"/>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IDKorisnika)

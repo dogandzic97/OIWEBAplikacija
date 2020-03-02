@@ -31,6 +31,7 @@ namespace OIWEB.Controllers
             casopi.Sadrzaj = fc["Sadrzaj"];
             casopi.Datum = fc["Datum"];
             casopi.BrojIzdanja = Convert.ToInt32(fc["BrojIzdanja"]);
+            casopi.Slika = "~/Content/images/"+fc["Slika"];
             casopi.IDKorisnika = k.IDKorisnik;
 
             try
