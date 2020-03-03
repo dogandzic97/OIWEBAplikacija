@@ -1,0 +1,99 @@
+﻿@model IEnumerable<OIWEB.Narudzbenica>
+
+@{
+    ViewBag.Title = "Index";
+    Korisnik k = (Korisnik)Session["Korisnik"];
+    List<Narucilac> narucilac = ViewBag.Narucilac;
+    List<OstalaIzdanja> ostalaIzdanja = ViewBag.OstalaIzdanja;
+}
+@if (k != null)
+{
+<h2>Наруџбеница</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Назив Правног лица")
+        </th>
+        <th>
+            @Html.DisplayName("Претплатнички број")
+        </th>
+        <th>
+            @Html.DisplayName("Број текућег рачуна")
+        </th>
+        <th>
+            @Html.DisplayName("ПИБ")
+        </th>
+        <th>
+            @Html.DisplayName("Место")
+        </th>
+        <th>
+            @Html.DisplayName("Улица и број")
+        </th>
+        <th>
+            @Html.DisplayName("Поштански Број")
+        </th>
+        <th>
+            @Html.DisplayName("Наслов порученог издања")
+        </th>
+        <th>
+            @Html.DisplayName("Количина")
+        </th>
+        <th>
+            @Html.DisplayName("Датум поручивања")
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    foreach(Narucilac n in narucilac) {
+        if (n.IDNarucioca == item.IDNarucilac) {
+            foreach (OstalaIzdanja o in ostalaIzdanja)
+            {
+                if (o.IDOstalihIzdanja == item.IDOstalihIzdanja) {
+<tr>
+
+    <td>
+        @n.NaziPravnogLica
+    </td>
+
+    <td>
+        @n.PreprlatnickiBroj
+    </td>
+    <td>
+        @n.BrojTekucegRacuna
+    </td>
+    <td>
+    @n.PIB
+    </td>
+    <td>
+        @n.Mesto
+    </td>
+    <td>
+        @n.UlicaIBroj
+    </td>
+    <td>
+        @n.PostanskiBroj.ToString()
+    </td>
+    <td>
+        @o.Naslov
+    </td>
+    <td>
+        @item.Kolicina.ToString()
+    </td>
+    <td>
+        @item.DatumPorucivanja
+    </td>
+</tr>
+            }
+                 }
+        }
+    }
+}
+
+</table>
+}

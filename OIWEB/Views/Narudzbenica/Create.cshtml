@@ -1,0 +1,96 @@
+﻿@model OIWEB.Narudzbenica
+
+@{
+    ViewBag.Title = "Create";
+    int idIzdanja = ViewBag.IDIzdanja;
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Narudzbenica</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.Label("Претплатнички број")<br />
+        <div class="col-md-10">
+            <input type="text" name="PretplatnickiBroj" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Назив правног лица")<br />
+        <div class="col-md-10">
+            <input type="text" name="NaziPravnogLica" />
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Број текућег рачуна")<br />
+        <div class="col-md-10">
+            <input type="text" name="BrojTekucegRacuna" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("ПИБ")<br />
+        <div class="col-md-10">
+            <input type="text" name="PIB" />
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Место")<br />
+        <div class="col-md-10">
+            <input type="text" name="Mesto" />
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Поштански Број")<br />
+        <div class="col-md-10">
+            <input type="text" name="PostanskiBroj" />
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Улица и број")<br />
+        <div class="col-md-10">
+            <input type="text" name="UlicaIBroj" />
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Kolicina, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Kolicina, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Kolicina, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DatumPorucivanja, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DatumPorucivanja, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DatumPorucivanja, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Поручи" class="btn btn-outline-success" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
