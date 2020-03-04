@@ -1,0 +1,119 @@
+﻿@model IEnumerable<OIWEB.Pretplata>
+
+@{
+    ViewBag.Title = "Index";
+    List<Narucilac> narucilac = ViewBag.Narucilac;
+    List<Casopi> casopis = ViewBag.Casopis;
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DatumPocetka)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatumKraja)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trajanje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NacinPlacanja)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrojPrimeraka)
+        </th>
+        <th>
+            @Html.DisplayName("Naziv pravnog lica")
+        </th>
+        <th>
+            @Html.DisplayName("Pretplatnicki Broj")
+        </th>
+        <th>
+            @Html.DisplayName("Broj tekuceg racuna")
+        </th>
+        <th>
+            @Html.DisplayName("PIB")
+        </th>
+        <th>
+            @Html.DisplayName("Mesto")
+        </th>
+        <th>
+            @Html.DisplayName("Postanski broj")
+        </th>
+        <th>
+            @Html.DisplayName("Ulica i broj")
+        </th>
+        <th>
+            @Html.DisplayName("Naslov")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    foreach (Narucilac n in narucilac)
+    {
+        if (n.IDNarucioca == item.IDNarucioc)
+        {
+            foreach (Casopi c in casopis)
+            {
+                if (c.IDCasopis == item.IDCasopis)
+                {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.DatumPocetka)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DatumKraja)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Trajanje)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NacinPlacanja)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BrojPrimeraka)
+    </td>
+    <td>
+        @n.NaziPravnogLica
+    </td>
+    <td>
+        @n.PreprlatnickiBroj
+    </td>
+    <td>
+        @n.BrojTekucegRacuna
+    </td>
+    <td>
+        @n.PIB
+    </td>
+    <td>
+        @n.Mesto
+    </td>
+    <td>
+        @n.PostanskiBroj
+    </td>
+    <td>
+        @n.UlicaIBroj
+    </td>
+    <td>
+        @c.Naslov
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.IDPretplate }) |
+        @Html.ActionLink("Kontakt osobe", "Details", new { id = item.IDPretplate }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.IDPretplate })
+    </td>
+</tr>
+                }
+            }
+        }
+    }
+}
+
+</table>
