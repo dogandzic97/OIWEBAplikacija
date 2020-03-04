@@ -21,6 +21,8 @@ namespace OIWEB.Controllers
 
             List<OstalaIzdanja> ostalaIzdanja = (from o in oi.OstalaIzdanjas
                                                  select o).ToList();
+
+            //ISPISATI I KONTAKT OSOBU
             ViewBag.OstalaIzdanja = ostalaIzdanja;
             return View(oi.Narudzbenicas.ToList());
         }
@@ -36,29 +38,80 @@ namespace OIWEB.Controllers
         [HttpPost]
         public ActionResult Create(int id, FormCollection fc)
         {
-            Narucilac narucilac = new Narucilac();
-            narucilac.PreprlatnickiBroj = fc["PretplatnickiBroj"];
-            narucilac.NaziPravnogLica = fc["NaziPravnogLica"];
-            narucilac.BrojTekucegRacuna = fc["BrojTekucegRacuna"];
-            narucilac.PIB = fc["PIB"];
-            narucilac.Mesto = fc["Mesto"];
-            narucilac.UlicaIBroj = fc["UlicaIBroj"];
-            narucilac.PostanskiBroj = Convert.ToInt32(fc["PostanskiBroj"]);
-            try
+            List<Narucilac> narucioci = (from na in oi.Narucilacs
+                                select na).ToList();
+            bool provera = false;
+            foreach(Narucilac naru in narucioci)
             {
-                oi.Narucilacs.InsertOnSubmit(narucilac);
-                oi.SubmitChanges();
+                if (naru.PIB != fc["PIB"])
+                    provera = true;
+                else
+                    provera = false;
             }
-            catch
+            if (provera)
             {
-                return View();
+                Narucilac narucilac = new Narucilac();
+                narucilac.PreprlatnickiBroj = fc["PretplatnickiBroj"];
+                narucilac.NaziPravnogLica = fc["NaziPravnogLica"];
+                narucilac.BrojTekucegRacuna = fc["BrojTekucegRacuna"];
+                narucilac.PIB = fc["PIB"];
+                narucilac.Mesto = fc["Mesto"];
+                narucilac.UlicaIBroj = fc["UlicaIBroj"];
+                narucilac.PostanskiBroj = Convert.ToInt32(fc["PostanskiBroj"]);
+                try
+                {
+                    oi.Narucilacs.InsertOnSubmit(narucilac);
+                    oi.SubmitChanges();
+                }
+                catch
+                {
+                    return View();
+                }
+            }
+            Narucilac pravnoLice = (from nar in oi.Narucilacs
+                                    where nar.PIB == fc["PIB"]
+                                    select nar).Single();
+
+            List<KontaktOsobe> kontaktOsobe = (from k in oi.KontaktOsobes
+                                               select k).ToList();
+            bool proveraEmail = false;
+
+            foreach(KontaktOsobe kon in kontaktOsobe)
+            {
+                if (kon.Email == fc["Email"])
+                {
+                    proveraEmail = true;
+                }
+                else
+                {
+                    proveraEmail = false;
+                }
             }
 
-            int idNarucioca = (from nar in oi.Narucilacs
-                               select nar.IDNarucioca).Max();
+            if (proveraEmail)
+            {
+                KontaktOsobe ko = new KontaktOsobe();
+                ko.Ime = fc["Ime"];
+                ko.Prezime = fc["Prezime"];
+                ko.Telefon = fc["Telefon"];
+                ko.Faks = fc["Faks"];
+                ko.Email = fc["Email"];
+                ko.IDNarucilac = pravnoLice.IDNarucioca;
+                try
+                {
+                    oi.KontaktOsobes.InsertOnSubmit(ko);
+                    oi.SubmitChanges();
+                }
+                catch
+                {
+                    return View();
+                }
+            }
+
+           
 
             Narudzbenica narudzbenica = new Narudzbenica();
-            narudzbenica.IDNarucilac = idNarucioca;
+            narudzbenica.IDNarucilac = pravnoLice.IDNarucioca;
             narudzbenica.IDOstalihIzdanja = id;
             narudzbenica.Kolicina = Convert.ToInt32(fc["Kolicina"]);
             narudzbenica.DatumPorucivanja = Convert.ToString(DateTime.Today);
@@ -66,7 +119,7 @@ namespace OIWEB.Controllers
             {
                 oi.Narudzbenicas.InsertOnSubmit(narudzbenica);
                 oi.SubmitChanges();
-                SaljiMejl(narudzbenica, narucilac);
+                SaljiMejl(narudzbenica, pravnoLice);
                 ViewBag.IDIzdanja = id;
                 ViewBag.Msg = "Uspeh";
                 return View();
@@ -97,6 +150,14 @@ namespace OIWEB.Controllers
             };
             smtp.EnableSsl = true;
             smtp.Send(msg);
+        }
+
+        public ActionResult Details(int id)
+        {
+            KontaktOsobe kontaktOsoba = (from ko in oi.KontaktOsobes
+                                                where ko.IDNarucilac == id
+                                                select ko).Single();
+            return View(kontaktOsoba);
         }
     }
 
