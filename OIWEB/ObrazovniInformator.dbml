@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ObrazovniInformator" Class="ObrazovniInformatorDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-DLHDK3B\MSSQLSERVER01;Initial Catalog=ObrazovniInformator;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ObrazovniInformatorConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.VrsteStrucnogUsavrsavanja" Member="VrsteStrucnogUsavrsavanjas">
-    <Type Name="VrsteStrucnogUsavrsavanja">
-      <Column Name="IDVrsteStrucnogUsavrsavanja" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Naziv" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Association Name="VrsteStrucnogUsavrsavanja_StrucnoUsavrsavanje" Member="StrucnoUsavrsavanjes" ThisKey="IDVrsteStrucnogUsavrsavanja" OtherKey="IDVrsteStrucnogUsavrsavanja" Type="StrucnoUsavrsavanje" />
-    </Type>
-  </Table>
   <Table Name="dbo.Casopis" Member="Casopis">
     <Type Name="Casopi">
       <Column Name="IDCasopis" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -16,8 +9,16 @@
       <Column Name="Datum" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="BrojIzdanja" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="IDKorisnika" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Slika" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
       <Association Name="Casopi_Pretplata" Member="Pretplatas" ThisKey="IDCasopis" OtherKey="IDCasopis" Type="Pretplata" />
       <Association Name="Korisnik_Casopi" Member="Korisnik" ThisKey="IDKorisnika" OtherKey="IDKorisnik" Type="Korisnik" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VrsteStrucnogUsavrsavanja" Member="VrsteStrucnogUsavrsavanjas">
+    <Type Name="VrsteStrucnogUsavrsavanja">
+      <Column Name="IDVrsteStrucnogUsavrsavanja" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Naziv" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="VrsteStrucnogUsavrsavanja_StrucnoUsavrsavanje" Member="StrucnoUsavrsavanjes" ThisKey="IDVrsteStrucnogUsavrsavanja" OtherKey="IDVrsteStrucnogUsavrsavanja" Type="StrucnoUsavrsavanje" />
     </Type>
   </Table>
   <Table Name="dbo.Clanci" Member="Clancis">
@@ -104,6 +105,7 @@
       <Column Name="Opis" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Cena" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="IDKorisnik" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Slika" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
       <Association Name="OstalaIzdanja_Narudzbenica" Member="Narudzbenicas" ThisKey="IDOstalihIzdanja" OtherKey="IDOstalihIzdanja" Type="Narudzbenica" />
       <Association Name="Korisnik_OstalaIzdanja" Member="Korisnik" ThisKey="IDKorisnik" OtherKey="IDKorisnik" Type="Korisnik" IsForeignKey="true" />
     </Type>

@@ -12,7 +12,8 @@ namespace OIWEB.Controllers
         // GET: Casopisi
         public ActionResult Index()
         {
-            var casopisi = from c in oi.Casopis select c;
+            var casopisi = from c in oi.Casopis
+                           select c;
             return View(casopisi.ToList());
         }
 

@@ -4,74 +4,177 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Измени</h2>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Casopi</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.IDCasopis)
+<head>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Naslov, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Naslov, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Naslov, "", new { @class = "text-danger" })
+
+    <title>Образовни Информатор</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/Content/assets/img/favicon.png" rel="icon">
+    <link href="~/Content/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/Content/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/Content/assets/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Moderna - v2.0.0
+    * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+    <style>
+        a {
+            color: rgba(98, 0, 121, 0.6);
+        }
+
+            a:hover {
+                color: rgba(232,227,246,0.8);
+            }
+
+        }
+
+        .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+            color: #ffffff;
+             height: auto;
+        }
+
+        .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
+            color: rgba(232,227,246,0.8);
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+        }
+
+            .nav-menu a:hover {
+                color: rgba(232,227,246,0.8);
+            }
+
+        #hero::after {
+            background: linear-gradient(to right, rgba(139, 121, 141, 0.6), rgba(98, 0, 121, 0.6)), url(../) center top no-repeat fixed;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <br /><br />
+    <p>
+        @ViewBag.Greska;
+    </p>
+    <div class="container">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Часописи</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.IDCasopis)
+
+                <div class="form-row">
+                    @Html.Label("Наслов:")<br />
+                    <div class="col-md-6 form-group">
+
+                        <input type="text" name="Naslov" class="form-control" id="Naslov" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" value="@Model.Naslov" />
+                    </div>
+                    <div class="validate"> </div>
+                </div>
+
+                div class="form-row">
+                @Html.Label("Текст:")<br />
+                <div class="col-md-6 form-group">
+                    <textarea name="Tekst" class="form-control" id="Tekst" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера">@Model.Tekst</textarea>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Tekst, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Tekst, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Tekst, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.Label("Садржај:")<br />
+                <div class="col-md-6">
+                    <textarea name="Sadrzaj" class="form-control" id="Sadrzaj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера">@Model.Sadrzaj</textarea>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sadrzaj, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sadrzaj, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sadrzaj, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <div class="form-row">
+                @Html.Label("Датум:")<br />
+                <div class="col-md-6 form-group">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Datum, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Datum, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Datum, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <input type="text" name="Datum" id="Datum" class="form-control" placeholder="Datum" data-rule="Datum" data-msg="Морате унети најмање 4 карактера" value="@Model.Datum" />
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.BrojIzdanja, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.BrojIzdanja, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BrojIzdanja, "", new { @class = "text-danger" })
+                </div>
+                <div class="validate"> </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.IDKorisnika, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.IDKorisnika, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IDKorisnika, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <div class="form-group">
+                @Html.Label("Број Издања:")
+                <br />
+                <div class="col-md-6 form-group">
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                    <input type="text" name="BrojIzdanja" id="BrojIzdanja" class="form-control" placeholder="Број Издања" data-msg="Морате унети најмање 4 карактера" value="@Model.BrojIzdanja" />
+
+                </div>
             </div>
+
+            <div class="form-group">
+                @Html.Label("Админ:")
+                <div class="col-md-6 form-group">
+
+                    <input type="text" name="IDKorisnika" id="IDKorisnika" class="form-control" placeholder="ИД Корисника" data-msg="Морате унети најмање 4 карактера" value="@Model.BrojIzdanja" />
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+
+        }
+
+        <div>
+            @Html.ActionLink("Назад на Часописе", "Index")
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <a href="#" class="back-to-top"> <i class="icofont-simple-up"> </i> </a>
+    <!-- Vendor JS Files -->
+    <script src="~/Content/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="~/Content/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/Content/assets/vendor/venobox/venobox.min.js"></script>
+    <script src="~/Content/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="~/Content/assets/vendor/counterup/counterup.min.js"></script>
+    <script src="~/Content/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/Content/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/Content/assets/vendor/aos/aos.js"></script>
+    <!-- Template ~ /Content/ Main JS File -->
+    <script src="~/Content/assets/js/main.js"></script>
+
+</body>
+
+</html>

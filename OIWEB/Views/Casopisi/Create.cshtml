@@ -1,81 +1,340 @@
 ﻿@model OIWEB.Casopi
 
 @{
-    ViewBag.Title = "Create";
-    Korisnik k =(Korisnik) Session["Korisnik"];
+    Layout = null;
 }
 
-<h2>Create</h2>
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
+    @{
+        ViewBag.Title = "Create";
+        Korisnik k = (Korisnik)Session["Korisnik"];
+    }
     
-<div class="form-horizontal">
-    <h4>Casopi</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.Naslov, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Naslov, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Naslov, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Tekst, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Tekst, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Tekst, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    @{ Layout = null;}
+    <!DOCTYPE html>
+    <html lang="en">
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Sadrzaj, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Sadrzaj, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Sadrzaj, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    <head>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Datum, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Datum, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Datum, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.BrojIzdanja, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.BrojIzdanja, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.BrojIzdanja, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Slika, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input type="file" name="Slika" />
-        </div>
-    </div>
+        <title>Образовни Информатор</title>
+        <meta content="" name="descriptison">
+        <meta content="" name="keywords">
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.IDKorisnika, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-           <input type="text" name="IDKorisnika" value="@k.Ime" />
-        </div>
-    </div>
+        <!-- Favicons -->
+        <link href="~/Content/assets/img/favicon.png" rel="icon">
+        <link href="~/Content/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        <link href="~/Content/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="~/Content/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+        <link href="~/Content/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+        <link href="~/Content/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="~/Content/assets/vendor/venobox/venobox.css" rel="stylesheet">
+        <link href="~/Content/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="~/Content/assets/vendor/aos/aos.css" rel="stylesheet">
+
+        <!-- Template Main CSS File -->
+        <link href="~/Content/assets/css/style.css" rel="stylesheet">
+
+        <!-- =======================================================
+        * Template Name: Moderna - v2.0.0
+        * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
+        * Author: BootstrapMade.com
+        * License: https://bootstrapmade.com/license/
+        ======================================================== -->
+        <style>
+            a {
+                color: #ffffff;
+            }
+
+            #header {
+                background: rgb(123, 87, 140) !important;
+            }
+
+            a:hover {
+                color: rgba(232,227,246,0.8);
+                  height: auto;
+            }
+
+
+
+            .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+                color: #ffffff;
+            }
+
+            .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
+                color: rgba(232,227,246,0.8);
+            }
+
+            .nav-menu a {
+                color: #ffffff;
+            }
+
+                .nav-menu a:hover {
+                    color: rgba(232,227,246,0.8);
+                }
+
+            #hero::after {
+                background: linear-gradient(to right, rgba(139, 121, 141, 0.6), rgba(98, 0, 121, 0.6)), url(../) center top no-repeat fixed;
+            }
+        </style>
+
+    </head>
+    <body>
+        <!--pocetak hedera-->
+        <header id="header" class="fixed-top header-transparent">
+            <div class="container">
+
+                <div class="logo float-left">
+                    <h3 class="text-light">
+                        <a href="Index">
+                            <span>
+                                Образовни Информатор
+                            </span>
+                        </a>
+                    </h3>
+                    <!-- <a href="index.html"><img src="~/Content/images/LOGO COREL OI FINAL.jpg" alt="" class="img-fluid"></a>-->
+                </div>
+
+                <nav class="nav-menu float-right d-none d-lg-block">
+                    <ul>
+                        <li class="active"><a href="https://localhost:44390/Home/Index">Почетна <i class="la la-angle-down"></i></a></li>
+                        <li><a href="https://localhost:44390/Home/About">О Нама</a></li>
+                        <li><a href="https://localhost:44390/StatistikaIPodaci/Index">Статистика и Подаци </a></li>
+                        <li class="drop-down">
+                            <a href="#">Специфичности буџетских корисника </a>
+                            <ul>
+
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа</a></li>
+
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/LokalnaSamouprava">Локална самоуправа</a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Zdravstvo">Здравство </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Prosveta">Просвета </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/SocijalnaZastita">Социјална заштита </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Kultura">Култура </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Nauka">Наука </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Pravosudje">Правосуђе </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/OmladinaISport">Омладина и спорт </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca">Јавна предузећа </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="team.html">Прописи</a></li>
+                        <li class="drop-down">
+                            <a href="#">Публикације </a>
+                            <ul>
+
+                                <li><a href="https://localhost:44390/Casopisi/Index">Часописи</a></li>
+
+                                <li><a href="https://localhost:44390/OstalaIzdanja/Index">Друга издања</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="drop-down">
+                            <a href="">Стручно усавршавање</a>
+
+
+                            <ul>
+                                <li><a href="#">Саветовања и семинари</a></li>
+                                <li><a href="#">Курсеви и обуке</a></li>
+                                <li><a href="#">Стицање стрчних звања</a></li>
+                                <li><a href="#">Вебинари</a></li>
+
+                            </ul>
+
+
+                        </li>
+                        <li><a href="https://localhost:44390/Home/Contact">Продаја и претплата</a></li>
+                        <li><a href="Contact">Контакт</a></li>
+                    </ul>
+                </nav><!-- .nav-menu -->
+
+            </div>
+        </header><!-- End Header -->
+        <br /><br />
+
+        <p>
+            @ViewBag.Greska;
+        </p>
+        <div class="container">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4>Часописи</h4>
+                    <hr />
+                    @Html.Label("Наслов")<br />
+                    <div class="col-md-6 form-group">
+                        <input type="text" name="Naslov" class="form-control" id="Naslov" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                        <div class="validate"> </div>
+                    </div>
+
+                    @Html.Label("Текст")<br />
+                    <div class="col-md-6 form-group">
+                        <textarea name="Tekst" class="form-control" id="Tekst" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера"></textarea>
+                        <div class="validate"> </div>
+                    </div>
+
+                    @Html.Label("Садржај")<br />
+                    <div class="col-md-6 form-group">
+                        <textarea name="Sadrzaj" class="form-control" id="Sadrzaj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера"></textarea>
+                        <div class="validate"> </div>
+                    </div>
+
+                    <div class="form-row">
+                        @Html.Label("Датум:")<br />
+                        <div class="col-md-6 form-group">
+
+                            <div class="col-md-10">
+                                <input type="date" name="Datum" id="Datum" class="form-control" placeholder="Datum" data-rule="Datum" data-msg="Убаците валидан мејл" />
+
+                            </div>
+                            <div class="validate"> </div>
+                        </div>
+                    </div>
+
+                    @Html.Label("Број издања")<br />
+                    <div class="col-md-6 form-group">
+                        <input type="text" name="BrojIzdanja" class="form-control" id="BrojIzdanja" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                        <div class="validate"> </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.Label("Слика")<br />
+                        <div class="col-md-6 form-group">
+                            <input type="file" name="Slika" class="form-control" id="Slika" data-msg="Морате унети најмање 4 карактера" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Админ")<br />
+                        <div class="col-md-6 form-group">
+                            <input type="text" name="IDKorisnika" value="@k.Ime" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Креирај" class="btn btn-outline-success" />
+                        </div>
+                    </div>
+                </div>
+  }
         </div>
-    </div>
-</div>
+
+        <div>
+            @Html.ActionLink("Назад на чланке", "Index")
+        </div>
+        <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+
+            <div class="footer-newsletter">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h4> Our Newsletter</h4>
+                            <p> Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                        </div>
+                        <div class="col-lg-6">
+                            <form action="" method="post">
+                                <input type="email" name="email"> <input type="submit" value="Subscribe">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-3 col-md-6 footer-links">
+                            <h4> Useful Links</h4>
+                            <ul>
+                                <li> <i class="bx bx-chevron-right"> </i> <a href="#"> Home</a> </li>
+                                <li> <i class="bx bx-chevron-right"> </i> <a href="#"> About us</a> </li>
+                                <li> <i class="bx bx-chevron-right"> </i> <a href="#"> Services</a> </li>
+                                <li> <i class="bx bx-chevron-right"> </i> <a href="#"> Terms of service</a> </li>
+                                <li> <i class="bx bx-chevron-right"> </i> <a href="#"> Privacy policy</a> </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 footer-links">
+                            <h4> Our Services</h4>
+                            <ul>
+                                <li> <i class="bx bx-chevron-right"> </i> <a href="#"> Web Design</a> </li>
+                                <li> <i class="bx bx-chevron-right"> </i> <a href="#"> Web Development</a> </li>
+                                <li> <i class="bx bx-chevron-right"> </i> <a href="#"> Product Management</a> </li>
+                                <li> <i class="bx bx-chevron-right"> </i> <a href="#"> Marketing</a> </li>
+                                <li> <i class="bx bx-chevron-right"> </i> <a href="#"> Graphic Design</a> </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 footer-contact">
+                            <h4> Contact Us</h4>
+                            <p>
+                                A108 Adam Street <br>
+                                New York, NY 535022<br>
+                                United States <br> <br>
+                                <strong> Phone:</strong> +1 5589 55488 55<br>
+                                <strong> Email:</strong> info@example.com<br>
+                            </p>
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 footer-info">
+                            <h3> About Moderna</h3>
+                            <p> Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                            <div class="social-links mt-3">
+                                <a href="#" class="twitter"> <i class="bx bxl-twitter"> </i> </a>
+                                <a href="#" class="facebook"> <i class="bx bxl-facebook"> </i> </a>
+                                <a href="#" class="instagram"> <i class="bx bxl-instagram"> </i> </a>
+                                <a href="#" class="linkedin"> <i class="bx bxl-linkedin"> </i> </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="copyright">
+                    &copy; Copyright <strong> <span> Moderna</span> </strong> . All Rights Reserved
+                </div>
+                <div class="credits">
+                    <!-- All the links in the footer should remain intact. -->
+                    <!-- You can delete the links only if you purchased the pro version. -->
+                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ -->
+                    Designed by <a href="https://bootstrapmade.com/"> BootstrapMade</a>
+                </div>
+            </div>
+        </footer><!-- End Footer -->
+        <a href="#" class="back-to-top"> <i class="icofont-simple-up"> </i> </a>
+        <!-- Vendor JS Files -->
+        <script src="~/Content/assets/vendor/jquery/jquery.min.js"></script>
+        <script src="~/Content/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="~/Content/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+        <script src="~/Content/assets/vendor/php-email-form/validate.js"></script>
+        <script src="~/Content/assets/vendor/venobox/venobox.min.js"></script>
+        <script src="~/Content/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+        <script src="~/Content/assets/vendor/counterup/counterup.min.js"></script>
+        <script src="~/Content/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+        <script src="~/Content/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="~/Content/assets/vendor/aos/aos.js"></script>
+        <!-- Template ~ /Content/ Main JS File -->
+        <script src="~/Content/assets/js/main.js"></script>
+
+    </body>
+
+</html>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

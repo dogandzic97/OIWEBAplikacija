@@ -9,6 +9,9 @@
     ObrazovniInformatorDataContext oi = new ObrazovniInformatorDataContext();
 
 }
+@{ 
+    Layout = null;
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +56,7 @@
                 color: rgba(232,227,246,0.8);
             }
 
-        }
+        
 
         .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
             color: #ffffff;
@@ -119,7 +122,7 @@
                 <div class="form-row">
                     @Html.Label("Спецификације Буџетских Корисника")<br />
                     <div class="col-md-6 form-group">
-                        <select name="IDSBK" class="form-control" id="IDSBK" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера">
+                        <select name="IDSBK" class="form-control" id="Nas" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера">
                             @foreach (SpecificnostiBudzetskihKorisnika s in sbk)
                             {
                                 <option value="@s.IDSBK">@s.Naziv</option>
@@ -134,7 +137,7 @@
                     @Html.Label("Наслов:")<br />
                     <div class="col-md-6 form-group">
 
-                        <input type="text" name="Naslov" class="form-control" id="IDSBK" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" value="@txt.Naslov" />
+                        <input type="text" name="Naslov" class="form-control" id="Naslov" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" value="@txt.Naslov" />
                     </div>
                     <div class="validate"> </div>
                 </div>
