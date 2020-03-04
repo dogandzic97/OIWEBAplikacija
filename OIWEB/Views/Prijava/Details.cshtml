@@ -1,0 +1,82 @@
+﻿@model OIWEB.PravnoLice
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PravnoLice</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PreplatnickiBroj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreplatnickiBroj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NazivPravnogLica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NazivPravnogLica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BrojTekucegRacuna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrojTekucegRacuna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PIB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PIB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mesto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mesto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostanskiBroj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostanskiBroj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UlicaIBroj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UlicaIBroj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDPravnoLice }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

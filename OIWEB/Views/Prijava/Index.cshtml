@@ -1,0 +1,70 @@
+﻿@model IEnumerable<OIWEB.Prijava>
+
+@{
+    ViewBag.Title = "Index";
+    List<PravnoLice> pravnaLica = ViewBag.PravnaLica;
+    List<StrucnoUsavrsavanje> strucnaU = ViewBag.StrucnaU;
+    Korisnik k = (Korisnik)Session["Korisnik"];
+}
+@if (k != null)
+{
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DatumPrijave)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NacinPlacanja)
+        </th>
+        <th>
+            @Html.DisplayName("Kurs/Seminar Naziv")
+        </th>
+        <th>
+            @Html.DisplayName("Adresa odrzavanja kursa")
+        </th>
+        <th>
+            @Html.DisplayName("Naziv pravnog lica")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    foreach (PravnoLice p in pravnaLica)
+    {
+        foreach (StrucnoUsavrsavanje st in strucnaU)
+        {
+            if (item.IDUsavrsavanja == st.IDUsavrsavanja && item.IDPravnoLice == p.IDPravnoLice)
+            {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DatumPrijave)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NacinPlacanja)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDUsavrsavanja)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDPravnoLice)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.IDPrijave }) |
+            @Html.ActionLink("Detalji o pravnom licu", "Details", new { id = item.IDPrijave }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IDPrijave })
+        </td>
+    </tr>
+
+            }
+        }
+    }
+}
+
+</table>
+}
