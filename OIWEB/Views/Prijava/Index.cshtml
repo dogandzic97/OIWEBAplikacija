@@ -1,70 +1,433 @@
 ﻿@model IEnumerable<OIWEB.Prijava>
 
 @{
-    ViewBag.Title = "Index";
+   
     List<PravnoLice> pravnaLica = ViewBag.PravnaLica;
     List<StrucnoUsavrsavanje> strucnaU = ViewBag.StrucnaU;
     Korisnik k = (Korisnik)Session["Korisnik"];
+    Layout = null;
 }
-@if (k != null)
-{
-<h2>Index</h2>
+<!DOCTYPE html>
+<html lang="en">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DatumPrijave)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NacinPlacanja)
-        </th>
-        <th>
-            @Html.DisplayName("Kurs/Seminar Naziv")
-        </th>
-        <th>
-            @Html.DisplayName("Adresa odrzavanja kursa")
-        </th>
-        <th>
-            @Html.DisplayName("Naziv pravnog lica")
-        </th>
-        <th></th>
-    </tr>
+<head>
+    
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-@foreach (var item in Model)
-{
-    foreach (PravnoLice p in pravnaLica)
-    {
-        foreach (StrucnoUsavrsavanje st in strucnaU)
-        {
-            if (item.IDUsavrsavanja == st.IDUsavrsavanja && item.IDPravnoLice == p.IDPravnoLice)
-            {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DatumPrijave)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NacinPlacanja)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDUsavrsavanja)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDPravnoLice)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.IDPrijave }) |
-            @Html.ActionLink("Detalji o pravnom licu", "Details", new { id = item.IDPrijave }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.IDPrijave })
-        </td>
-    </tr>
+    <title>Образовни Информатор</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
 
-            }
+    <!-- Favicons -->
+    <link href="~/Content/assets/img/favicon.png" rel="icon">
+    <link href="~/Content/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/Content/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/Content/assets/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Moderna - v2.0.0
+    * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+    <style>
+        #hero {
+            width: 100%;
+            height: 70vh;
         }
-    }
-}
 
-</table>
-}
+            #hero .btn-get-started {
+                border: #fff;
+                background: #fff;
+                color: rgb(123, 87, 140);
+            }
+
+        #header.header-scrolled {
+            background: rgb(123, 87, 140) !important;
+            height: auto;
+        }
+        #header{
+            background: rgb(123, 87, 140) !important;
+            height:auto;
+        }
+
+        a {
+            color: rgba(98, 0, 121, 0.6);
+        }
+
+            a:hover {
+                color: rgba(232,227,246,0.8);
+            }
+
+        .section-title h2::after {
+            background: rgba(98, 0, 121, 0.6);
+        }
+
+        .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+            color: #ffffff;
+        }
+
+        .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
+            color: rgba(232,227,246,0.8);
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+        }
+
+            .nav-menu a:hover {
+                color: rgba(232,227,246,0.2) !important;
+            }
+
+        #hero::after {
+            background: linear-gradient(to right, rgba(139, 121, 141, 0.6), rgba(98, 0, 121, 0.6)), center top no-repeat fixed !important;
+        }
+
+        .blog .blog-pagination li {
+            margin: 0 auto;
+            color: rgb(123, 87, 140) !important;
+        }
+
+        .edit {
+            color: mediumpurple;
+        }
+
+        .delete {
+            color: mediumpurple;
+        }
+
+        #hero::before {
+            background: linear-gradient(to right, rgba(112, 65, 117, 0.72), rgba(98, 0, 121, 0.6)), url(../) center top no-repeat fixed !important;
+        }
+
+        #footer {
+            background: rgb(123, 87, 140) !important;
+        }
+
+            #footer .footer-top {
+                background: rgb(123, 87, 140) !important;
+            }
+
+            #footer .footer-newsletter {
+                background: rgb(123, 87, 140) !important;
+            }
+
+        a.page-link {
+            color: rgb(123, 87, 140) !important;
+        }
+
+        #footer .footer-newsletter form input[type="submit"] {
+            background: rgb(123, 87, 140) !important;
+        }
+
+        #footer .footer-newsletter h4 {
+            color: #fff !important;
+        }
+
+        #footer .footer-top h4 {
+            color: #fff !important;
+        }
+
+        #footer .footer-top .footer-info h3 {
+            color: #fff !important;
+        }
+
+        #footer .footer-top .social-links a {
+            background: #fff;
+            color: rgb(123, 87, 140) !important;
+        }
+
+        .back-to-top {
+            background: #fff;
+            color: rgb(123, 87, 140) !important;
+        }
+
+
+        #hero .btn-get-started:hover {
+            background: rgba(117, 80, 135, 0.8) !important;
+        }
+        table{
+            margin:0 auto;
+        }
+        th{
+            padding:4px;
+        }
+        td{
+            padding:4px;
+        }
+        h2{
+            margin:0 auto;
+            text-align:center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ======= Header ======= -->
+    @if (k != null)
+    {
+        <header id="header" class="fixed-top header-transparent">
+            <div class="container">
+
+                <div class="logo float-left">
+                    <h3 class="text-light">
+                        <a href="Index">
+                            <span>
+                                Образовни Информатор
+                            </span>
+                        </a>
+                    </h3>
+                    <!-- <a href="index.html"><img src="~/Content/images/LOGO COREL OI FINAL.jpg" alt="" class="img-fluid"></a>-->
+                </div>
+
+                <nav class="nav-menu float-right d-none d-lg-block">
+                    <ul>
+                        <li class="active"><a href="https://localhost:44390/Home/Index">Почетна <i class="la la-angle-down"></i></a></li>
+                        <li><a href="https://localhost:44390/Home/About">О Нама</a></li>
+                        <li><a href="https://localhost:44390/StatistikaIPodaci/Index">Статистика и Подаци </a></li>
+                        <li class="drop-down">
+                            <a href="#">Делатности </a>
+                            <ul>
+
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа</a></li>
+
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/LokalnaSamouprava">Локална самоуправа</a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Zdravstvo">Здравство </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Prosveta">Просвета </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/SocijalnaZastita">Социјална заштита </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Kultura">Култура </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Nauka">Наука </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Pravosudje">Правосуђе </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/OmladinaISport">Омладина и спорт </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca">Јавна предузећа </a></li>
+                            </ul>
+                        </li>
+                        <li class="drop-down">
+                            <a href="#">Прописи</a>
+                            <ul>
+                                <li><a href="https://localhost:44390/Propisi/Index">Службени гласник РС</a></li>
+                                <li><a href="https://localhost:44390/Propisi/ProsvetniGlasnik">Службени гласник РС Просветни гласник</a></li>
+                                <li><a href="https://localhost:44390/Propisi/MedjunarodniUgovori">Службени гласник РС Међународни уговори </a></li>
+                                <li><a href="https://localhost:44390/Propisi/SluzbeniListAPVojvodine">Службени лист АП Војводине </a></li>
+                                <li><a href="https://localhost:44390/Propisi/SluzbeniListGradaBeograda">Службени лист града Београда</a></li>
+                            </ul>
+                        </li>
+                        <li class="drop-down">
+                            <a href="#">Публикације </a>
+                            <ul>
+
+                                <li><a href="https://localhost:44390/Casopisi/Index">Часописи</a></li>
+
+                                <li><a href="https://localhost:44390/DrugaIzdanja/Index">Друга издања</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="drop-down">
+                            <a href="">Стручни скупови</a>
+
+
+                            <ul>
+                                <li><a href="https://localhost:44390/StrucnaUsavrsavanja/Index">Саветовања и семинари</a></li>
+                                <li><a href="https://localhost:44390/StrucnaUsavrsavanja/SviKurseviIObuke">Курсеви и обуке</a></li>
+                                <li><a href="https://localhost:44390/StrucnaUsavrsavanja/SticanjeStrucnihZvanja">Стицање стрчних звања</a></li>
+                                <li><a href="https://localhost:44390/StrucnaUsavrsavanja/Vebinari">Вебинари</a></li>
+
+                            </ul>
+
+
+                        </li>
+                        <li><a href="Contact">Контакт</a></li>
+                    </ul>
+                </nav><!-- .nav-menu -->
+
+            </div>
+        </header><!-- End Header -->
+        <br /><br /><br /><br /><br /><br /><br />
+        <h2>Испис свих пријава </h2>
+
+
+        <table class="table-bordered">
+            <tr>
+                <th>
+                    @Html.DisplayName("Датум пријаве:")
+                </th>
+                <th>
+                    @Html.DisplayName("Начин плаћања")
+                </th>
+                <th>
+                    @Html.DisplayName("Назив курса/семинара")
+                </th>
+                <th>
+                    @Html.DisplayName("Адреса одржавања курса")
+                </th>
+                <th>
+                    @Html.DisplayName("Назив правног лица")
+                </th>
+                <th>
+                    
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                foreach (PravnoLice p in pravnaLica)
+                {
+                    foreach (StrucnoUsavrsavanje st in strucnaU)
+                    {
+                        if (item.IDUsavrsavanja == st.IDUsavrsavanja && item.IDPravnoLice == p.IDPravnoLice)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DatumPrijave)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NacinPlacanja)
+                                </td>
+                           <td>
+                               @st.Naslov
+                           </td>
+                                <td>
+                                    @st.AdresaOdrzavanja
+                                </td>
+                                <td>
+                                    @p.NazivPravnogLica
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IDPravnoLice)
+                                </td>
+                                <td>
+                                   
+                                    @Html.ActionLink("Детаљи о правном лицу", "Details", new { id = item.IDPrijave }) |
+                                   
+                                </td>
+                            </tr>
+
+                        }
+                    }
+                }
+            }
+
+        </table>
+    }
+    <!-- ======= Footer ======= -->
+    <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+
+        <div class="footer-newsletter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h4>Our Newsletter</h4>
+                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <form action="" method="post">
+                            <input type="email" name="email"><input type="submit" value="Subscribe">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Our Services</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h4>Contact Us</h4>
+                        <p>
+                            A108 Adam Street <br>
+                            New York, NY 535022<br>
+                            United States <br><br>
+                            <strong>Phone:</strong> +1 5589 55488 55<br>
+                            <strong>Email:</strong> info@example.com<br>
+                        </p>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-info">
+                        <h3>About Moderna</h3>
+                        <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                        <div class="social-links mt-3">
+                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span>Образовни Информатор</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ -->
+                Designed by Лука Догандџић & Анђелија Михајловић<a />
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/Content/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="~/Content/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/Content/assets/vendor/venobox/venobox.min.js"></script>
+    <script src="~/Content/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="~/Content/assets/vendor/counterup/counterup.min.js"></script>
+    <script src="~/Content/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/Content/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/Content/assets/vendor/aos/aos.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/Content/assets/js/main.js"></script>
+
+</body>
+
+</html>
+

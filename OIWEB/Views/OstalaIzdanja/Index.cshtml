@@ -311,49 +311,54 @@
                             <h2>Слике наших издања </h2>
                         </div>
                         <div class="slika">
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="~/Content/images/slika1.png">
-                                        <img src="~/Content/images/slika1.png" alt="Cinque Terre" width="600" height="400">
-                                    </a>
-                                    <div class="desc">Add a description of the image here</div>
+                            @foreach (OstalaIzdanja item in Model)
+                            {
+
+                                <div class="responsive">
+                                    <div class="gallery">
+                                        <a target="_blank" href="~/Content/images/slika1.png">
+                                            <img src="@Url.Content(item.Slika)" alt="Cinque Terre" width="600" height="400">
+                                        </a>
+                                        <div class="desc">@item.Opis</div>
+                                    </div>
                                 </div>
-                            </div>
+                            }
 
 
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="img_forest.jpg">
-                                        <img src="~/Content/images/slika1.png" alt="Fore
-                                             st" width="600" height="400">
-                                    </a>
-                                    <div class="desc">Add a description of the image here</div>
-                                </div>
-                            </div>
+                            @*<div class="responsive">
+                <div class="gallery">
+                    <a target="_blank" href="img_forest.jpg">
+                        <img src="~/Content/images/slika1.png" alt="Fore
+                             st" width="600" height="400">
+                    </a>
+                    <div class="desc">Add a description of the image here</div>
+                </div>
+            </div>
 
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="img_lights.jpg">
-                                        <img src="~/Content/images/slika1.png" alt="Northern Lights" width="600" height="400">
-                                    </a>
-                                    <div class="desc">Add a description of the image here</div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="img_forest.jpg">
-                                        <img src="~/Content/images/slika1.png" alt="Fore
-                                             st" width="600" height="400">
-                                    </a>
-                                    <div class="desc">Add a description of the image here</div>
-                                </div>
-                            </div>
+            <div class="responsive">
+                <div class="gallery">
+                    <a target="_blank" href="img_lights.jpg">
+                        <img src="~/Content/images/slika1.png" alt="Northern Lights" width="600" height="400">
+                    </a>
+                    <div class="desc">Add a description of the image here</div>
+                </div>
+            </div>
+            <div class="responsive">
+                <div class="gallery">
+                    <a target="_blank" href="img_forest.jpg">
+                        <img src="~/Content/images/slika1.png" alt="Fore
+                             st" width="600" height="400">
+                    </a>
+                    <div class="desc">Add a description of the image here</div>
+                </div>
+            </div>*@
 
 
                             <div class="clearfix"></div>
 
-                        </div>
 
+                            
+                        </div>
                     </div>
                 </section><!-- End Features Section -->
             </main><!-- End #main -->
