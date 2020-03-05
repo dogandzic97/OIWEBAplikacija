@@ -2,8 +2,8 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    `
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -37,29 +37,38 @@
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
     <style>
-         #header.header-scrolled {
-           background:  rgb(123, 87, 140)!important;
-           height: auto;
-       }
+        #hero {
+            width: 100%;
+            height: 70vh;
+        }
+
+            #hero .btn-get-started {
+                border: #fff;
+                background: #fff;
+                color: rgb(123, 87, 140);
+            }
+
+            #header{
+                background:rgb(123, 87, 140) !important;
+                height:auto;
+            }
+
+        #header.header-scrolled {
+            background: rgb(123, 87, 140) !important;
+            height: auto;
+        }
+
         a {
             color: #ffffff;
-        }
-        #header{
-            height: 80px;
-        transition: all 0.5s;
-         z-index: 997;
-         transition: all 0.5s;
-         padding: 20px 0;
-            background: rgb(123, 87, 140)!important
         }
 
             a:hover {
                 color: rgba(232,227,246,0.8);
             }
 
-       .section-title h2::after {
-          background: rgba(98, 0, 121, 0.6);
-       }
+        .section-title h2::after {
+            background: rgba(98, 0, 121, 0.6);
+        }
 
         .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
             color: #ffffff;
@@ -74,57 +83,96 @@
         }
 
             .nav-menu a:hover {
-                color: rgba(232 ,227,246,0.2) !important;
+                color: rgba(232,227,246,0.2) !important;
             }
-        #footer {
-    background:rgb(123, 87, 140)!important;
 
-    
-   
+        #hero::after {
+            background: linear-gradient(to right, rgba(139, 121, 141, 0.6), rgba(98, 0, 121, 0.6)), center top no-repeat fixed !important;
         }
-       
-           #footer .footer-top {
-               background:rgb(123, 87, 140)!important;
- 
-           }
+
+        .blog .blog-pagination li {
+            margin: 0 auto;
+            color: rgb(123, 87, 140) !important;
+        }
+
+        .edit {
+            color: mediumpurple;
+        }
+
+        .delete {
+            color: mediumpurple;
+        }
+
+        #hero::before {
+            background: linear-gradient(to right, rgba(112, 65, 117, 0.72), rgba(98, 0, 121, 0.6)), url(../) center top no-repeat fixed !important;
+        }
+
+        #footer {
+            background: rgb(123, 87, 140) !important;
+        }
+
+            #footer .footer-top {
+                background: rgb(123, 87, 140) !important;
+            }
+
             #footer .footer-newsletter {
-        
-        background: rgb(123, 87, 140)!important;
-    }
-       a.page-link {
-           color: rgb(123, 87, 140) !important;
-       }
+                background: rgb(123, 87, 140) !important;
+            }
 
-       #footer .footer-newsletter form input[type="submit"] {
-           background: rgb(123, 87, 140) !important;
-       }
-            #footer .footer-newsletter h4 {
-  
+        a.page-link {
+            color: rgb(123, 87, 140) !important;
+        }
+
+        #footer .footer-newsletter form input[type="submit"] {
+            background: rgb(123, 87, 140) !important;
+        }
+
+        #footer .footer-newsletter h4 {
             color: #fff !important;
-}
-       #footer .footer-top h4 {
- 
-         color: #fff !important;
- 
-}
-       #footer .footer-top .footer-info h3
-       {
-           color: #fff!important;
-       }
+        }
 
-       #footer .footer-top .social-links a {
-          background: #fff;
-          color: rgb(123, 87, 140)!important;
-       }
-       .facts .counters span{
-           color:rgb(123, 87, 140)!important
-       }
+        #footer .footer-top h4 {
+            color: #fff !important;
+        }
+
+        #footer .footer-top .footer-info h3 {
+            color: #fff !important;
+        }
+
+        #footer .footer-top .social-links a {
+            background: #fff;
+            color: rgb(123, 87, 140) !important;
+        }
+
+        .back-to-top {
+            background: #fff;
+            color: rgb(123, 87, 140) !important;
+        }
+
+
+        #hero .btn-get-started:hover {
+            background: rgba(117, 80, 135, 0.8) !important;
+        }
+        .facts .counters span {
+  color: rgba(123,87,140,1)!important;
+}
+        .testimonials .owl-dot.active {
+    background-color: rgb(123, 87, 140) !important;
+}
+        .nav-menu{
+    
+}
+        #naslov{
+             margin: auto;
+  width: 50%;
+  padding: 10px;
+        }
+
     </style>
 </head>
 
 <body>
 
-    <!-- ======= Header ======= -->
     <header id="header" class="fixed-top header-transparent">
         <div class="container">
 
@@ -145,7 +193,7 @@
                     <li><a href="https://localhost:44390/Home/About">О Нама</a></li>
                     <li><a href="https://localhost:44390/StatistikaIPodaci/Index">Статистика и Подаци </a></li>
                     <li class="drop-down">
-                        <a href="#">Специфичности буџетских корисника </a>
+                        <a href="#">Делатности </a>
                         <ul>
 
                             <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа</a></li>
@@ -161,40 +209,48 @@
                             <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca">Јавна предузећа </a></li>
                         </ul>
                     </li>
-                    <li><a href="team.html">Прописи</a></li>
+                    <li class="drop-down">
+                        <a href="#">Прописи</a>
+                        <ul>
+                            <li><a href="https://localhost:44390/Propisi/Index">Службени гласник РС</a></li>
+                            <li><a href="https://localhost:44390/Propisi/ProsvetniGlasnik">Службени гласник РС Просветни гласник</a></li>
+                            <li><a href="https://localhost:44390/Propisi/MedjunarodniUgovori">Службени гласник РС Међународни уговори </a></li>
+                            <li><a href="https://localhost:44390/Propisi/SluzbeniListAPVojvodine">Службени лист АП Војводине </a></li>
+                            <li><a href="https://localhost:44390/Propisi/SluzbeniListGradaBeograda">Службени лист града Београда</a></li>
+                        </ul>
+                    </li>
                     <li class="drop-down">
                         <a href="#">Публикације </a>
                         <ul>
 
-                            <li><a href="#">Часописи</a></li>
+                            <li><a href="https://localhost:44390/Casopisi/Index">Часописи</a></li>
 
-                            <li><a href="#">Друга издања</a></li>
+                            <li><a href="https://localhost:44390/DrugaIzdanja/Index">Друга издања</a></li>
                         </ul>
                     </li>
 
 
                     <li class="drop-down">
-                        <a href="">Стручно усавршавање</a>
+                        <a href="">Стручни скупови</a>
 
 
                         <ul>
-                            <li><a href="#">Саветовања и семинари</a></li>
-                            <li><a href="#">Курсеви и обуке</a></li>
-                            <li><a href="#">Стицање стрчних звања</a></li>
-                            <li><a href="#">Вебинари</a></li>
+                            <li><a href="https://localhost:44390/StrucnaUsavrsavanja/Index">Саветовања и семинари</a></li>
+                            <li><a href="https://localhost:44390/StrucnaUsavrsavanja/SviKurseviIObuke">Курсеви и обуке</a></li>
+                            <li><a href="https://localhost:44390/StrucnaUsavrsavanja/SticanjeStrucnihZvanja">Стицање стрчних звања</a></li>
+                            <li><a href="https://localhost:44390/StrucnaUsavrsavanja/Vebinari">Вебинари</a></li>
 
                         </ul>
 
 
                     </li>
-                    <li><a href="https://localhost:44390/Home/Contact">Продаја и претплата</a></li>
                     <li><a href="Contact">Контакт</a></li>
                 </ul>
             </nav><!-- .nav-menu -->
 
         </div>
     </header><!-- End Header -->
-
+    <br /><br /><br /><br />
     <main id="main">
 
         <!-- ======= About Us Section ======= -->
@@ -220,14 +276,14 @@
                         <img src="~/Content/assets/img/about.jpg" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0">
-                        <h3>→ КО СМО?</h3>
+                        <h3 style="color:rgb(123, 87, 140)">КО СМО МИ?</h3>
                         <p class="font-italic">
                             Предузеће „Образовни информатор“ је савремена едукативна кућа специјализована за управљање правно-економским пословањем, уз информатичку подршку. Примарни циљ нам је да адекватном применом прописа олакшамо пословање менаџменту у свим пословним системима.
 
                             Докази нашег успeшнoг рaдa oд oснивaњa 1990. годинe, oглeдajу сe у кoнстaнтнoj сaрaдњи сa струковним удружењима директора/менаџера, правника и економиста/рачуновођа.
                             О томе сведочи и референтна листа са више од 4.500 корисника.
                         </p>
-                        <h3>→ НАШИ ПРОИЗВОДИ СУ НАША ПРЕДНОСТ</h3>
+                        <h3 style="color:rgb(123, 87, 140)"> НАШИ ПРОИЗВОДИ СУ НАША ПРЕДНОСТ</h3>
                         <ul>
                             <li><i class="icofont-check-circled"></i> Дневни консалтинг (дневне информације и инструкције и Одговори на питања телефоном и мејлом),</li>
                             <li><i class="icofont-check-circled"></i>  Стручни часописи (комплет од три часописа, који су увезани заједничким пословним обавезама организације, али уређени према контролној функцији руководилаца (топ менаџера – Подсетник за директоре, пословима правне службе – Правни саветник и економиста/рачуновођа Буџетско рачуноводство). Часописе публикујемо петнаестодневно у штампаној и електронској форми;</li>
@@ -242,7 +298,7 @@
                             <li><i class="icofont-check-circled"></i>Пословни тренинзи за директоре;</li>
                         </ul>
                         <p>
-                            <b> → НАШИ ПОСЛОВНИ ПАРТНЕРИ-</b> Поред струковних удружења наши партнери су претплатници из праксе, локалних самоуправа, државне управе, здравства, науке, социјалне заштите.
+                            <b style="color:rgb(123, 87, 140)"> НАШИ ПОСЛОВНИ ПАРТНЕРИ-</b> Поред струковних удружења наши партнери су претплатници из праксе, локалних самоуправа, државне управе, здравства, науке, социјалне заштите.
                             Еминентни стручњаци из правне и економске науке и праксе су такође наши стални сарадници – Канцеларије за едукацију буџетских корисника на подручју целе Србије.
                             ВАЖНИ ПАРТНЕРИ су нам и представници локалних самоуправа, као најважније карике у трансферу знања, зарад одрживог економског развоја.
 
@@ -262,23 +318,23 @@
                 <div class="row counters">
 
                     <div class="col-lg-3 col-6 text-center">
-                        <span data-toggle="counter-up">232</span>
-                        <p>Клијенти</p>
+                        <span data-toggle="counter-up">3,238</span>
+                        <p>Клијената</p>
                     </div>
 
                     <div class="col-lg-3 col-6 text-center">
-                        <span data-toggle="counter-up">521</span>
-                        <p>Пројекти</p>
+                        <span data-toggle="counter-up">9,980</span>
+                        <p>Семинара</p>
                     </div>
 
                     <div class="col-lg-3 col-6 text-center">
-                        <span data-toggle="counter-up">1,463</span>
-                        <p>Сати подршке</p>
+                        <span data-toggle="counter-up">30</span>
+                        <p>Година пословања</p>
                     </div>
 
                     <div class="col-lg-3 col-6 text-center">
-                        <span data-toggle="counter-up">20</span>
-                        <p>Радници</p>
+                        <span data-toggle="counter-up">60</span>
+                        <p>Радника</p>
                     </div>
 
                 </div>
@@ -287,53 +343,53 @@
         </section><!-- End Facts Section -->
         <!-- ======= Our Skills Section ======= -->
         @*<section class="skills" data-aos="fade-up">
-            <div class="container">
+                <div class="container">
 
-                <div class="section-title">
-                    <h2>→ ПОСТАВИЛИ СМО ЦИЉЕВЕ ВИШЕ ОД ОСТАЛИХ</h2>
-                    <p>
-                        Циљ нам је да у наредном периоду, удруживањем експертских и практичних знања на територији сваке општине, преко едукативних центара, наши производи не буду шаблон у примени прописа, већ суштинска помоћ свима који желе да континуираним учењем напредују у пословању и доприносе свеукупном духовном и економском развоју..
+                    <div class="section-title">
+                        <h2>→ ПОСТАВИЛИ СМО ЦИЉЕВЕ ВИШЕ ОД ОСТАЛИХ</h2>
+                        <p>
+                            Циљ нам је да у наредном периоду, удруживањем експертских и практичних знања на територији сваке општине, преко едукативних центара, наши производи не буду шаблон у примени прописа, већ суштинска помоћ свима који желе да континуираним учењем напредују у пословању и доприносе свеукупном духовном и економском развоју..
 
-                        <b> Наши циљеви су и циљеви надлежних институција на свим нивоима одлучивања!</b>
-                    </p>
+                            <b> Наши циљеви су и циљеви надлежних институција на свим нивоима одлучивања!</b>
+                        </p>
+                    </div>
+
+                    <div class="skills-content">
+
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                <span class="skill">HTML <i class="val">100%</i></span>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                <span class="skill">CSS <i class="val">90%</i></span>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                <span class="skill">JavaScript <i class="val">75%</i></span>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                                <span class="skill">Photoshop <i class="val">55%</i></span>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-
-                <div class="skills-content">
-
-                    <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                            <span class="skill">HTML <i class="val">100%</i></span>
-                        </div>
-                    </div>
-
-                    <div class="progress">
-                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                            <span class="skill">CSS <i class="val">90%</i></span>
-                        </div>
-                    </div>
-
-                    <div class="progress">
-                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                            <span class="skill">JavaScript <i class="val">75%</i></span>
-                        </div>
-                    </div>
-
-                    <div class="progress">
-                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
-                            <span class="skill">Photoshop <i class="val">55%</i></span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>*@
-<!-- End Our Skills Section -->
+            </section>*@
+        <!-- End Our Skills Section -->
         <!-- ======= Tetstimonials Section ======= -->
         <section class="testimonials" data-aos="fade-up">
             <div class="container">
 
                 <div class="section-title">
-                    <h2>→ КАКО ЋЕМО МЕРИТИ РЕЗУЛТАТЕ НАШИХ ЕДУКАТИВНИХ УСЛУГА?</h2>
+                    <h2 style="color:rgb(123, 87, 140)">КАКО ЋЕМО МЕРИТИ РЕЗУЛТАТЕ НАШИХ ЕДУКАТИВНИХ УСЛУГА?</h2>
                     <p>• Применом објективних индикатора, који резултирају квалитетном робом/услугама наших клијената, а пре свега у јединицама локалних самоуправа на чијим територијама се и задовољавају укупне потребе свих грађана.</p>
                 </div>
 
@@ -341,7 +397,7 @@
 
                     <div class="testimonial-item">
                         <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                        <h3>КАКО РАДИМО?</h3>
+                        <h3 style="color:rgb(123, 87, 140)">КАКО РАДИМО?</h3>
                         <h4>Ceo &amp; Founder</h4>
                         <p>
                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
@@ -352,7 +408,7 @@
 
                     <div class="testimonial-item">
                         <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                        <h3>КАКО РАДИМО?</h3>
+                        <h3 style="color:rgb(123, 87, 140)">КАКО РАДИМО?</h3>
                         <h4></h4>
                         <p>
                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
@@ -363,7 +419,7 @@
 
                     <div class="testimonial-item">
                         <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                        <h3>→ КАКО РАДИМО?</h3>
+                        <h3 style="color:rgb(123, 87, 140)">КАКО РАДИМО?</h3>
                         <h4></h4>
                         <p>
                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
@@ -374,7 +430,7 @@
 
                     <div class="testimonial-item">
                         <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                        <h3>КАКО РАДИМО?</h3>
+                        <h3 style="color:rgb(123, 87, 140)">КАКО РАДИМО?</h3>
                         <h4></h4>
                         <p>
                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
@@ -385,7 +441,7 @@
 
                     <div class="testimonial-item">
                         <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                        <h3>КАКО РАДИМО?</h3>
+                        <h3 style="color:rgb(123, 87, 140)">КАКО РАДИМО?</h3>
                         <h4></h4>
                         <p>
                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
@@ -407,12 +463,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <h4>Наше новине</h4>
-                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                        <h4>Наша бесплатна обавештења Вама</h4>
+                        <p>Можемо вас редовно обавештавати о нашим семинарима, ове информације имате и на нашој фејсбук страници, поред информација које се налазе на сајту</p>
                     </div>
                     <div class="col-lg-6">
                         <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
+                            <input type="email" name="email" placeholder="Ваш емаил"><input type="submit" value="Учланите се">
                         </form>
                     </div>
                 </div>
@@ -426,44 +482,49 @@
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Корисни линкови</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Почетна</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">О нама</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Услуге</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/Home/Index">Почетна страна</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/Home/About">О Нама</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/Propisi/Index">Прописи</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Делатности</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/Home/Contact">Контакт</a></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Наше услуге</h4>
+                        <h4>Делатности:</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/LokalnaSamouprava">Локална самоуправа</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Zdravstvo">Здравство</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Prosveta">Просвета</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/SocijalnaZastita">Социјална заштита</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Kultura">Култура</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Nauka">Наука</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Pravosudje">Правосуђе</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/OmladinaISport">Омладина и спорт</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca">Јавна предузећа</a></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-contact">
                         <h4>Контактирајте нас</h4>
                         <p>
-                            Цара Лазара 5А <br>
-                            Београд<br>
-                            Србија <br><br>
-                            <strong>Phone:</strong> 011 3286-489<br>
-                            <strong>Email:</strong>korisnickiservis@obrazovni.rs<br>
+                            Едукативна кућа за савремено пословање <br>
+                            Србија, Београд<br>
+                            Цара Лазара 5А <br><br>
+                            <strong>Телефон:</strong>065-60-73-701 <br>
+                            <strong>Е-Маил</strong> <a href="#email">mihajlovicandjelija@gmail.com</a><br>
                         </p>
 
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-info">
-                        <h3>Лука Доганџић </h3>
-                        <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                        <h3>O Образовном Информатору</h3>
+                        <p>Ту смо да вам помогнемо да унапредите ваше пословање. Успешно послујемо већ 30 година и имамо у плану да наставимо у истом смеру. Наши семинари, часописи и софтвери, помоћиће Вам да кренете напред и останете конкурентни на тржишту.</p>
                         <div class="social-links mt-3">
                             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            <a href="https://www.facebook.com/obrazovni/" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="https://instagram.com/obrazovni?igshid=19r0jfo8rhddv" class="instagram"><i class="bx bxl-instagram"></i></a>
                             <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                         </div>
                     </div>
@@ -474,14 +535,14 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>Лука Доганџић</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>Образовни Информатор</span></strong>. Сва права израде сајта су задржана
             </div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ -->
-                Designed by Лука Доганџић</a>
+                Дизајнирано од стране: Лука Доганџић & Анђелија Михајловић<a />
             </div>
         </div>
     </footer><!-- End Footer -->

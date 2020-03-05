@@ -107,6 +107,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   margin-top: 80px;
 }
 
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -115,6 +116,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   margin: 0;
   padding: 0;
   list-style: none;
+
 }
 
 .nav-menu > ul > li {
@@ -885,7 +887,7 @@ section {
 .facts .counters span {
   font-size: 48px;
   display: block;
-  color: #68A4C4;
+  color: rgba(123,87,140,1)!important;
 }
 
 .facts .counters p {
