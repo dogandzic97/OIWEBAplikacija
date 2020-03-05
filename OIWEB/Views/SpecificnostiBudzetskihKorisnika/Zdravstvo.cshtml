@@ -54,6 +54,7 @@
             }
 
         #header {
+            background: rgb(123, 87, 140) !important;
             height: auto;
         }
 
@@ -61,6 +62,7 @@
                 background: rgb(123, 87, 140) !important;
                 height: auto;
             }
+
 
         a {
             color: #ffffff;
@@ -161,7 +163,7 @@
 </head>
 
 <body>
-    <header id="header" class="fixed-top">
+    <header id="header" class="fixed-top header-transparent">
         <div class="container">
 
             <div class="logo float-left">
@@ -181,7 +183,7 @@
                     <li><a href="https://localhost:44390/Home/About">О Нама</a></li>
                     <li><a href="https://localhost:44390/StatistikaIPodaci/Index">Статистика и Подаци </a></li>
                     <li class="drop-down">
-                        <a href="#">Специфичности буџетских корисника </a>
+                        <a href="#">Делатности </a>
                         <ul>
 
                             <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа</a></li>
@@ -197,33 +199,41 @@
                             <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca">Јавна предузећа </a></li>
                         </ul>
                     </li>
-                    <li><a href="team.html">Прописи</a></li>
+                    <li class="drop-down">
+                        <a href="#">Прописи</a>
+                        <ul>
+                            <li><a href="https://localhost:44390/Propisi/Index">Службени гласник РС</a></li>
+                            <li><a href="https://localhost:44390/Propisi/ProsvetniGlasnik">Службени гласник РС Просветни гласник</a></li>
+                            <li><a href="https://localhost:44390/Propisi/MedjunarodniUgovori">Службени гласник РС Међународни уговори </a></li>
+                            <li><a href="https://localhost:44390/Propisi/SluzbeniListAPVojvodine">Службени лист АП Војводине </a></li>
+                            <li><a href="https://localhost:44390/Propisi/SluzbeniListGradaBeograda">Службени лист града Београда</a></li>
+                        </ul>
+                    </li>
                     <li class="drop-down">
                         <a href="#">Публикације </a>
                         <ul>
 
-                            <li><a href="#">Часописи</a></li>
+                            <li><a href="https://localhost:44390/Casopisi/Index">Часописи</a></li>
 
-                            <li><a href="#">Друга издања</a></li>
+                            <li><a href="https://localhost:44390/DrugaIzdanja/Index">Друга издања</a></li>
                         </ul>
                     </li>
 
 
                     <li class="drop-down">
-                        <a href="">Стручно усавршавање</a>
+                        <a href="">Стручни скупови</a>
 
 
                         <ul>
-                            <li><a href="#">Саветовања и семинари</a></li>
-                            <li><a href="#">Курсеви и обуке</a></li>
-                            <li><a href="#">Стицање стрчних звања</a></li>
-                            <li><a href="#">Вебинари</a></li>
+                            <li><a href="https://localhost:44390/StrucnaUsavrsavanja/Index">Саветовања и семинари</a></li>
+                            <li><a href="https://localhost:44390/StrucnaUsavrsavanja/SviKurseviIObuke">Курсеви и обуке</a></li>
+                            <li><a href="https://localhost:44390/StrucnaUsavrsavanja/SticanjeStrucnihZvanja">Стицање стрчних звања</a></li>
+                            <li><a href="https://localhost:44390/StrucnaUsavrsavanja/Vebinari">Вебинари</a></li>
 
                         </ul>
 
 
                     </li>
-                    <li><a href="https://localhost:44390/Home/Contact">Продаја и претплата</a></li>
                     <li><a href="Contact">Контакт</a></li>
                 </ul>
             </nav><!-- .nav-menu -->
@@ -231,7 +241,6 @@
         </div>
     </header><!-- End Header -->
     <!--MAIN SECTION-->
-
     <main id="main">
 
 
@@ -282,13 +291,13 @@
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                <a class="page-link" href="#" tabindex="-1">Претходна</a>
             </li>
             <li class="page-item"><a class="page-link" href="#">1</a></li>
             <li class="page-item"><a class="page-link" href="#">2</a></li>
             <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item">
-                <a class="page-link" href="#">Next</a>
+                <a class="page-link" href="#">Следећа</a>
             </li>
         </ul>
     </nav>
@@ -301,12 +310,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <h4>Our Newsletter</h4>
-                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                        <h4>Наша бесплатна обавештења Вама</h4>
+                        <p>Можемо вас редовно обавештавати о нашим семинарима, ове информације имате и на нашој фејсбук страници, поред информација које се налазе на сајту</p>
                     </div>
                     <div class="col-lg-6">
                         <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
+                            <input type="email" name="email" placeholder="Ваш емаил"><input type="submit" value="Учланите се">
                         </form>
                     </div>
                 </div>
@@ -318,46 +327,51 @@
                 <div class="row">
 
                     <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Useful Links</h4>
+                        <h4>Корисни линкови</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/Home/Index">Почетна страна</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/Home/About">О Нама</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/Propisi/Index">Прописи</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Делатности</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/Home/Contact">Контакт</a></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Our Services</h4>
+                        <h4>Делатности:</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/LokalnaSamouprava">Локална самоуправа</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Zdravstvo">Здравство</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Prosveta">Просвета</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/SocijalnaZastita">Социјална заштита</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Kultura">Култура</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Nauka">Наука</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Pravosudje">Правосуђе</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/OmladinaISport">Омладина и спорт</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca">Јавна предузећа</a></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-contact">
-                        <h4>Contact Us</h4>
+                        <h4>Контактирајте нас</h4>
                         <p>
-                            A108 Adam Street <br>
-                            New York, NY 535022<br>
-                            United States <br><br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
+                            Едукативна кућа за савремено пословање <br>
+                            Србија, Београд<br>
+                            Цара Лазара 5А <br><br>
+                            <strong>Телефон:</strong>065-60-73-701 <br>
+                            <strong>Е-Маил</strong> <a href="#email">mihajlovicandjelija@gmail.com</a><br>
                         </p>
 
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-info">
-                        <h3>About Moderna</h3>
-                        <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                        <h3>O Образовном Информатору</h3>
+                        <p>Ту смо да вам помогнемо да унапредите ваше пословање. Успешно послујемо већ 30 година и имамо у плану да наставимо у истом смеру. Наши семинари, часописи и софтвери, помоћиће Вам да кренете напред и останете конкурентни на тржишту.</p>
                         <div class="social-links mt-3">
                             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            <a href="https://www.facebook.com/obrazovni/" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="https://instagram.com/obrazovni?igshid=19r0jfo8rhddv" class="instagram"><i class="bx bxl-instagram"></i></a>
                             <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                         </div>
                     </div>
@@ -368,14 +382,14 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>Образовни Информатор</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>Образовни Информатор</span></strong>. Сва права израде сајта су задржана
             </div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ -->
-                Designed by Лука Догандџић & Анђелија Михајловић</a>
+                Дизајнирано од стране: Лука Доганџић & Анђелија Михајловић<a />
             </div>
         </div>
     </footer><!-- End Footer -->
@@ -400,4 +414,3 @@
 </body>
 
 </html>
-
