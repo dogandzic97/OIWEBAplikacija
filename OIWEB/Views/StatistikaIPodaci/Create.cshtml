@@ -1,55 +1,398 @@
 ﻿@model OIWEB.StatistickiPodaci
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Kreiraj statistika fajl";
     Korisnik k = (Korisnik)Session["Korisnik"];
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="en">
 
-<h2>Create</h2>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Образовни Информатор</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/Content/assets/img/favicon.png" rel="icon">
+    <link href="~/Content/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/Content/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/Content/assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/Content/assets/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Moderna - v2.0.0
+    * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+    <style>
+        #hero {
+            width: 100%;
+            height: 70vh;
+        }
+
+            #hero .btn-get-started {
+                border: #fff;
+                background: #fff;
+                color: rgb(123, 87, 140);
+            }
+
+        #header.header-scrolled {
+            background: rgb(123, 87, 140) !important;
+            height: auto;
+        }
+
+        #header {
+            background: rgb(123, 87, 140) !important;
+            height: auto;
+        }
+
+        a {
+            color: #ffffff;
+        }
+
+            a:hover {
+                color: rgba(232,227,246,0.8);
+            }
+
+        .section-title h2::after {
+            background: rgba(98, 0, 121, 0.6);
+        }
+
+        .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+            color: #ffffff;
+        }
+
+        .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
+            color: rgba(232,227,246,0.8);
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+        }
+
+            .nav-menu a:hover {
+                color: rgba(232,227,246,0.2) !important;
+            }
+
+        #hero::after {
+            background: linear-gradient(to right, rgba(139, 121, 141, 0.6), rgba(98, 0, 121, 0.6)), center top no-repeat fixed !important;
+        }
+
+        .blog .blog-pagination li {
+            margin: 0 auto;
+            color: rgb(123, 87, 140) !important;
+        }
+
+        .edit {
+            color: mediumpurple;
+        }
+
+        .delete {
+            color: mediumpurple;
+        }
+
+        #hero::before {
+            background: linear-gradient(to right, rgba(112, 65, 117, 0.72), rgba(98, 0, 121, 0.6)), url(../) center top no-repeat fixed !important;
+        }
+
+        #footer {
+            background: rgb(123, 87, 140) !important;
+        }
+
+            #footer .footer-top {
+                background: rgb(123, 87, 140) !important;
+            }
+
+            #footer .footer-newsletter {
+                background: rgb(123, 87, 140) !important;
+            }
+
+        a.page-link {
+            color: rgb(123, 87, 140) !important;
+        }
+
+        #footer .footer-newsletter form input[type="submit"] {
+            background: rgb(123, 87, 140) !important;
+        }
+
+        #footer .footer-newsletter h4 {
+            color: #fff !important;
+        }
+
+        #footer .footer-top h4 {
+            color: #fff !important;
+        }
+
+        #footer .footer-top .footer-info h3 {
+            color: #fff !important;
+        }
+
+        #footer .footer-top .social-links a {
+            background: #fff;
+            color: rgb(123, 87, 140) !important;
+        }
+
+        .back-to-top {
+            background: #fff;
+            color: rgb(123, 87, 140) !important;
+        }
 
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>StatistickiPodaci</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Naslov, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Naslov, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Naslov, "", new { @class = "text-danger" })
+        #hero .btn-get-started:hover {
+            background: rgba(117, 80, 135, 0.8) !important;
+        }
+
+        #stavke {
+            color: rgba(98, 0, 121, 0.6);
+            font-size: 30px;
+        }
+        .center{
+            margin: auto;
+  width: 50%;
+  padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header id="header" class="fixed-top header-transparent">
+        <div class="container">
+
+            <div class="logo float-left">
+                <h3 class="text-light">
+                    <a href="Index">
+                        <span>
+                            Образовни Информатор
+                        </span>
+                    </a>
+                </h3>
+                <!-- <a href="index.html"><img src="~/Content/images/LOGO COREL OI FINAL.jpg" alt="" class="img-fluid"></a>-->
+            </div>
+
+            <nav class="nav-menu float-right d-none d-lg-block">
+                <ul>
+                    <li class="active"><a href="https://localhost:44390/Home/Index">Почетна <i class="la la-angle-down"></i></a></li>
+                    <li><a href="https://localhost:44390/Narudzbenica/Index">Наруџбенице</a></li>
+                    <li><a href="https://localhost:44390/StatistikaIPodaci/Index">Статистика и Подаци </a></li>
+                    <li class="drop-down">
+                        <a href="https://localhost:44390/Pretplata/Index">Претплатници </a>
+
+                    </li>
+                    <li class="drop-down">
+                        <a href="#">Прописи</a>
+                        <ul>
+                            <li><a href="https://localhost:44390/Propisi/Index">Службени гласник РС</a></li>
+                            <li><a href="https://localhost:44390/Propisi/ProsvetniGlasnik">Службени гласник РС Просветни гласник</a></li>
+                            <li><a href="https://localhost:44390/Propisi/MedjunarodniUgovori">Службени гласник РС Међународни уговори </a></li>
+                            <li><a href="https://localhost:44390/Propisi/SluzbeniListAPVojvodine">Службени лист АП Војводине </a></li>
+                            <li><a href="https://localhost:44390/Propisi/SluzbeniListGradaBeograda">Службени лист града Београда</a></li>
+                        </ul>
+                    </li>
+                    <li class="drop-down">
+                        <a href="#">Публикације </a>
+                        <ul>
+
+                            <li><a href="https://localhost:44390/Casopisi/Index">Часописи</a></li>
+
+                            <li><a href="https://localhost:44390/DrugaIzdanja/Index">Друга издања</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="drop-down">
+                        <a href="">Стручни скупови</a>
+
+
+                        <ul>
+                            <li><a href="https://localhost:44390/StrucnaUsavrsavanja/Index">Саветовања и семинари</a></li>
+                            <li><a href="https://localhost:44390/StrucnaUsavrsavanja/SviKurseviIObuke">Курсеви и обуке</a></li>
+                            <li><a href="https://localhost:44390/StrucnaUsavrsavanja/SticanjeStrucnihZvanja">Стицање стрчних звања</a></li>
+                            <li><a href="https://localhost:44390/StrucnaUsavrsavanja/Vebinari">Вебинари</a></li>
+
+                        </ul>
+
+
+                    </li>
+                    <li><a href="https://localhost:44390/Prijava/Index">Пријаве</a></li>
+                </ul>
+            </nav><!-- .nav-menu -->
+
+        </div>
+    </header><!-- End Header -->
+    <br /><br /><br /><br /><br /><br /><br />
+   
+    <div class="center">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h2>Креирај фајл</h2>
+
+            <h4>СТАТИСТИКА И ПОДАЦИ</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.Label("Наслов:")<br />
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Naslov, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Naslov, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Документ")<br />
+                <div class="col-md-6">
+                    <input type="file" name="PDF" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Администратор")<br />
+                <div class="col-md-6">
+                    <input type="text" name="IDKorisnika" value="@k.Ime" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Додај фајл" class="btn btn-outline-success" />
+                </div>
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PDF, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-              <input type="file" name="PDF" />
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IDKorisnik, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="text" name="IDKorisnika" value="@k.Ime" />
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Додај фајл" class="btn btn-outline-success" />
-            </div>
-        </div>
+        }
     </div>
-}
 
-<div>
-    @Html.ActionLink("Назад на листу фајлова", "Index")
-</div>
+    <div>
+        @Html.ActionLink("Назад на листу фајлова", "Index")
+    </div>
+    <!-- ======= Footer ======= -->
+    <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
 
+        <div class="footer-newsletter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h4>Наша бесплатна обавештења Вама</h4>
+                        <p>Можемо вас редовно обавештавати о нашим семинарима, ове информације имате и на нашој фејсбук страници, поред информација које се налазе на сајту</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <form action="" method="post">
+                            <input type="email" name="email" placeholder="Ваш емаил"><input type="submit" value="Учланите се">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Корисни линкови</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/Home/Index">Почетна страна</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/Home/About">О Нама</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/Propisi/Index">Прописи</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Делатности</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/Home/Contact">Контакт</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Делатности:</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/LokalnaSamouprava">Локална самоуправа</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Zdravstvo">Здравство</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Prosveta">Просвета</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/SocijalnaZastita">Социјална заштита</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Kultura">Култура</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Nauka">Наука</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Pravosudje">Правосуђе</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/OmladinaISport">Омладина и спорт</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca">Јавна предузећа</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h4>Контактирајте нас</h4>
+                        <p>
+                            Едукативна кућа за савремено пословање <br>
+                            Србија, Београд<br>
+                            Цара Лазара 5А <br><br>
+                            <strong>Телефон:</strong>065-60-73-701 <br>
+                            <strong>Е-Маил</strong> <a href="#email">mihajlovicandjelija@gmail.com</a><br>
+                        </p>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-info">
+                        <h3>O Образовном Информатору</h3>
+                        <p>Ту смо да вам помогнемо да унапредите ваше пословање. Успешно послујемо већ 30 година и имамо у плану да наставимо у истом смеру. Наши семинари, часописи и софтвери, помоћиће Вам да кренете напред и останете конкурентни на тржишту.</p>
+                        <div class="social-links mt-3">
+                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                            <a href="https://www.facebook.com/obrazovni/" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="https://instagram.com/obrazovni?igshid=19r0jfo8rhddv" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span>Образовни Информатор</span></strong>. Сва права израде сајта су задржана
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ -->
+                Дизајнирано од стране: Лука Доганџић & Анђелија Михајловић<a />
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/Content/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="~/Content/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/Content/assets/vendor/venobox/venobox.min.js"></script>
+    <script src="~/Content/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="~/Content/assets/vendor/counterup/counterup.min.js"></script>
+    <script src="~/Content/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/Content/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/Content/assets/vendor/aos/aos.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/Content/assets/js/main.js"></script>
+
+</body>
+
+</html>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
