@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -40,142 +41,146 @@
     * Author: BootstrapMade.com
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
-</head>
-<style>
-    #hero {
-        width: 100%;
-        height: 70vh;
-    }
 
-        #hero .btn-get-started {
-            border: #fff;
-            background: #fff;
-            color: rgb(123, 87, 140);
+
+    <style>
+        #hero {
+            width: 100%;
+            height: 70vh;
         }
 
-    #header {
-        background: rgb(123, 87, 140) !important;
-        height: auto;
-    }
+            #hero .btn-get-started {
+                border: #fff;
+                background: #fff;
+                color: rgb(123, 87, 140);
+            }
 
-        #header.header-scrolled {
+        #header {
             background: rgb(123, 87, 140) !important;
             height: auto;
         }
 
-    a {
-        color: #ffffff;
-    }
+            #header.header-scrolled {
+                background: rgb(123, 87, 140) !important;
+                height: auto;
+            }
 
-        a:hover {
+        a {
+            color: mediumpurple;
+        }
+
+            a:hover {
+                color: rgb(123, 87, 140);
+            }
+
+        .section-title h2::after {
+            background: rgba(98, 0, 121, 0.6);
+        }
+
+        .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+            color: #ffffff;
+        }
+
+        .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
             color: rgba(232,227,246,0.8);
         }
 
-    .section-title h2::after {
-        background: rgba(98, 0, 121, 0.6);
-    }
-
-    .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-        color: #ffffff;
-    }
-
-    .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
-        color: rgba(232,227,246,0.8);
-    }
-
-    .nav-menu a {
-        color: #ffffff;
-    }
-
-        .nav-menu a:hover {
-            color: rgba(232,227,246,0.2) !important;
+        .nav-menu a {
+            color: #ffffff;
         }
 
-    #hero::after {
-        background: linear-gradient(to right, rgba(139, 121, 141, 0.6), rgba(98, 0, 121, 0.6)), center top no-repeat fixed !important;
-    }
+            .nav-menu a:hover {
+                color: rgba(232,227,246,0.2) !important;
+            }
 
-    .blog .blog-pagination li {
-        margin: 0 auto;
-        color: rgb(123, 87, 140) !important;
-    }
+        #hero::after {
+            background: linear-gradient(to right, rgba(139, 121, 141, 0.6), rgba(98, 0, 121, 0.6)), center top no-repeat fixed !important;
+        }
 
-    .edit {
-        color: mediumpurple;
-    }
+        .blog .blog-pagination li {
+            margin: 0 auto;
+            color: rgb(123, 87, 140) !important;
+        }
 
-    .delete {
-        color: mediumpurple;
-    }
+        .edit {
+            color: mediumpurple;
+        }
 
-    #hero::before {
-        background: linear-gradient(to right, rgba(112, 65, 117, 0.72), rgba(98, 0, 121, 0.6)), url(../) center top no-repeat fixed !important;
-    }
+        .delete {
+            color: mediumpurple;
+        }
 
-    #footer {
-        background: rgb(123, 87, 140) !important;
-    }
+        #hero::before {
+            background: linear-gradient(to right, rgba(112, 65, 117, 0.72), rgba(98, 0, 121, 0.6)), url(../) center top no-repeat fixed !important;
+        }
 
-        #footer .footer-top {
+        #footer {
             background: rgb(123, 87, 140) !important;
         }
 
-        #footer .footer-newsletter {
+            #footer .footer-top {
+                background: rgb(123, 87, 140) !important;
+            }
+
+            #footer .footer-newsletter {
+                background: rgb(123, 87, 140) !important;
+            }
+
+        a.page-link {
+            color: rgb(123, 87, 140) !important;
+        }
+
+        #footer .footer-newsletter form input[type="submit"] {
             background: rgb(123, 87, 140) !important;
         }
 
-    a.page-link {
-        color: rgb(123, 87, 140) !important;
-    }
+        #footer .footer-newsletter h4 {
+            color: #fff !important;
+        }
 
-    #footer .footer-newsletter form input[type="submit"] {
-        background: rgb(123, 87, 140) !important;
-    }
+        #footer .footer-top h4 {
+            color: #fff !important;
+        }
 
-    #footer .footer-newsletter h4 {
-        color: #fff !important;
-    }
+        #footer .footer-top .footer-info h3 {
+            color: #fff !important;
+        }
 
-    #footer .footer-top h4 {
-        color: #fff !important;
-    }
+        #footer .footer-top .social-links a {
+            background: #fff;
+            color: rgb(123, 87, 140) !important;
+        }
 
-    #footer .footer-top .footer-info h3 {
-        color: #fff !important;
-    }
-
-    #footer .footer-top .social-links a {
-        background: #fff;
-        color: rgb(123, 87, 140) !important;
-    }
-
-    .back-to-top {
-        background: #fff;
-        color: rgb(123, 87, 140) !important;
-    }
+        .back-to-top {
+            background: #fff;
+            color: rgb(123, 87, 140) !important;
+        }
 
 
-    #hero .btn-get-started:hover {
-        background: rgba(117, 80, 135, 0.8) !important;
-    }
+        #hero .btn-get-started:hover {
+            background: rgba(117, 80, 135, 0.8) !important;
+        }
 
-    .propis {
-        border: 1px solid;
-    }
-          slikabody     {
+        .propis {
+            border: 1px solid;
+        }
+
+        slikabody {
             margin: 25px;
-                     }
+        }
 
         div.polaroid {
             background-color: white;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             margin-bottom: 25px;
-         }
-    div.cooontainer {
-        text-align: center;
-        padding: 10px 20px;
-    }
-</style>
+        }
+
+        div.cooontainer {
+            text-align: center;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
 <body>
     <!-- ======= NIKO NIJE PRIJAVLJEN ======= -->
     <!-- ======= Header ======= -->
@@ -185,10 +190,10 @@
             <div class="container">
 
                 <div class="logo float-left">
-                    <h3 class="text-light">
-                        <a href="Index">
+                    <h3 class="text-light" style="color:#fff">
+                        <a href="Index" style="color:#fff">
                             <span>
-                                Образовни Информатор
+                               Образовни информатор
                             </span>
                         </a>
                     </h3>
@@ -228,38 +233,36 @@
                             </ul>
                         </li>
                         <li class="drop-down">
-                            <a href="https://localhost:44390/Publikacije">Публикације</a>
+                            <a href="#">Публикације </a>
                             <ul>
 
-                                <li><a href="https://localhost:44390/Casopisi">Часописи</a></li>
+                                <li><a href="https://localhost:44390/Casopisi/Index">Часописи</a></li>
 
-                                <li><a href="https://localhost:44390/OstalaIzdanja">Друга издања</a></li>
+                                <li><a href="https://localhost:44390/DrugaIzdanja/Index">Друга издања</a></li>
                             </ul>
                         </li>
 
 
                         <li class="drop-down">
-                            <a href="">Стручно усавршавање</a>
+                            <a href="">Стручни скупови</a>
 
 
                             <ul>
-                                <li><a href="#">Саветовања и семинари</a></li>
-                                <li><a href="#">Курсеви и обуке</a></li>
-                                <li><a href="#">Стицање стрчних звања</a></li>
-                                <li><a href="#">Вебинари</a></li>
+                                <li><a href="https://localhost:44390/StrucnaUsavrsavanja/Index">Саветовања и семинари</a></li>
+                                <li><a href="https://localhost:44390/StrucnaUsavrsavanja/SviKurseviIObuke">Курсеви и обуке</a></li>
+                                <li><a href="https://localhost:44390/StrucnaUsavrsavanja/SticanjeStrucnihZvanja">Стицање стрчних звања</a></li>
+                                <li><a href="https://localhost:44390/StrucnaUsavrsavanja/Vebinari">Вебинари</a></li>
 
                             </ul>
 
 
                         </li>
-                        <li><a href="https://localhost:44390/Home/Contact">Продаја и претплата</a></li>
                         <li><a href="Contact">Контакт</a></li>
                     </ul>
                 </nav><!-- .nav-menu -->
 
             </div>
         </header><!-- End Header -->
-
         <main id="main">
             <!-- ======= Features Section ======= -->
             <section class="features">
@@ -267,110 +270,116 @@
                     <br /><br /><br /><br /><br />
                     <div class="section-title">
                         <h2>ЧАСОПИСИ</h2>
-                        
-                    <div class="container">
-                        <br /><br /><br /><br /><br />
-                        <div class="section-title">
-                        
-                        </div>
-                        <style>
-                            div.gallery {
-                                border: 1px solid #ccc;
-                            }
 
-                                div.gallery:hover {
-                                    border: 1px solid #777;
+                        <div class="container">
+                            <br /><br /><br /><br /><br />
+                            <div class="section-title">
+
+                            </div>
+                            <style>
+                                div.gallery {
+                                    border: 1px solid #ccc;
                                 }
 
-                                div.gallery img {
+                                    div.gallery:hover {
+                                        border: 1px solid #777;
+                                    }
+
+                                    div.gallery img {
+                                        display: block;
+                                        width: 100%;
+                                        height: auto;
+                                    }
+
+                                div.desc {
+                                    padding: 15px;
+                                    text-align: center;
+                                }
+
+                                * {
+                                    box-sizing: border-box;
+                                }
+
+                                .responsive {
+                                    padding: 0 6px;
+                                    float: left;
+                                    width: 24.99999%;
+                                }
+
+
+                                .clearfix:after {
+                                    content: "";
+                                    display: table;
+                                    clear: both;
+                                    margin: 0 auto;
+                                }
+
+
+                                .onama {
+                                    text-align: center;
+                                }
+
+                                .slika {
                                     display: block;
-                                    width: 100%;
-                                    height: auto;
+                                    margin: 0 auto;
+                                }
+                            </style>
+
+                            <div class="onama">
+
+                                <h2>Слике наших издања </h2>
+                            </div>
+                            <div class="slika">
+                                @foreach (Casopi item in Model)
+                                {
+                                    <div class="responsive">
+                                        <div class="gallery">
+                                            <a target="_blank" href="#">
+                                                <img src="@Url.Content(item.Slika)" alt="Cinque Terre" width="600" height="400">
+                                            </a>
+                                            <div class="desc">
+                                                @item.Tekst<br />
+                                                <b>@Html.ActionLink("Претплатите се", "Create/" + item.IDCasopis, "Pretplata")</b>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 }
 
-                            div.desc {
-                                padding: 15px;
-                                text-align: center;
-                            }
+                                @*<div class="responsive">
+                                        <div class="gallery">
+                                            <a target="_blank" href="img_forest.jpg">
+                                                <img src="~/Content/images/slika1.png" alt="Fore
+                                                     st" width="600" height="400">
+                                            </a>
+                                            <div class="desc">Add a description of the image here</div>
+                                        </div>
+                                    </div>
 
-                            * {
-                                box-sizing: border-box;
-                            }
+                                    <div class="responsive">
+                                        <div class="gallery">
+                                            <a target="_blank" href="img_lights.jpg">
+                                                <img src="~/Content/images/slika1.png" alt="Northern Lights" width="600" height="400">
+                                            </a>
+                                            <div class="desc">Add a description of the image here</div>
+                                        </div>
+                                    </div>
+                                    <div class="responsive">
+                                        <div class="gallery">
+                                            <a target="_blank" href="img_forest.jpg">
+                                                <img src="~/Content/images/slika1.png" alt="Fore
+                                                     st" width="600" height="400">
+                                            </a>
+                                            <div class="desc">Add a description of the image here</div>
+                                        </div>
+                                    </div>*@
 
-                            .responsive {
-                                padding: 0 6px;
-                                float: left;
-                                width: 24.99999%;
-                            }
 
+                                <div class="clearfix"></div>
 
-                            .clearfix:after {
-                                content: "";
-                                display: table;
-                                clear: both;
-                                margin: 0 auto;
-                            }
-
-
-                            .onama {
-                                text-align: center;
-                            }
-
-                            .slika {
-                                display: block;
-                                margin: 0 auto;
-                            }
-                        </style>
-
-                        <div class="onama">
-
-                            <h2>Слике наших издања </h2>
-                        </div>
-                        <div class="slika">
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="~/Content/images/slika1.png">
-                                        <img src="~/Content/images/slika1.png" alt="Cinque Terre" width="600" height="400">
-                                    </a>
-                                    <div class="desc">Add a description of the image here</div>
-                                </div>
                             </div>
-
-
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="img_forest.jpg">
-                                        <img src="~/Content/images/slika1.png" alt="Fore
-                                             st" width="600" height="400">
-                                    </a>
-                                    <div class="desc">Add a description of the image here</div>
-                                </div>
-                            </div>
-
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="img_lights.jpg">
-                                        <img src="~/Content/images/slika1.png" alt="Northern Lights" width="600" height="400">
-                                    </a>
-                                    <div class="desc">Add a description of the image here</div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="img_forest.jpg">
-                                        <img src="~/Content/images/slika1.png" alt="Fore
-                                             st" width="600" height="400">
-                                    </a>
-                                    <div class="desc">Add a description of the image here</div>
-                                </div>
-                            </div>
-
-
-                            <div class="clearfix"></div>
 
                         </div>
-
-                    </div>
                     </div>
 
 
@@ -383,6 +392,7 @@
     {
         Korisnik k = (Korisnik)Session["Korisnk"];
         {
+            <!-- ======= Header ======= -->
             <header id="header" class="fixed-top header-transparent">
                 <div class="container">
 
@@ -400,24 +410,11 @@
                     <nav class="nav-menu float-right d-none d-lg-block">
                         <ul>
                             <li class="active"><a href="https://localhost:44390/Home/Index">Почетна <i class="la la-angle-down"></i></a></li>
-                            <li><a href="https://localhost:44390/Home/About">О Нама</a></li>
+                            <li><a href="https://localhost:44390/Narudzbenica/Index">Наруџбенице</a></li>
                             <li><a href="https://localhost:44390/StatistikaIPodaci/Index">Статистика и Подаци </a></li>
                             <li class="drop-down">
-                                <a href="#">Делатности </a>
-                                <ul>
+                                <a href="https://localhost:44390/Pretplata/Index">Претплатници </a>
 
-                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа</a></li>
-
-                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/LokalnaSamouprava">Локална самоуправа</a></li>
-                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Zdravstvo">Здравство </a></li>
-                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Prosveta">Просвета </a></li>
-                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/SocijalnaZastita">Социјална заштита </a></li>
-                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Kultura">Култура </a></li>
-                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Nauka">Наука </a></li>
-                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Pravosudje">Правосуђе </a></li>
-                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/OmladinaISport">Омладина и спорт </a></li>
-                                    <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca">Јавна предузећа </a></li>
-                                </ul>
                             </li>
                             <li class="drop-down">
                                 <a href="#">Прописи</a>
@@ -433,29 +430,28 @@
                                 <a href="#">Публикације </a>
                                 <ul>
 
-                                    <li><a href="#">Часописи</a></li>
+                                    <li><a href="https://localhost:44390/Casopisi/Index">Часописи</a></li>
 
-                                    <li><a href="#">Друга издања</a></li>
+                                    <li><a href="https://localhost:44390/DrugaIzdanja/Index">Друга издања</a></li>
                                 </ul>
                             </li>
 
 
                             <li class="drop-down">
-                                <a href="">Стручно усавршавање</a>
+                                <a href="">Стручни скупови</a>
 
 
                                 <ul>
-                                    <li><a href="#">Саветовања и семинари</a></li>
-                                    <li><a href="#">Курсеви и обуке</a></li>
-                                    <li><a href="#">Стицање стрчних звања</a></li>
-                                    <li><a href="#">Вебинари</a></li>
+                                    <li><a href="https://localhost:44390/StrucnaUsavrsavanja/Index">Саветовања и семинари</a></li>
+                                    <li><a href="https://localhost:44390/StrucnaUsavrsavanja/SviKurseviIObuke">Курсеви и обуке</a></li>
+                                    <li><a href="https://localhost:44390/StrucnaUsavrsavanja/SticanjeStrucnihZvanja">Стицање стрчних звања</a></li>
+                                    <li><a href="https://localhost:44390/StrucnaUsavrsavanja/Vebinari">Вебинари</a></li>
 
                                 </ul>
 
 
                             </li>
-                            <li><a href="https://localhost:44390/Home/Contact">Продаја и претплата</a></li>
-                            <li><a href="Contact">Контакт</a></li>
+                            <li><a href="https://localhost:44390/Prijava/Index">Пријаве</a></li>
                         </ul>
                     </nav><!-- .nav-menu -->
 
@@ -468,7 +464,7 @@
                     <div class="container">
                         <br /><br /><br /><br /><br />
 
-         
+
                         <p>
                             @Html.ActionLink("Create New", "Create")
                         </p>
@@ -535,9 +531,11 @@
 
 
                         </table>
-                    
+                    </div>
+
                 </section><!-- End Features Section -->
             </main><!-- End #main -->
+
 
         }
 
@@ -565,12 +563,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <h4>Our Newsletter</h4>
-                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                        <h4>Наша бесплатна обавештења Вама</h4>
+                        <p>Можемо вас редовно обавештавати о нашим семинарима, ове информације имате и на нашој фејсбук страници, поред информација које се налазе на сајту</p>
                     </div>
                     <div class="col-lg-6">
                         <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
+                            <input type="email" name="email" placeholder="Ваш емаил"><input type="submit" value="Учланите се">
                         </form>
                     </div>
                 </div>
@@ -582,46 +580,51 @@
                 <div class="row">
 
                     <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Useful Links</h4>
+                        <h4>Корисни линкови</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/Home/Index">Почетна страна</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/Home/About">О Нама</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/Propisi/Index">Прописи</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Делатности</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/Home/Contact">Контакт</a></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Our Services</h4>
+                        <h4>Делатности:</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/LokalnaSamouprava">Локална самоуправа</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Zdravstvo">Здравство</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Prosveta">Просвета</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/SocijalnaZastita">Социјална заштита</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Kultura">Култура</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Nauka">Наука</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Pravosudje">Правосуђе</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/OmladinaISport">Омладина и спорт</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca">Јавна предузећа</a></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-contact">
-                        <h4>Contact Us</h4>
+                        <h4>Контактирајте нас</h4>
                         <p>
-                            A108 Adam Street <br>
-                            New York, NY 535022<br>
-                            United States <br><br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
+                            Едукативна кућа за савремено пословање <br>
+                            Србија, Београд<br>
+                            Цара Лазара 5А <br><br>
+                            <strong>Телефон:</strong>065-60-73-701 <br>
+                            <strong>Е-Маил</strong> <a href="#email">mihajlovicandjelija@gmail.com</a><br>
                         </p>
 
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-info">
-                        <h3>About Moderna</h3>
-                        <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                        <h3>O Образовном Информатору</h3>
+                        <p>Ту смо да вам помогнемо да унапредите ваше пословање. Успешно послујемо већ 30 година и имамо у плану да наставимо у истом смеру. Наши семинари, часописи и софтвери, помоћиће Вам да кренете напред и останете конкурентни на тржишту.</p>
                         <div class="social-links mt-3">
                             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            <a href="https://www.facebook.com/obrazovni/" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="https://instagram.com/obrazovni?igshid=19r0jfo8rhddv" class="instagram"><i class="bx bxl-instagram"></i></a>
                             <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                         </div>
                     </div>
@@ -632,14 +635,14 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>Образовни Информатор</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>Образовни Информатор</span></strong>. Сва права израде сајта су задржана
             </div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ -->
-                <a>    Designed by Лука Догандџић & Анђелија Михајловић</a>
+                Дизајнирано од стране: Лука Доганџић & Анђелија Михајловић<a />
             </div>
         </div>
     </footer><!-- End Footer -->
@@ -664,4 +667,3 @@
 </body>
 
 </html>
-
