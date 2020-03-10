@@ -47,18 +47,21 @@
                 color: rgb(123, 87, 140);
             }
 
-        #header {
+        #header.header-scrolled {
             background: rgb(123, 87, 140) !important;
             height: auto;
+            width:100%;
         }
-
-            #header.header-scrolled {
-                background: rgb(123, 87, 140) !important;
-                height: auto;
-            }
 
         a {
             color: #ffffff;
+        }
+        #header{
+            width:100%;
+           
+            background:rgb(123, 87, 140) !important;
+            height:auto;
+        
         }
 
             a:hover {
@@ -76,10 +79,13 @@
         .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
             color: rgba(232,227,246,0.8);
         }
-
+  
         .nav-menu a {
             color: #ffffff;
+             padding: 23px;
+             
         }
+     
 
             .nav-menu a:hover {
                 color: rgba(232,227,246,0.2) !important;
@@ -153,6 +159,71 @@
             background: rgba(117, 80, 135, 0.8) !important;
         }
 
+     
+        .blog .blog-pagination li {
+            margin: 0 auto;
+            color: rgb(123, 87, 140) !important;
+        }
+
+        .edit {
+            color: mediumpurple;
+        }
+
+        .delete {
+            color: mediumpurple;
+        }
+
+        #hero::before {
+            background: linear-gradient(to right, rgba(112, 65, 117, 0.72), rgba(98, 0, 121, 0.6)), url(../) center top no-repeat fixed !important;
+        }
+
+        #footer {
+            background: rgb(123, 87, 140) !important;
+        }
+
+            #footer .footer-top {
+                background: rgb(123, 87, 140) !important;
+            }
+
+            #footer .footer-newsletter {
+                background: rgb(123, 87, 140) !important;
+            }
+
+        a.page-link {
+            color: rgb(123, 87, 140) !important;
+        }
+
+        #footer .footer-newsletter form input[type="submit"] {
+            background: rgb(123, 87, 140) !important;
+        }
+
+        #footer .footer-newsletter h4 {
+            color: #fff !important;
+        }
+
+        #footer .footer-top h4 {
+            color: #fff !important;
+        }
+
+        #footer .footer-top .footer-info h3 {
+            color: #fff !important;
+        }
+
+        #footer .footer-top .social-links a {
+            background: #fff;
+            color: rgb(123, 87, 140) !important;
+        }
+
+        .back-to-top {
+            background: #fff;
+            color: rgb(123, 87, 140) !important;
+        }
+
+
+        #hero .btn-get-started:hover {
+            background: rgba(117, 80, 135, 0.8) !important;
+        }
+
         .facts .counters span {
             color: rgba(123,87,140,1) !important;
         }
@@ -160,14 +231,13 @@
         .testimonials .owl-dot.active {
             background-color: rgb(123, 87, 140) !important;
         }
-
-        .nav-menu {
-        }
-
-        #naslov {
-            margin: auto;
-            width: 50%;
-            padding: 10px;
+        .nav-menu{
+    
+}
+        #naslov{
+             margin: auto;
+  width: 50%;
+  padding: 10px;
         }
     </style>
 </head>
@@ -179,6 +249,7 @@
 
             <div class="logo float-left">
                 <h3 class="text-light">
+                    <a href="Index"><img src="~/Content/images/Asset 3 (1).png" alt="" class="img-fluid"></a>
                     <a href="Index">
                         <span>
                             Образовни Информатор

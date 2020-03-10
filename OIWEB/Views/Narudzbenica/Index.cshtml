@@ -50,50 +50,53 @@
         ======================================================== -->
         <style>
             #hero {
-                width: 100%;
-                height: 70vh;
+            width: 100%;
+            height: 70vh;
+        }
+
+            #hero .btn-get-started {
+                border: #fff;
+                background: #fff;
+                color: rgb(123, 87, 140);
             }
 
-                #hero .btn-get-started {
-                    border: #fff;
-                    background: #fff;
-                    color: rgb(123, 87, 140);
-                }
+        #header.header-scrolled {
+            background: rgb(123, 87, 140) !important;
+            height: auto;
+            width:100%;
+        }
 
-            #header {
-                background: rgb(123, 87, 140) !important;
-                height: auto;
-            }
+        a {
+            color: rgba(98, 0, 121, 0.6);
+        }
+        #header{
+            width:100%;
+            background: rgb(123, 87, 140)!important;
+            height:auto;
+        
+        }
 
-                #header.header-scrolled {
-                    background: rgb(123, 87, 140) !important;
-                    height: auto;
-                }
-
-
-            a {
-                color: rgba(98, 0, 121, 0.6);
-            }
-
-                a:hover {
-                    color: rgba(232,227,246,0.8);
-                }
-
-            .section-title h2::after {
-                background: rgba(98, 0, 121, 0.6);
-            }
-
-            .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-                color: #ffffff;
-            }
-
-            .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
+            a:hover {
                 color: rgba(232,227,246,0.8);
             }
 
-            .nav-menu a {
-                color: #ffffff;
-            }
+        .section-title h2::after {
+            background: rgba(98, 0, 121, 0.6);
+        }
+
+        .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+            color: #ffffff;
+        }
+
+        .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
+            color: rgba(232,227,246,0.8);
+        }
+  
+        .nav-menu a {
+            color: #ffffff;
+            padding: 15px;
+             
+        }
 
                 .nav-menu a:hover {
                     color: rgba(232,227,246,0.2) !important;
@@ -101,19 +104,6 @@
 
             #hero::after {
                 background: linear-gradient(to right, rgba(139, 121, 141, 0.6), rgba(98, 0, 121, 0.6)), center top no-repeat fixed !important;
-            }
-
-            .blog .blog-pagination li {
-                margin: 0 auto;
-                color: rgb(123, 87, 140) !important;
-            }
-
-            .edit {
-                color: mediumpurple;
-            }
-
-            .delete {
-                color: mediumpurple;
             }
 
             #hero::before {
@@ -178,8 +168,9 @@
 
                 <div class="logo float-left">
                     <h3 class="text-light">
-                        <a href="Index" class="naslov">
-                            <span>
+                        <a href="Index"><img src="~/Content/images/Asset 3 (1).png" alt="" class="img-fluid"></a>
+                        <a href="Index">
+                            <span style="color:#fff">
                                 Образовни Информатор
                             </span>
                         </a>
@@ -190,24 +181,11 @@
                 <nav class="nav-menu float-right d-none d-lg-block">
                     <ul>
                         <li class="active"><a href="https://localhost:44390/Home/Index">Почетна <i class="la la-angle-down"></i></a></li>
-                        <li><a href="https://localhost:44390/Home/About">О Нама</a></li>
+                        <li><a href="https://localhost:44390/Narudzbenica/Index">Наруџбенице</a></li>
                         <li><a href="https://localhost:44390/StatistikaIPodaci/Index">Статистика и Подаци </a></li>
                         <li class="drop-down">
-                            <a href="#">Делатности </a>
-                            <ul>
+                            <a href="https://localhost:44390/Pretplata/Index">Претплатници </a>
 
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа</a></li>
-
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/LokalnaSamouprava">Локална самоуправа</a></li>
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Zdravstvo">Здравство </a></li>
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Prosveta">Просвета </a></li>
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/SocijalnaZastita">Социјална заштита </a></li>
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Kultura">Култура </a></li>
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Nauka">Наука </a></li>
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Pravosudje">Правосуђе </a></li>
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/OmladinaISport">Омладина и спорт </a></li>
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca">Јавна предузећа </a></li>
-                            </ul>
                         </li>
                         <li class="drop-down">
                             <a href="#">Прописи</a>
@@ -244,7 +222,7 @@
 
 
                         </li>
-                        <li><a href="Contact">Контакт</a></li>
+                        <li><a href="https://localhost:44390/Prijava/Index">Пријаве</a></li>
                     </ul>
                 </nav><!-- .nav-menu -->
 
@@ -345,7 +323,7 @@
             }
 
         </table>
-      
+
         <!-- ======= Footer ======= -->
         <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
 

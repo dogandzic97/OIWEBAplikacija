@@ -53,9 +53,11 @@
                 color: rgb(123, 87, 140);
             }
 
-        #header {
-            background: rgb(123, 87, 140) !important;
-            height: auto;
+          #header{
+            width:100%;
+            background: rgb(123, 87, 140)!important;
+            height:auto;
+        
         }
 
             #header.header-scrolled {
@@ -64,10 +66,12 @@
             }
 
 
-        a {
-            color: rgba(98, 0, 121, 0.6);
+     
+        .nav-menu a {
+            color: #ffffff;
+            padding: 15px;
+             
         }
-
             a:hover {
                 color: rgba(232,227,246,0.8);
             }
@@ -176,10 +180,11 @@
             <div class="container">
 
                 <div class="logo float-left">
-                    <h3 class="text-light">
-                        <a href="Index" class="naslov">
-                            <span>
-                                Образовни Информатор
+                    <h3 class="text-light" style="color:#fff">
+                        <a href="Index"><img src="~/Content/images/Asset 3 (1).png" alt="" class="img-fluid"></a>
+                        <a href="Index" style="color:#fff">
+                            <span style="color:#fff">
+                                Образовни информатор
                             </span>
                         </a>
                     </h3>
@@ -249,7 +254,7 @@
 
             </div>
         </header><!-- End Header -->
-        <br /><br /><br /><br />
+        <br />
         <main id="main">
             <!-- ======= Features Section ======= -->
             <section class="features">
@@ -296,13 +301,15 @@
     {
         Korisnik k = (Korisnik)Session["Korisnk"];
         {
+            <!-- ======= Header ======= -->
             <header id="header" class="fixed-top header-transparent">
                 <div class="container">
 
                     <div class="logo float-left">
                         <h3 class="text-light">
+                            <a href="Index"><img src="~/Content/images/Asset 3 (1).png" alt="" class="img-fluid"></a>
                             <a href="Index">
-                                <span>
+                                <span style="color:#fff">
                                     Образовни Информатор
                                 </span>
                             </a>

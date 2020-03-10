@@ -15,7 +15,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    `
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -174,7 +173,10 @@
             background-color: rgb(123, 87, 140) !important;
         }
 
-        .nav-menu {
+       .nav-menu a {
+            color: #ffffff;
+            padding: 15px;
+             
         }
 
         #naslov {
@@ -186,12 +188,13 @@
 </head>
 
 <body>
-    <!--pocetak hedera-->
+    <!-- ======= Header ======= -->
     <header id="header" class="fixed-top header-transparent">
         <div class="container">
 
             <div class="logo float-left">
                 <h3 class="text-light">
+                    <a href="Index"><img src="~/Content/images/Asset 3 (1).png" alt="" class="img-fluid"></a>
                     <a href="Index">
                         <span>
                             Образовни Информатор
@@ -252,7 +255,7 @@
         </div>
     </header><!-- End Header -->
 
-    <br /><br /><br /><br />
+    <br /><br /><br />
 
     <p>
         @ViewBag.Greska;
@@ -297,7 +300,7 @@
                     <div class="col-md-6 form-group">
                         @foreach (PropisTxt t in tekstovi)
                         {
-                            <textarea name="Tekst"  class="form-control" id="Tekst" style="height:150px" data-rule="minlen:4" data-msg="Морате унети цео број">@t.Tekst</textarea>
+                            <textarea name="Tekst" class="form-control" id="Tekst" style="height:150px" data-rule="minlen:4" data-msg="Морате унети цео број">@t.Tekst</textarea>
                         }
                         <div class="validate"> </div>
                     </div>

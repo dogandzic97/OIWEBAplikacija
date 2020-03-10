@@ -84,10 +84,11 @@
             color: rgba(232,227,246,0.8);
         }
 
-        .nav-menu a {
+      .nav-menu a {
             color: #ffffff;
+            padding: 15px;
+             
         }
-
             .nav-menu a:hover {
                 color: rgba(232,227,246,0.2) !important;
             }
@@ -163,8 +164,7 @@
         .naslov {
             color: #fff;
         }
-        .centarForma{
-        
+        .centarForma{   
   margin: auto;
   width: 50%;
  
@@ -180,8 +180,9 @@
 
             <div class="logo float-left">
                 <h3 class="text-light">
+                    <a href="Index"><img src="~/Content/images/Asset 3 (1).png" alt="" class="img-fluid"></a>
                     <a href="Index" class="naslov">
-                        <span>
+                        <span style="color:#fff">
                             Образовни Информатор
                         </span>
                     </a>
@@ -253,7 +254,7 @@
         </div>
     </header><!-- End Header -->
     <br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <h2>Поручите</h2>
+
 
     <div class="centarForma">
         @using (Html.BeginForm())
@@ -261,7 +262,7 @@
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <h4>Наруџбеница</h4>
+                <h4>Наруџбеница за наша издања</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">

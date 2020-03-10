@@ -46,38 +46,22 @@
 
 
     <style>
-        #hero {
-            width: 100%;
-            height: 70vh;
+          a {
+            color: #ffffff;
         }
 
-            #hero .btn-get-started {
-                border: #fff;
-                background: #fff;
-                color: rgb(123, 87, 140);
-            }
-
         #header {
-            background: rgb(123, 87, 140) !important;
+            background: rgb(123, 87, 140)!important;
+            height:auto;
+
+        }
+
+        a:hover {
+            color: rgba(232,227,246,0.8);
             height: auto;
         }
 
-            #header.header-scrolled {
-                background: rgb(123, 87, 140) !important;
-                height: auto;
-            }
 
-        a {
-            color: mediumpurple;
-        }
-
-            a:hover {
-                color: rgb(123, 87, 140);
-            }
-
-        .section-title h2::after {
-            background: rgba(98, 0, 121, 0.6);
-        }
 
         .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
             color: #ffffff;
@@ -92,18 +76,17 @@
         }
 
             .nav-menu a:hover {
-                color: rgba(232,227,246,0.2) !important;
+                color: rgba(232,227,246,0.8);
             }
 
         #hero::after {
-            background: linear-gradient(to right, rgba(139, 121, 141, 0.6), rgba(98, 0, 121, 0.6)), center top no-repeat fixed !important;
+            background: linear-gradient(to right, rgba(139, 121, 141, 0.6), rgba(98, 0, 121, 0.6)), url(../) center top no-repeat fixed;
         }
-
-        .blog .blog-pagination li {
-            margin: 0 auto;
-            color: rgb(123, 87, 140) !important;
+         .nav-menu a {
+            color: #ffffff;
+            padding: 15px;
+             
         }
-
         .edit {
             color: mediumpurple;
         }
@@ -196,6 +179,7 @@
 
             <div class="logo float-left">
                 <h3 class="text-light">
+                    <a href="Index"><img src="~/Content/images/Asset 3 (1).png" alt="" class="img-fluid"></a>
                     <a href="Index" style="color:#fff">
                         <span>
                             Образовни Информатор
@@ -266,7 +250,7 @@
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <h4>Часописи</h4>
+                <h4>Измена информација о часопису</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.IDCasopis)

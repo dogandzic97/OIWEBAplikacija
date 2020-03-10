@@ -44,7 +44,7 @@
     <style>
         #hero {
             width: 100%;
-            height: 70vh;
+            height: 280px;
         }
 
             #hero .btn-get-started {
@@ -56,11 +56,19 @@
         #header.header-scrolled {
             background: rgb(123, 87, 140) !important;
             height: auto;
+            width:100%;
         }
 
         a {
             color: #ffffff;
         }
+        #header{
+            width:100%;
+            background:rgba(88, 39, 111, 0.86) !important;
+            /*background:linear-gradient(to right, rgba(139, 121, 141, 0.6), rgba(98, 0, 121, 0.6)), center top no-repeat fixed !important*/
+        }
+        
+     
 
             a:hover {
                 color: rgba(232,227,246,0.8);
@@ -77,17 +85,21 @@
         .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
             color: rgba(232,227,246,0.8);
         }
-
+  
         .nav-menu a {
             color: #ffffff;
+            padding: 15px;
+             
         }
+     
 
             .nav-menu a:hover {
                 color: rgba(232,227,246,0.2) !important;
             }
 
         #hero::after {
-            background: linear-gradient(to right, rgba(139, 121, 141, 0.6), rgba(98, 0, 121, 0.6)), center top no-repeat fixed !important;
+           background:linear-gradient(to right, rgb(111, 69, 131), rgb(90, 50, 109)), center top no-repeat fixed !important;
+           padding-bottom:0!important;
         }
 
         .blog .blog-pagination li {
@@ -105,6 +117,11 @@
 
         #hero::before {
             background: linear-gradient(to right, rgba(112, 65, 117, 0.72), rgba(98, 0, 121, 0.6)), url(../) center top no-repeat fixed !important;
+             padding-bottom:0!important;
+        }
+        .section-title{
+            margin-top:0px!important;
+            padding-top:0px!important;
         }
 
         #footer {
@@ -148,11 +165,30 @@
             background: #fff;
             color: rgb(123, 87, 140) !important;
         }
-
+       
 
         #hero .btn-get-started:hover {
             background: rgba(117, 80, 135, 0.8) !important;
         }
+        section.features{
+            padding: 0;
+        }
+        #centar{
+            padding:0px!important;
+        }
+        ceneterForm{
+          
+               text-align:justify;
+                width:auto!important;
+                align-items:center!important;
+        }
+        .ceneterForm{
+  margin: auto;
+  width: 50%;
+
+  padding: 10px;
+        }
+  
     </style>
 </head>
 
@@ -164,15 +200,17 @@
         <header id="header" class="fixed-top header-transparent">
             <div class="container">
 
-                <div class="logo float-left">
+                <div class="logo">
                     <h3 class="text-light">
+                        <a href="Index"><img src="~/Content/images/Asset 3 (1).png" alt="" class="img-fluid"></a>
                         <a href="Index">
-                            <span>
+                            <span id="log">
+
                                 Образовни Информатор
                             </span>
                         </a>
                     </h3>
-                    <!-- <a href="index.html"><img src="~/Content/images/LOGO COREL OI FINAL.jpg" alt="" class="img-fluid"></a>-->
+
                 </div>
 
                 <nav class="nav-menu float-right d-none d-lg-block">
@@ -239,7 +277,7 @@
             </div>
         </header><!-- End Header -->
         <!-- ======= Hero Section ======= -->
-
+        <br /><br /><br />
         <section id="hero" class="d-flex justify-cntent-center align-items-center">
             <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
 
@@ -247,8 +285,8 @@
                 <div class="carousel-item active">
                     <div class="carousel-container">
                         <h2 class="animated fadeInDown">Добро дошли на сајт <span> Образовног Информатора </span></h2>
-                        <p class="animated fadeInUp">Едукативна кућа за савремено пословање, Србија, Цара Лазара 5А, Београд.</p>
-                        <a href="https://localhost:44390/Home/About" class="btn-get-started animated fadeInUp">Прочитајте о пословању фирме</a>
+                        @*<p class="animated fadeInUp">Едукативна кућа за савремено пословање, Србија, Цара Лазара 5А, Београд.</p>*@
+                        @*<a href="https://localhost:44390/Home/About" class="btn-get-started animated fadeInUp">Прочитајте о пословању фирме</a>*@
                     </div>
                 </div>
 
@@ -256,8 +294,8 @@
                 <div class="carousel-item">
                     <div class="carousel-container">
                         <h2 class="animated fadeInDown">Постаните наш претплатник</h2>
-                        <p class="animated fadeInUp">Нудимо Вам могућност да постанете наш претплатник и на тај начин будете у кораку са свим новим дешавањима везаним за пословање установа у јавном сектору </p>
-                        <a href="https://localhost:44390/Home/About" class="btn-get-started animated fadeInUp">Прочитајте о пословању фирме</a>
+                        @*<p class="animated fadeInUp">Нудимо Вам могућност да постанете наш претплатник и на тај начин будете у кораку са свим новим дешавањима везаним за пословање установа у јавном сектору </p>
+                            <a href="https://localhost:44390/Home/About" class="btn-get-started animated fadeInUp">Прочитајте о пословању фирме</a>*@
                     </div>
                 </div>
 
@@ -265,8 +303,8 @@
                 <div class="carousel-item">
                     <div class="carousel-container">
                         <h2 class="animated fadeInDown">Посетите наше семинаре</h2>
-                        <p class="animated fadeInUp">Унапредите своје пословање тако што ћете уз нашу помоћ остати упућени у сва дешавања везана за јавни сектор, дозволите нам да Вам помогнемо. Посаветоваћемо вас и одговорити на сва ваша питања и недоумице.</p>
-                        <a href="https://localhost:44390/Home/About" class="btn-get-started animated fadeInUp">Прочитајте о пословању фирме</a>
+                        @*<p class="animated fadeInUp">Унапредите своје пословање тако што ћете уз нашу помоћ остати упућени у сва дешавања везана за јавни сектор, дозволите нам да Вам помогнемо. Посаветоваћемо вас и одговорити на сва ваша питања и недоумице.</p>
+                            <a href="https://localhost:44390/Home/About" class="btn-get-started animated fadeInUp">Прочитајте о пословању фирме</a>*@
                     </div>
                 </div>
 
@@ -282,50 +320,58 @@
 
             </div>
         </section><!-- End Hero -->
+      
+          
+          
 
-        <main id="main">
 
+                <!-- ======= Features Section ======= -->
 
-            <!-- ======= Features Section ======= -->
-            <section class="features">
-                <div class="container">
+                <section class="ceneterForm">
 
-                    <div class="section-title">
-                        <h2>АКТУЕЛНО У ЈАВНОМ СЕКТОРУ</h2>
+                    <div class="container" id="centar">
 
-                    </div>
-                    @foreach (var item in Model)
-                    {
-                        List<ClanciTxt> clanciTxt = (List<ClanciTxt>)ViewBag.Tekstovi;
-                        foreach (var tekst in clanciTxt)
+                        <div class="section-title">
+                            <h2>АКТУЕЛНО У ЈАВНОМ СЕКТОРУ</h2>
+
+                        </div>
+
+                        @foreach (var item in Model)
                         {
-                            if (item.IDClanak == tekst.IDClanak)
+                            List<ClanciTxt> clanciTxt = (List<ClanciTxt>)ViewBag.Tekstovi;
+                            foreach (var tekst in clanciTxt)
                             {
+                                if (item.IDClanak == tekst.IDClanak)
+                                {
 
 
 
-                                <div class="row" data-aos="fade-up">
+                                    <div class="row" data-aos="fade-up">
 
-                                    <div class="col-md-7 pt-4">
-                                        <h2>@item.Tip</h2>
-                                        <h3>
-                                            @tekst.Naslov
-                                        </h3>
-                                        <p>
-                                            @tekst.Tekst
-                                        </p>
-                                        <p>@item.Datum</p>
+                                        <div class="col-md-7 pt-4">
+                                            <h2 style="text-align:center">@item.Tip</h2>
+                                            <h4 style="text-align:center">
+                                                @tekst.Naslov
+                                            </h4>
+                                            <p style="text-align:justify">
+                                                @tekst.Tekst
+                                            </p>
+                                            <p>@item.Datum</p>
 
+                                        </div>
                                     </div>
-                                </div>
+                                }
                             }
                         }
-                    }
 
 
-                </div>
-            </section><!-- End Features Section -->
-        </main><!-- End #main -->
+
+                    </div>
+                </section><!-- End Features Section -->
+
+        
+
+
     }
     <!-- ======= ADMIN PRIJAVA ======= -->
     @if (Session["korisnik"] != null)
@@ -337,6 +383,7 @@
 
                 <div class="logo float-left">
                     <h3 class="text-light">
+                        <a href="Index"><img src="~/Content/images/Asset 3 (1).png" alt="" class="img-fluid"></a>
                         <a href="Index">
                             <span>
                                 Образовни Информатор
@@ -353,7 +400,7 @@
                         <li><a href="https://localhost:44390/StatistikaIPodaci/Index">Статистика и Подаци </a></li>
                         <li class="drop-down">
                             <a href="https://localhost:44390/Pretplata/Index">Претплатници </a>
-                            
+
                         </li>
                         <li class="drop-down">
                             <a href="#">Прописи</a>
@@ -562,7 +609,7 @@
                     <div class="col-lg-3 col-md-6 footer-contact">
                         <h4>Контактирајте нас</h4>
                         <p>
-                           Едукативна кућа за савремено пословање <br>
+                            Едукативна кућа за савремено пословање <br>
                             Србија, Београд<br>
                             Цара Лазара 5А <br><br>
                             <strong>Телефон:</strong>065-60-73-701 <br>
@@ -595,10 +642,11 @@
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ -->
-                Дизајнирано од стране: Лука Доганџић & Анђелија Михајловић<a/>
+                Дизајнирано од стране: Лука Доганџић & Анђелија Михајловић<a />
             </div>
         </div>
     </footer><!-- End Footer -->
+
 
     <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 

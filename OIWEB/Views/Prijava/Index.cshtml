@@ -58,14 +58,17 @@
         #header.header-scrolled {
             background: rgb(123, 87, 140) !important;
             height: auto;
-        }
-        #header {
-            background: rgb(123, 87, 140) !important;
-            height: auto;
+            width:100%;
         }
 
         a {
             color: #ffffff;
+        }
+        #header{
+            width:100%;
+            background: rgb(123, 87, 140)!important;
+            height:auto;
+        
         }
 
             a:hover {
@@ -83,10 +86,13 @@
         .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
             color: rgba(232,227,246,0.8);
         }
-
+  
         .nav-menu a {
             color: #ffffff;
+            padding: 15px;
+             
         }
+     
 
             .nav-menu a:hover {
                 color: rgba(232,227,246,0.2) !important;
@@ -129,9 +135,7 @@
             color: rgb(123, 87, 140) !important;
         }
 
-        #footer .footer-newsletter form input[type="submit"] {
-            background: rgb(123, 87, 140) !important;
-        }
+    #footer .footer-newsletter form input[type="submit"] { background: rgb(123, 87, 140) !important; }
 
         #footer .footer-newsletter h4 {
             color: #fff !important;
@@ -154,10 +158,33 @@
             background: #fff;
             color: rgb(123, 87, 140) !important;
         }
-
+       
 
         #hero .btn-get-started:hover {
             background: rgba(117, 80, 135, 0.8) !important;
+        }
+  
+
+        .propis {
+            border: 1px solid;
+        }
+
+        slikabody {
+            margin: 25px;
+        }
+
+        div.polaroid {
+            background-color: white;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin-bottom: 25px;
+        }
+
+        div.cooontainer {
+            text-align: center;
+            padding: 10px 20px;
+        }
+        a{
+            color:rgba(98, 0, 121, 0.6);
         }
     </style>
 </head>
@@ -167,13 +194,15 @@
     <!-- ======= Header ======= -->
     @if (k != null)
     {
+        <!-- ======= Header ======= -->
         <header id="header" class="fixed-top header-transparent">
             <div class="container">
 
                 <div class="logo float-left">
                     <h3 class="text-light">
+                        <a href="Index"><img src="~/Content/images/Asset 3 (1).png" alt="" class="img-fluid"></a>
                         <a href="Index">
-                            <span>
+                            <span style="color:#fff">
                                 Образовни Информатор
                             </span>
                         </a>
@@ -235,7 +264,7 @@
         <h2>Испис свих пријава </h2>
 
 
-        <table class="table-bordered">
+        <table class="table">
             <tr>
                 <th>
                     @Html.DisplayName("Датум пријаве:")
@@ -281,9 +310,7 @@
                                 <td>
                                     @p.NazivPravnogLica
                                 </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.IDPravnoLice)
-                                </td>
+
                                 <td>
 
                                     @Html.ActionLink("Детаљи о правном лицу", "Details", new { id = item.IDPrijave }) |

@@ -44,7 +44,7 @@
 
 
     <style>
-        #hero {
+      #hero {
             width: 100%;
             height: 70vh;
         }
@@ -55,22 +55,24 @@
                 color: rgb(123, 87, 140);
             }
 
-        #header {
+        #header.header-scrolled {
             background: rgb(123, 87, 140) !important;
             height: auto;
+            width:100%;
         }
 
-            #header.header-scrolled {
-                background: rgb(123, 87, 140) !important;
-                height: auto;
-            }
-
         a {
-            color: mediumpurple;
+            color: #ffffff;
+        }
+        #header{
+            width:100%;
+            background: rgb(123, 87, 140)!important;
+            height:auto;
+        
         }
 
             a:hover {
-                color: rgb(123, 87, 140);
+                color: rgba(232,227,246,0.8);
             }
 
         .section-title h2::after {
@@ -84,10 +86,13 @@
         .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
             color: rgba(232,227,246,0.8);
         }
-
+  
         .nav-menu a {
             color: #ffffff;
+            padding: 15px;
+             
         }
+     
 
             .nav-menu a:hover {
                 color: rgba(232,227,246,0.2) !important;
@@ -130,9 +135,7 @@
             color: rgb(123, 87, 140) !important;
         }
 
-        #footer .footer-newsletter form input[type="submit"] {
-            background: rgb(123, 87, 140) !important;
-        }
+    #footer .footer-newsletter form input[type="submit"] { background: rgb(123, 87, 140) !important; }
 
         #footer .footer-newsletter h4 {
             color: #fff !important;
@@ -155,11 +158,12 @@
             background: #fff;
             color: rgb(123, 87, 140) !important;
         }
-
+       
 
         #hero .btn-get-started:hover {
             background: rgba(117, 80, 135, 0.8) !important;
         }
+  
 
         .propis {
             border: 1px solid;
@@ -179,6 +183,9 @@
             text-align: center;
             padding: 10px 20px;
         }
+        a{
+            color:rgba(98, 0, 121, 0.6);
+        }
     </style>
 </head>
 <body>
@@ -191,9 +198,10 @@
 
                 <div class="logo float-left">
                     <h3 class="text-light" style="color:#fff">
+                        <a href="Index"><img src="~/Content/images/Asset 3 (1).png" alt="" class="img-fluid"></a>
                         <a href="Index" style="color:#fff">
-                            <span>
-                               Образовни информатор
+                            <span style="color:#fff">
+                                Образовни информатор
                             </span>
                         </a>
                     </h3>
@@ -398,8 +406,9 @@
 
                     <div class="logo float-left">
                         <h3 class="text-light">
+                            <a href="Index"><img src="~/Content/images/Asset 3 (1).png" alt="" class="img-fluid"></a>
                             <a href="Index">
-                                <span>
+                                <span style="color:#fff">
                                     Образовни Информатор
                                 </span>
                             </a>
@@ -466,31 +475,32 @@
 
 
                         <p>
-                            @Html.ActionLink("Create New", "Create")
+                            @Html.ActionLink("Креирај часопис", "Create")
                         </p>
                         <table class="table">
                             <tr>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Naslov)
+                                    @Html.DisplayName("Наслов")
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Tekst)
+                                    @Html.DisplayName("Текст")
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Sadrzaj)
+                                    @Html.DisplayName("Садржај")
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Datum)
+                                    @Html.DisplayName("Датум")
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.BrojIzdanja)
+                                    @Html.DisplayName("Број издања")
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Slika)
+                                    @Html.DisplayName("Слика")
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.IDKorisnika)
+                                   
                                 </th>
+                                <th></th>
                                 <th></th>
                             </tr>
 
@@ -515,15 +525,13 @@
                                     <td>
                                         <img src="@Url.Content(item.Slika)" width="250" height="250" />
                                     </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.IDKorisnika)
-                                    </td>
-                                    <td>
-                                        @Html.ActionLink("Edit", "Edit", new { id = item.IDCasopis }) |
-                                        @Html.ActionLink("Details", "Details", new { id = item.IDCasopis }) |
+                                    
+                                    <td colspan="3">
+                                        @Html.ActionLink("Измени", "Edit", new { id = item.IDCasopis }) |
+                                        @Html.ActionLink("Детаљи", "Details", new { id = item.IDCasopis }) |
                                         @using (Html.BeginForm("Delete", "Casopisi", new { id = item.IDCasopis }))
                                         {
-                                            <input type="submit" value="Бриши" onclick="return confirm('Да ли сте сигурни да желите да избришете @item.Naslov часопис?' )" />
+                                            <input type="submit" class="btn btn-sm btn-outline-info" value="Бриши" onclick="return confirm('Да ли сте сигурни да желите да избришете @item.Naslov часопис?' )" />
                                         }
                                     </td>
                                 </tr>

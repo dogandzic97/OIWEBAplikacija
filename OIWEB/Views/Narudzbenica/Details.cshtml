@@ -88,8 +88,10 @@
             }
 
             .nav-menu a {
-                color: #ffffff;
-            }
+            color: #ffffff;
+            padding: 15px;
+             
+        }
 
                 .nav-menu a:hover {
                     color: rgba(232,227,246,0.2) !important;
@@ -166,17 +168,26 @@
             .naslov {
                 color: #fff;
             }
+       .centerForma{   
+  margin: auto;
+  width: 50%;
+ 
+  padding: 10px;
+
+        }
         </style>
     </head>
-
+     @if (Session["Korisnik"] != null)
+     {
     <body>
         <header id="header" class="fixed-top header-transparent">
             <div class="container">
 
                 <div class="logo float-left">
                     <h3 class="text-light">
+                        <a href="Index"><img src="~/Content/images/Asset 3 (1).png" alt="" class="img-fluid"></a>
                         <a href="Index" class="naslov">
-                            <span>
+                            <span style="color:#fff">
                                 Образовни Информатор
                             </span>
                         </a>
@@ -250,7 +261,7 @@
         <br /><br /><br /><br />
         <h2>Контакт особа</h2>
 
-        <div>
+        <div class="centerForma">
             <h4>Подаци о контакт особи</h4>
             <hr />
             <dl class="dl-horizontal">
@@ -303,11 +314,12 @@
                 </dd>
 
             </dl>
-        </div>
-        <p>
 
-            @Html.ActionLink("Назад на листу наруџбеница", "Index")
-        </p>
+            <p>
+
+                @Html.ActionLink("Назад на листу наруџбеницe", "Index")
+            </p>
+        </div>
 
         <!-- ======= Footer ======= -->
         <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
@@ -418,6 +430,7 @@
         <script src="~/Content/assets/js/main.js"></script>
 
     </body>
+     }
 
 </html>
 }

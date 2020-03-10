@@ -270,7 +270,7 @@
                         <h2 style="font-size:18px">@item.AdresaOdrzavanja</h2>
                         <p style="font-size:16px;"><b><i>@item.DatumOdrzavanja</i></b></p>
                         <p> @Html.ActionLink("Детаљни приказ", "Details", new { id = item.IDUsavrsavanja }, new { @class = "details", }) |</p>
-                        <p> @Html.ActionLink("Пријави се за семинар", "Details", new { id = item.IDUsavrsavanja }, new { @class = "details" }) |</p>
+                        <p> @Html.ActionLink("Пријави се за семинар", "Create/"+item.IDUsavrsavanja,"Prijava") |</p>
 
                     }
 
