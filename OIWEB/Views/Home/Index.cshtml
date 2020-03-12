@@ -52,6 +52,7 @@
                 background: #fff;
                 color: rgb(123, 87, 140);
             }
+           
 
         #header.header-scrolled {
             background: rgb(123, 87, 140) !important;
@@ -183,12 +184,67 @@
                 align-items:center!important;
         }
         .ceneterForm{
-  margin: auto;
-  width: 50%;
+         margin: auto;
+            width: 50%;
 
-  padding: 10px;
+             padding: 10px;
         }
-  
+       .korola{
+            float:left;
+            width:250px;
+           
+            margin-left:20px;
+            margin-top:10px;
+         
+            
+           
+        }
+       .korola2{
+           float: left;
+           width:250px;
+           margin-left:0px;
+           margin-top:10px;
+       }
+   
+       .list-group-item-primary{
+           color: white;
+           background-color:purple;
+           margin-bottom:5px;
+           list-style:none;
+       }
+        .col-md-7 {
+         
+            flex: 1000px; 
+            max-width: 1000px; 
+            
+        }
+        #korona{
+             margin-left:40px;
+             
+             
+        }
+        .list-group-item-action{
+           background-color: #7c51a1;
+          color: white;
+          margin-bottom: 2px;
+        }
+        .list-group-item-primary.list-group-item-action.active{
+            background-color:black;
+            border-color: #fff;
+        }
+        .korolad{
+            float:right;
+            width:250px;
+           
+            margin-right:50px;
+            margin-top:10px;
+        }
+        .glyphicon glyphicon-envelope{
+            color:black;
+        }
+        .btn-outline-dark btn-lg{
+            margin-left:10px;
+        }
     </style>
 </head>
 
@@ -222,7 +278,7 @@
                             <a href="#">Делатности </a>
                             <ul>
 
-                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа</a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа <br /></a></li>
 
                                 <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/LokalnaSamouprava">Локална самоуправа</a></li>
                                 <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Zdravstvo">Здравство </a></li>
@@ -320,56 +376,119 @@
 
             </div>
         </section><!-- End Hero -->
-      
-          
-          
 
 
-                <!-- ======= Features Section ======= -->
 
-                <section class="ceneterForm">
+        <div class="korola">
 
-                    <div class="container" id="centar">
+            <ul style="list-style-type:none; ">
 
-                        <div class="section-title">
-                            <h2>АКТУЕЛНО У ЈАВНОМ СЕКТОРУ</h2>
 
-                        </div>
+                <li> <a href="#" id="naslov2" class="list-group-item list-group-item-action list-group-item-primary list-group-item-action active"> Делатности: </a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index" class="list-group-item list-group-item-action "> Државна управа </a> </li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/LokalnaSamouprava" class="list-group-item list-group-item-action "> Локална самоуправа</a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Zdravstvo" class="list-group-item list-group-item-action"> Здравство</a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Prosveta" class="list-group-item list-group-item-action"> Просвета</a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/SocijalnaZastita" class="list-group-item list-group-item-action"> Социјална заштита</a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Kultura" class="list-group-item list-group-item-action"> Култура</a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Nauka" class="list-group-item list-group-item-action">Наука</a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Pravosudje" class="list-group-item list-group-item-action">Правосуђе</a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/OmladinaISport" class="list-group-item list-group-item-action">Омладина и спорт</a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca" class="list-group-item list-group-item-action">Јавна предузећа</a></li>
 
-                        @foreach (var item in Model)
+            </ul>
+
+
+            <div class="korola2">
+
+                <ul style="list-style-type:none; ">
+                    <li><a href="#" class="list-group-item list-group-item-action list-group-item-primary list-group-item-action active">Прописи</a></li>
+                    <li><a href="https://localhost:44390/Propisi/Index " class="list-group-item list-group-item-action">Службени гласник РС</a></li>
+                    <li><a href="https://localhost:44390/Propisi/ProsvetniGlasnik" class="list-group-item list-group-item-action">Службени гласник РС Просветни гласник</a></li>
+                    <li><a href="https://localhost:44390/Propisi/MedjunarodniUgovori" class="list-group-item list-group-item-action">Службени гласник РС Међународни уговори </a></li>
+                    <li><a href="https://localhost:44390/Propisi/SluzbeniListAPVojvodine" class="list-group-item list-group-item-action">Службени лист АП Војводине </a></li>
+                    <li><a href="https://localhost:44390/Propisi/SluzbeniListGradaBeograda" class="list-group-item list-group-item-action">Службени лист града Београда</a></li>
+                </ul>
+
+
+            </div>
+        </div>
+        <div class="korolad">
+
+
+            <ul style="list-style-type:none; ">
+
+
+                <li>  <a href="#" id="naslov2" class="list-group-item list-group-item-action list-group-item-primary list-group-item-action active"> Производи : </a></li>
+                <li> <i class="glyphicon glyphicon-euro"></i>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index" class="list-group-item list-group-item-action "> Питања и одговори </a>  </li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/LokalnaSamouprava" class="list-group-item list-group-item-action "> Инструкције</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Zdravstvo" class="list-group-item list-group-item-action">Часописи </a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Prosveta" class="list-group-item list-group-item-action">Практикуми</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/SocijalnaZastita" class="list-group-item list-group-item-action"> Приручници </a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Kultura" class="list-group-item list-group-item-action">Збирка прописа за јавни сектор</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Nauka" class="list-group-item list-group-item-action">Ин акта</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Pravosudje" class="list-group-item list-group-item-action">Обрасци и извештаји</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/OmladinaISport" class="list-group-item list-group-item-action">Бесплатна саветовања</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca" class="list-group-item list-group-item-action">Пословни тренинзи</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca" class="list-group-item list-group-item-action">Стручни скупови</a></li>
+
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca" class="list-group-item list-group-item-action">Обуке</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca" class="list-group-item list-group-item-action">Специјалне консултације</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca" class="list-group-item list-group-item-action">Софтвери</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca" class="list-group-item list-group-item-action">Пројекти</a></li>
+
+            </ul>
+
+
+
+
+        </div>
+
+        <!-- ======= Features Section ======= -->
+
+        <section class="ceneterForm">
+
+            <div class="container" id="centar">
+                <div class="section-title">
+                    <h2>АКТУЕЛНО У ЈАВНОМ СЕКТОРУ</h2>
+
+                </div>
+
+
+                @foreach (var item in Model)
+                {
+                    List<ClanciTxt> clanciTxt = (List<ClanciTxt>)ViewBag.Tekstovi;
+                    foreach (var tekst in clanciTxt)
+                    {
+                        if (item.IDClanak == tekst.IDClanak)
                         {
-                            List<ClanciTxt> clanciTxt = (List<ClanciTxt>)ViewBag.Tekstovi;
-                            foreach (var tekst in clanciTxt)
-                            {
-                                if (item.IDClanak == tekst.IDClanak)
-                                {
 
 
 
-                                    <div class="row" data-aos="fade-up">
+                            <div class="row" data-aos="fade-up">
 
-                                        <div class="col-md-7 pt-4">
-                                            <h2 style="text-align:center">@item.Tip</h2>
-                                            <h4 style="text-align:center">
-                                                @tekst.Naslov
-                                            </h4>
-                                            <p style="text-align:justify">
-                                                @tekst.Tekst
-                                            </p>
-                                            <p>@item.Datum</p>
+                                <div class="col-md-7 pt-4">
+                                    <h2 style="text-align:center">@item.Tip</h2>
+                                    <h4 style="text-align:center">
+                                        @tekst.Naslov
+                                    </h4>
+                                    <p style="text-align:justify">
+                                        @tekst.Tekst
+                                    </p>
+                                    <p>@item.Datum</p>
 
-                                        </div>
-                                    </div>
-                                }
-                            }
+                                </div>
+                            </div>
                         }
+                    }
+                }
 
 
 
-                    </div>
-                </section><!-- End Features Section -->
+            </div>
+        </section><!-- End Features Section -->
 
-        
+
 
 
     }
@@ -377,30 +496,43 @@
     @if (Session["korisnik"] != null)
     {
         Korisnik korisnik = (Korisnik)Session["korisnik"];
-        <!-- ======= Header ======= -->
         <header id="header" class="fixed-top header-transparent">
             <div class="container">
 
-                <div class="logo float-left">
+                <div class="logo">
                     <h3 class="text-light">
                         <a href="Index"><img src="~/Content/images/Asset 3 (1).png" alt="" class="img-fluid"></a>
                         <a href="Index">
-                            <span>
+                            <span id="log">
+
                                 Образовни Информатор
                             </span>
                         </a>
                     </h3>
-                    <!-- <a href="index.html"><img src="~/Content/images/LOGO COREL OI FINAL.jpg" alt="" class="img-fluid"></a>-->
+
                 </div>
 
                 <nav class="nav-menu float-right d-none d-lg-block">
                     <ul>
                         <li class="active"><a href="https://localhost:44390/Home/Index">Почетна <i class="la la-angle-down"></i></a></li>
-                        <li><a href="https://localhost:44390/Narudzbenica/Index">Наруџбенице</a></li>
+                        <li><a href="https://localhost:44390/Home/About">О Нама</a></li>
                         <li><a href="https://localhost:44390/StatistikaIPodaci/Index">Статистика и Подаци </a></li>
                         <li class="drop-down">
-                            <a href="https://localhost:44390/Pretplata/Index">Претплатници </a>
+                            <a href="#">Делатности </a>
+                            <ul>
 
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index">Државна управа <br /></a></li>
+
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/LokalnaSamouprava">Локална самоуправа</a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Zdravstvo">Здравство </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Prosveta">Просвета </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/SocijalnaZastita">Социјална заштита </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Kultura">Култура </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Nauka">Наука </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Pravosudje">Правосуђе </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/OmladinaISport">Омладина и спорт </a></li>
+                                <li><a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca">Јавна предузећа </a></li>
+                            </ul>
                         </li>
                         <li class="drop-down">
                             <a href="#">Прописи</a>
@@ -437,14 +569,16 @@
 
 
                         </li>
-                        <li><a href="https://localhost:44390/Prijava/Index">Пријаве</a></li>
+                        <li><a href="Contact">Контакт</a></li>
                     </ul>
                 </nav><!-- .nav-menu -->
 
             </div>
         </header><!-- End Header -->
         <!-- ======= Hero Section ======= -->
-
+       
+        <!-- ======= Hero Section ======= -->
+        <br /><br /><br />
         <section id="hero" class="d-flex justify-cntent-center align-items-center">
             <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
 
@@ -452,8 +586,8 @@
                 <div class="carousel-item active">
                     <div class="carousel-container">
                         <h2 class="animated fadeInDown">Добро дошли на сајт <span> Образовног Информатора </span></h2>
-                        <p class="animated fadeInUp">Едукативна кућа за савремено пословање, Србија, Цара Лазара 5А, Београд.</p>
-                        <a href="https://localhost:44390/Home/About" class="btn-get-started animated fadeInUp">Прочитајте о нама</a>
+                        @*<p class="animated fadeInUp">Едукативна кућа за савремено пословање, Србија, Цара Лазара 5А, Београд.</p>*@
+                        @*<a href="https://localhost:44390/Home/About" class="btn-get-started animated fadeInUp">Прочитајте о пословању фирме</a>*@
                     </div>
                 </div>
 
@@ -461,8 +595,8 @@
                 <div class="carousel-item">
                     <div class="carousel-container">
                         <h2 class="animated fadeInDown">Постаните наш претплатник</h2>
-                        <p class="animated fadeInUp">Нудимо Вам могућност да постанете наш претплатник и на тај начин будете у кораку са свим новим дешавањима везаним за пословање установа у јавном сектору </p>
-                        <a href="https://localhost:44390/Home/About" class="btn-get-started animated fadeInUp">Прочитајте о нама</a>
+                        @*<p class="animated fadeInUp">Нудимо Вам могућност да постанете наш претплатник и на тај начин будете у кораку са свим новим дешавањима везаним за пословање установа у јавном сектору </p>
+                            <a href="https://localhost:44390/Home/About" class="btn-get-started animated fadeInUp">Прочитајте о пословању фирме</a>*@
                     </div>
                 </div>
 
@@ -470,28 +604,91 @@
                 <div class="carousel-item">
                     <div class="carousel-container">
                         <h2 class="animated fadeInDown">Посетите наше семинаре</h2>
-                        <p class="animated fadeInUp">Унапредите своје пословање тако што ћете уз нашу помоћ остати упућени у сва дешавања везана за јавни сектор, дозволите нам да Вам помогнемо. Посаветоваћемо вас и одговорити на сва ваша питања и недоумице.</p>
-                        <a href="https://localhost:44390/Home/About" class="btn-get-started animated fadeInUp">Прочитајте о нама</a>
+                        @*<p class="animated fadeInUp">Унапредите своје пословање тако што ћете уз нашу помоћ остати упућени у сва дешавања везана за јавни сектор, дозволите нам да Вам помогнемо. Посаветоваћемо вас и одговорити на сва ваша питања и недоумице.</p>
+                            <a href="https://localhost:44390/Home/About" class="btn-get-started animated fadeInUp">Прочитајте о пословању фирме</a>*@
                     </div>
                 </div>
 
                 <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
+                    <span class="sr-only">Претходно</span>
                 </a>
 
                 <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
                     <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
+                    <span class="sr-only">Следеће</span>
                 </a>
 
             </div>
         </section><!-- End Hero -->
+        <div class="korola">
 
+            <ul style="list-style-type:none; ">
+
+
+                <li> <a href="#" id="naslov2" class="list-group-item list-group-item-action list-group-item-primary list-group-item-action active"> Делатности: </a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index" class="list-group-item list-group-item-action "> Државна управа </a> </li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/LokalnaSamouprava" class="list-group-item list-group-item-action "> Локална самоуправа</a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Zdravstvo" class="list-group-item list-group-item-action"> Здравство</a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Prosveta" class="list-group-item list-group-item-action"> Просвета</a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/SocijalnaZastita" class="list-group-item list-group-item-action"> Социјална заштита</a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Kultura" class="list-group-item list-group-item-action"> Култура</a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Nauka" class="list-group-item list-group-item-action">Наука</a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Pravosudje" class="list-group-item list-group-item-action">Правосуђе</a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/OmladinaISport" class="list-group-item list-group-item-action">Омладина и спорт</a></li>
+                <li> <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca" class="list-group-item list-group-item-action">Јавна предузећа</a></li>
+
+            </ul>
+
+
+            <div class="korola2">
+
+                <ul style="list-style-type:none; ">
+                    <li><a href="#" class="list-group-item list-group-item-action list-group-item-primary list-group-item-action active">Прописи</a></li>
+                    <li><a href="https://localhost:44390/Propisi/Index " class="list-group-item list-group-item-action">Службени гласник РС</a></li>
+                    <li><a href="https://localhost:44390/Propisi/ProsvetniGlasnik" class="list-group-item list-group-item-action">Службени гласник РС Просветни гласник</a></li>
+                    <li><a href="https://localhost:44390/Propisi/MedjunarodniUgovori" class="list-group-item list-group-item-action">Службени гласник РС Међународни уговори </a></li>
+                    <li><a href="https://localhost:44390/Propisi/SluzbeniListAPVojvodine" class="list-group-item list-group-item-action">Службени лист АП Војводине </a></li>
+                    <li><a href="https://localhost:44390/Propisi/SluzbeniListGradaBeograda" class="list-group-item list-group-item-action">Службени лист града Београда</a></li>
+                </ul>
+
+
+            </div>
+        </div>
+        <div class="korolad">
+
+
+            <ul style="list-style-type:none; ">
+
+
+                <li>  <a href="#" id="naslov2" class="list-group-item list-group-item-action list-group-item-primary list-group-item-action active"> Производи : </a></li>
+                <li> <i class="glyphicon glyphicon-euro"></i>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Index" class="list-group-item list-group-item-action "> Питања и одговори </a>  </li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/LokalnaSamouprava" class="list-group-item list-group-item-action "> Инструкције</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Zdravstvo" class="list-group-item list-group-item-action">Часописи </a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Prosveta" class="list-group-item list-group-item-action">Практикуми</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/SocijalnaZastita" class="list-group-item list-group-item-action"> Приручници </a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Kultura" class="list-group-item list-group-item-action">Збирка прописа за јавни сектор</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Nauka" class="list-group-item list-group-item-action">Ин акта</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/Pravosudje" class="list-group-item list-group-item-action">Обрасци и извештаји</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/OmladinaISport" class="list-group-item list-group-item-action">Бесплатна саветовања</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca" class="list-group-item list-group-item-action">Пословни тренинзи</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca" class="list-group-item list-group-item-action">Стручни скупови</a></li>
+
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca" class="list-group-item list-group-item-action">Обуке</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca" class="list-group-item list-group-item-action">Специјалне консултације</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca" class="list-group-item list-group-item-action">Софтвери</a></li>
+                <li>  <a href="https://localhost:44390/SpecificnostiBudzetskihKorisnika/JavnaPreduzeca" class="list-group-item list-group-item-action">Пројекти</a></li>
+
+            </ul>
+
+
+
+
+        </div>
         <main id="main">
 
 
-            <a href="https://localhost:44390/Home/Create" class="btn-outline-dark btn-lg" style="background-color: plum">Додај нови пост </a>
+           <span style="margin-left:22px;"></span> <a href="https://localhost:44390/Home/Create" class="btn-outline-dark btn-lg" style="background-color: plum">Додај нови пост </a>
             <!-- ======= Features Section ======= -->
             <section class="features">
                 <div class="container">
