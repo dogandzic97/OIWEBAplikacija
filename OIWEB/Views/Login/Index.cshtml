@@ -30,28 +30,27 @@
     <link rel="stylesheet" type="text/css" href="~/Content/css/util.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
     <!--===============================================================================================-->
-    
+
+    <!--VALIDATION FILE-->
+    <script src="~/Content/js/validacija.js"></script>
     <!-- STAJLING -->
 
     <style>
 
         .login100-form-btn {
             background-color: rgba(117, 64, 135, 0.8);
-             box-shadow: 0 10px 30px 0px rgba(117, 64, 135, 0.8);
-                -moz-box-shadow: 0 10px 30px 0px rgba(117, 64, 135, 0.8);
-                -webkit-box-shadow: 0 10px 30px 0px rgba(117, 64, 135, 0.8);
-                -o-box-shadow: 0 10px 30px 0px rgba(117, 64, 135, 0.8);
-                -ms-box-shadow: 0 10px 30px 0px rgba(117, 64, 135, 0.8);
+            box-shadow: 0 10px 30px 0px rgba(117, 64, 135, 0.8);
+            -moz-box-shadow: 0 10px 30px 0px rgba(117, 64, 135, 0.8);
+            -webkit-box-shadow: 0 10px 30px 0px rgba(117, 64, 135, 0.8);
+            -o-box-shadow: 0 10px 30px 0px rgba(117, 64, 135, 0.8);
+            -ms-box-shadow: 0 10px 30px 0px rgba(117, 64, 135, 0.8);
         }
 
-        
+
         .txt2 {
-        
-         color: rgba(117, 64, 135, 0.8);
-    
-           
-          }
-      </style>
+            color: rgba(117, 64, 135, 0.8);
+        }
+    </style>
 
 </head>
 <body>
@@ -78,13 +77,13 @@
 
                     <div class="form-group">
                         <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate="Унесите Корисничко име">
-                            <input class="input100" type="text" name="KorisnickoIme">
+                            <input class="input100" type="text" name="KorisnickoIme" id="KorisnickoIme" onblur="return proveriKorisnickoIme()">
                             <span class="focus-input100" data-placeholder="Корисничко име"></span>
                         </div>
                     </div>
 
                     <div class="wrap-input100 validate-input m-b-50" data-validate="Унесите лозинка">
-                        <input class="input100" type="password" name="Lozinka">
+                        <input class="input100" type="password" name="Lozinka" id="Lozinka" onblur="return proveriLozinku()">
                         <span class="focus-input100" data-placeholder="Лозинка"></span>
                     </div>
 
@@ -93,7 +92,7 @@
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Улогуј се" class="login100-form-btn" />
+                            <input type="submit" value="Улогуј се" class="login100-form-btn" onclick="return validacijaLogin()"/>
                         </div>
                     </div>
                     <ul class="login-more p-t-190">

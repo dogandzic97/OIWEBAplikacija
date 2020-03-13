@@ -35,7 +35,8 @@
 
     <!-- Template Main CSS File -->
     <link href="~/Content/assets/css/style.css" rel="stylesheet">
-
+    <!--VALIDATION FILE-->
+    <script src="~/Content/js/validacija.js"></script>
     <!-- =======================================================
     * Template Name: Moderna - v2.0.0
     * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
@@ -270,7 +271,7 @@
                     <div class="form-group">
                         @Html.Label("Наслов:")<br />
                         <div class="col-md-6 form-group">
-                            <input type="text" name="Naslov" class="form-control" id="Naslov" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" value="@Model.Naslov" />
+                            <input type="text" name="Naslov" class="form-control" id="Naslov" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" value="@Model.Naslov" onblur="return proveriNaslov()"/>
                             <div class="validate"> </div>
                         </div>
                     </div>
@@ -278,7 +279,7 @@
                     <div class="form-group">
                         @Html.Label("Датум одржавања:")<br />
                         <div class="col-md-6 form-group">
-                            <input type="text" name="DatumOdrzavanja" class="form-control" id="AdresaOdrzavanja" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" value="@Model.DatumOdrzavanja" />
+                            <input type="text" name="DatumOdrzavanja" class="form-control" id="Datum" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" value="@Model.DatumOdrzavanja" onblur="return proveriDatum()"/>
                             <div class="validate"> </div>
                         </div>
                     </div>
@@ -286,7 +287,7 @@
                     <div class="form-group">
                         @Html.Label("Aдреса одржавања:")<br />
                         <div class="col-md-6 form-group">
-                            <input type="text" name="AdresaOdrzavanja" class="form-control" id="AdresaOdrzavanja" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" value="@Model.AdresaOdrzavanja" />
+                            <input type="text" name="AdresaOdrzavanja" class="form-control" id="Mesto" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" value="@Model.AdresaOdrzavanja" onblur="return proveriMesto()"/>
                             <div class="validate"> </div>
                         </div>
                     </div>
@@ -294,7 +295,7 @@
                     <div class="form-group">
                         @Html.Label("Програм:")<br />
                         <div class="col-md-6 form-group">
-                            <textarea name="Program" class="form-control" id="AdresaOdrzavanja" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера">@Model.Program</textarea>
+                            <textarea name="Program" class="form-control" id="Sadrzaj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriSadrzaj()">@Model.Program</textarea>
                             <div class="validate"> </div>
                         </div>
                     </div>

@@ -163,7 +163,9 @@ namespace OIWEB.Controllers
                 return View();
             }
 
-            ClanciTxt cTxt = new ClanciTxt();
+            ClanciTxt cTxt =(from m in oi.ClanciTxts
+                             where m.IDClanak==c.IDClanak
+                             select m).Single();
             cTxt.Naslov = fc["Naslov"];
             cTxt.Tekst = fc["Tekst"];
             try

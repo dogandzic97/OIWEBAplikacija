@@ -35,7 +35,8 @@
 
     <!-- Template Main CSS File -->
     <link href="~/Content/assets/css/style.css" rel="stylesheet">
-
+    <!--VALIDATION FILE-->
+    <script src="~/Content/js/validacija.js"></script>
     <!-- =======================================================
     * Template Name: Moderna - v2.0.0
     * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
@@ -271,7 +272,7 @@
                 <div class="form-group">
                     @Html.Label("Број:")<br />
                     <div class="col-md-6 form-group">
-                        <input type="number" name="Broj" class="form-control" id="Broj" data-rule="minlen:4" data-msg="Морате унети цео број" />
+                        <input type="number" name="Broj" class="form-control" id="Broj" data-rule="minlen:4" data-msg="Морате унети цео број" onblur="return proverioBroj()"/>
                         <div class="validate"> </div>
                     </div>
                 </div>
@@ -279,14 +280,14 @@
                 <div class="form-group">
                     @Html.Label("Наслов:")<br />
                     <div class="col-md-6 form-group">
-                        <input type="text" name="Naslov" class="form-control" id="Naslov" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                        <input type="text" name="Naslov" class="form-control" id="Naslov" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriNaslov()"/>
                         <div class="validate"> </div>
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.Label("Текст: ")
                     <div class="col-md-6 form-group">
-                        <textarea name="Tekst" height="100px" width="100px"></textarea>
+                        <textarea name="Tekst" height="150px" width="150px" class="form-control" id="Tekst" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriTekst()"></textarea>
 
                     </div>
                 </div>
@@ -294,7 +295,7 @@
                 <div class="form-group">
                     @Html.Label("Датум:")<br />
                     <div class="col-md-6 form-group">
-                        <input type="date" name="Datum" class="form-control" id="Datum" data-rule="minlen:4" data-msg="Морате унети датум" />
+                        <input type="date" name="Datum" class="form-control" id="Datum" data-rule="minlen:4" data-msg="Морате унети датум" onblur="return proveriDatum()"/>
                         <div class="validate"> </div>
                     </div>
                 </div>
@@ -333,7 +334,7 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Креирај пропис" class="btn btn-outline-success" />
+                        <input type="submit" value="Креирај пропис" class="btn btn-outline-success" onclick="return proveriPropis()"/>
                     </div>
                 </div>
             </div>

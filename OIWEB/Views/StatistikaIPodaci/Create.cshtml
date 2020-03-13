@@ -34,7 +34,8 @@
 
     <!-- Template Main CSS File -->
     <link href="~/Content/assets/css/style.css" rel="stylesheet">
-
+    <!--FILE VALIDATION-->
+    <script src="~/Content/js/validacija.js"></script>
     <!-- =======================================================
     * Template Name: Moderna - v2.0.0
     * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
@@ -251,7 +252,7 @@
             <div class="form-group">
                 @Html.Label("Наслов:")<br />
                 <div class="col-md-6">
-                    @Html.EditorFor(model => model.Naslov, new { htmlAttributes = new { @class = "form-control" } })
+                    <input type="text" name="Naslov" id="Naslov" onblur="return proveriNaslov()"/>
                     @Html.ValidationMessageFor(model => model.Naslov, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -272,7 +273,7 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Додај фајл" class="btn btn-outline-success" />
+                    <input type="submit" value="Додај фајл" class="btn btn-outline-success" onclick="return proveriNaslov()"/>
                 </div>
             </div>
         </div>

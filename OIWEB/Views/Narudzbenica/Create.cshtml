@@ -35,6 +35,9 @@
     <!-- Template Main CSS File -->
     <link href="~/Content/assets/css/style.css" rel="stylesheet">
 
+    <!--VALIDATION FILE-->
+    <script src="~/Content/js/validacija.js"></script>
+
     <!-- =======================================================
     * Template Name: Moderna - v2.0.0
     * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
@@ -84,11 +87,11 @@
             color: rgba(232,227,246,0.8);
         }
 
-      .nav-menu a {
+        .nav-menu a {
             color: #ffffff;
             padding: 15px;
-             
         }
+
             .nav-menu a:hover {
                 color: rgba(232,227,246,0.2) !important;
             }
@@ -164,12 +167,11 @@
         .naslov {
             color: #fff;
         }
-        .centarForma{   
-  margin: auto;
-  width: 50%;
- 
-  padding: 10px;
 
+        .centarForma {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
         }
     </style>
 </head>
@@ -268,82 +270,82 @@
                 <div class="form-group">
                     @Html.Label("Претплатнички број")<br />
                     <div class="col-md-6 form-group">
-                        <input type="text" name="PretplatnickiBroj" class="form-control" id="PretplatnickiBroj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                        <input type="text" name="PretplatnickiBroj" class="form-control" id="PretplatnickiBroj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriPretplatnickiBroj()"/>
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.Label("Назив правног лица")<br />
                     <div class="col-md-6 form-group">
-                        <input type="text" name="NaziPravnogLica" class="form-control" id="NazivPravnogLica" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                        <input type="text" name="NaziPravnogLica" class="form-control" id="NazivPravnogLica" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriNazivPravnogLica()"/>
 
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.Label("Број текућег рачуна")<br />
                     <div class="col-md-6 form-group">
-                        <input type="text" name="BrojTekucegRacuna" class="form-control" id="NazivPravnogLica" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                        <input type="text" name="BrojTekucegRacuna" class="form-control" id="BrojTekucegRacuna" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriBrojTekucegRacuna()"/>
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.Label("ПИБ")<br />
                     <div class="col-md-6 form-group">
-                        <input type="text" name="PIB" class="form-control" id="PIB" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                        <input type="text" name="PIB" class="form-control" id="PIB" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriPIB()" />
 
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.Label("Место")<br />
                     <div class="col-md-6 form-group">
-                        <input type="text" name="Mesto" class="form-control" id="Mesto" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                        <input type="text" name="Mesto" class="form-control" id="Mesto" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriMesto()" />
 
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.Label("Поштански Број")<br />
                     <div class="col-md-6 form-group">
-                        <input type="text" name="PostanskiBroj" class="form-control" id="PostanskiBroj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                        <input type="text" name="PostanskiBroj" class="form-control" id="PostanskiBroj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriPostanskiBroj()"/>
 
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.Label("Улица и број")<br />
                     <div class="col-md-6 form-group">
-                        <input type="text" name="UlicaIBroj" class="form-control" id="UlicaIBroj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                        <input type="text" name="UlicaIBroj" class="form-control" id="UlicaIBroj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriUlicaIBroj()"/>
 
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.Label("Име")<br />
                     <div class="col-md-6 form-group">
-                        <input type="text" name="Ime" class="form-control" id="Ime" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                        <input type="text" name="Ime" class="form-control" id="Ime" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriIme()"/>
 
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.Label("Презиме")<br />
                     <div class="col-md-6 form-group">
-                        <input type="text" name="Prezime" class="form-control" id="Prezime" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                        <input type="text" name="Prezime" class="form-control" id="Prezime" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriPrezime()" />
 
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.Label("Телефон")<br />
                     <div class="col-md-6 form-group">
-                        <input type="text" name="Telefon" class="form-control" id="Telefon" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                        <input type="text" name="Telefon" class="form-control" id="Telefon" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriTelefon()" />
 
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.Label("Факс")<br />
                     <div class="col-md-6 form-group">
-                        <input type="text" name="Faks" class="form-control" id="Faks" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                        <input type="text" name="Faks" class="form-control" id="Faks" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriFaks()"/>
 
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.Label("Емаил")<br />
                     <div class="col-md-6 form-group">
-                        <input type="email" name="Email" class="form-control" id="Email" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                        <input type="email" name="Email" class="form-control" id="Email" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriEmail()"/>
 
                     </div>
                 </div>
@@ -356,7 +358,7 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Поручи" class="btn btn-outline-success" />
+                        <input type="submit" value="Поручи" class="btn btn-outline-success" onclick="return proveraNarudzbenice()"/>
                     </div>
                 </div>
             </div>

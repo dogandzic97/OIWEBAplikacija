@@ -13,7 +13,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    `
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -40,6 +39,8 @@
     <!-- Template Main CSS File -->
     <link href="~/Content/assets/css/style.css" rel="stylesheet">
 
+    <!--JS Validation File validacija.js-->
+    <script src="~/Content/js/validacija.js"></script>
     <!-- =======================================================
     * Template Name: Moderna - v2.0.0
     * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
@@ -175,15 +176,6 @@
             margin: 0 auto;
             color: rgb(123, 87, 140) !important;
         }
-
-        .edit {
-            color: mediumpurple;
-        }
-
-        .delete {
-            color: mediumpurple;
-        }
-
         #hero::before {
             background: linear-gradient(to right, rgba(112, 65, 117, 0.72), rgba(98, 0, 121, 0.6)), url(../) center top no-repeat fixed !important;
         }
@@ -237,6 +229,9 @@
   padding: 10px;
         }
     </style>
+
+
+    
 </head>
 
 <body>
@@ -338,7 +333,7 @@
                     <div class="col-md-6 form-group">
 
 
-                        <select name="Tip" class="form-control" id="Tip" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера">
+                        <select name="Tip" class="form-control" id="Tip" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriTip()"> 
                             <option value="ЗАКОНОДАВСТВО,ПРОПИСИ">ЗАКОНОДАВСТВО, ПРОПИСИ</option>
                             <option value="ВЕСТИ">ВЕСТИ</option>
                             <option value="ПОСЛОВНЕ ОБАВЕЗЕ ЗА СВЕ БУЏЕТСКЕ КОРИСНИКЕ">ПОСЛОВНЕ ОБАВЕЗЕ ЗА СВЕ БУЏЕТСКЕ КОРИСНИКЕ</option>
@@ -353,7 +348,7 @@
                     <div class="col-md-6 form-group">
 
 
-                        <input type="date" name="Datum" id="Datum" class="form-control" placeholder="Datum" data-rule="Datum" data-msg="Убаците валидан мејл" />
+                        <input type="date" name="Datum" id="Datum" class="form-control" placeholder="Datum" data-rule="Datum" data-msg="Унесите валидан датум" onblur="return proveriDatum()" />
 
 
                         <div class="validate"> </div>
@@ -362,7 +357,7 @@
                 @Html.Label("Спецификација буџетских корисника:")<br />
                 <div class="col-md-6 form-group">
 
-                    <select name="IDSBK" class="form-control" id="IDSBK" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера">
+                    <select name="IDSBK" class="form-control" id="IDSBK" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriIDSBK()">
                         @foreach (SpecificnostiBudzetskihKorisnika s in sbk)
                         {
                             <option value="@s.IDSBK">@s.Naziv</option>
@@ -374,14 +369,14 @@
 
                 @Html.Label("Наслов")<br />
                 <div class="col-md-6 form-group">
-                    <input type="text" name="Naslov" class="form-control" id="IDSBK" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                    <input type="text" name="Naslov" class="form-control" id="Naslov" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriNaslov()" />
                     <div class="validate"> </div>
                 </div>
 
 
                 @Html.Label("Текст")<br />
                 <div class="col-md-6 form-group">
-                    <textarea name="Tekst" class="form-control" id="Tekst" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" style="height:150px"></textarea>
+                    <textarea name="Tekst" class="form-control" id="Tekst" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" style="height:150px" onblur="return proveriTekst()"></textarea>
                     <div class="validate"> </div>
                 </div>
 
@@ -400,7 +395,7 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Креирај" class="btn btn-outline-info" />
+                        <input type="submit" value="Креирај" class="btn btn-outline-info" onclick="return validacija()"/>
                     </div>
                 </div>
             </div>

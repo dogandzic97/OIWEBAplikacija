@@ -33,6 +33,8 @@
     <!-- Template Main CSS File -->
     <link href="~/Content/assets/css/style.css" rel="stylesheet">
 
+    <!--VALIDATION FILE-->
+    <script src="~/Content/js/validacija.js"></script>
     <!-- =======================================================
     * Template Name: Moderna - v2.0.0
     * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
@@ -247,66 +249,71 @@
     <div class="centarForma">
 
         <br /><br /><br /><br /><br />
-        <div class="form-horizontal">
-            <h2>Измени Издања</h2>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.IDOstalihIzdanja)
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <h2>Измени Издања</h2>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.IDOstalihIzdanja)
 
-            <div class="form-group">
-                @Html.Label("Наслов:")<br />
-                <div class="col-md-6 form-group">
-                    <input type="text" name="Naslov" class="form-control" id="Naslov" value="@Model.Naslov" data-rule="minlen:4" data-msg="Морате унети цео број" />
-                    <div class="validate"> </div>
+                <div class="form-group">
+                    @Html.Label("Наслов:")<br />
+                    <div class="col-md-6 form-group">
+                        <input type="text" name="Naslov" class="form-control" id="Naslov" value="@Model.Naslov" data-rule="minlen:4" data-msg="Морате унети цео број" />
+                        <div class="validate"> </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Садржај:")<br />
+                    <div class="col-md-6 form-group">
+                        <textarea name="Sadrzaj" style="height:150px;" class="form-control" id="Sadrzaj" data-rule="minlen:4" data-msg="Морате унети цео број">@Model.Sadrzaj</textarea>
+                        <div class="validate"> </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Опис:")<br />
+                    <div class="col-md-6 form-group">
+                        <textarea name="Opis" class="form-control" style="height:150px;" id="Opis" data-rule="minlen:4" data-msg="Морате унети цео број">@Model.Opis</textarea>
+                        <div class="validate"> </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Цена:")<br />
+                    <div class="col-md-6 form-group">
+                        <input type="text" name="Cena" class="form-control" id="Cena" value="@Model.Cena" data-rule="minlen:4" data-msg="Морате унети цео број" onblur="return proveriCenu()" />
+                        <div class="validate"> </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Админ:")<br />
+                    <div class="col-md-6 form-group">
+
+                        <input type="text" name="IDKorisnika" id="IDKorisnika" class="form-control" placeholder="ИД Корисника" data-msg="Морате унети најмање 4 карактера" value="@Model.IDKorisnik" readonly />
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Сачувај" class="btn btn-outline-success" onclick="return proveraOstalihIzdanja()" />
+                    </div>
                 </div>
             </div>
 
-            <div class="form-group">
-                @Html.Label("Садржај:")<br />
-                <div class="col-md-6 form-group">
-                    <textarea name="Sadrzaj" style="height:150px;" class="form-control" id="Sadrzaj" data-rule="minlen:4" data-msg="Морате унети цео број">@Model.Sadrzaj</textarea>
-                    <div class="validate"> </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.Label("Опис:")<br />
-                <div class="col-md-6 form-group">
-                    <textarea name="Opis" class="form-control" style="height:150px;" id="Opis" data-rule="minlen:4" data-msg="Морате унети цео број">@Model.Opis</textarea>
-                    <div class="validate"> </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.Label("Цена:")<br />
-                <div class="col-md-6 form-group">
-                    <input type="text" name="Cena" class="form-control" id="Cena" value="@Model.Cena" data-rule="minlen:4" data-msg="Морате унети цео број" />
-                    <div class="validate"> </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.Label("Админ:")<br />
-                <div class="col-md-6 form-group">
-
-                    <input type="text" name="IDKorisnika" id="IDKorisnika" class="form-control" placeholder="ИД Корисника" data-msg="Морате унети најмање 4 карактера" value="@Model.IDKorisnik" readonly />
-
-                </div>
+            <div>
+                @Html.ActionLink("Назад на издања", "Index")
             </div>
 
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Сачувај" class="btn btn-outline-success" />
-                </div>
-            </div>
-        </div>
 
-        <div>
-            @Html.ActionLink("Назад на издања", "Index")
-        </div>
-   
-
+        }
     </div>
     <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
 

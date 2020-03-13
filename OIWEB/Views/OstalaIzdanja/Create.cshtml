@@ -34,6 +34,10 @@
     <!-- Template Main CSS File -->
     <link href="~/Content/assets/css/style.css" rel="stylesheet">
 
+    <!--VALIDATION FILE-->
+    <script src="~/Content/js/validacija.js"></script>
+
+
     <!-- =======================================================
     * Template Name: Moderna - v2.0.0
     * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
@@ -264,28 +268,28 @@
 
                 @Html.Label("Наслов")<br />
                 <div class="col-md-6 form-group">
-                    <input type="text" name="Naslov" class="form-control" id="IDSBK" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                    <input type="text" name="Naslov" class="form-control" id="Naslov" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriNaslov()"/>
                     <div class="validate"> </div>
                 </div>
 
 
                 @Html.Label("Садржај")<br />
                 <div class="col-md-6 form-group">
-                    <textarea name="Sadrzaj" class="form-control" id="Sadrzaj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера"></textarea>
+                    <textarea name="Sadrzaj" class="form-control" id="Sadrzaj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriSadrzaj()"></textarea>
                     <div class="validate"> </div>
                 </div>
 
 
                 @Html.Label("Опис")<br />
                 <div class="col-md-6 form-group">
-                    <textarea name="Opis" class="form-control" id="Opis" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера"></textarea>
+                    <textarea name="Opis" class="form-control" id="Opis" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriOpis()"></textarea>
                     <div class="validate"> </div>
                 </div>
 
 
                 @Html.Label("Цена")<br />
                 <div class="col-md-6 form-group">
-                    <textarea name="Cena" class="form-control" id="Cena" data-rule="minlen:3" data-msg="Морате унети најмање 4 карактера"></textarea>
+                    <textarea name="Cena" class="form-control" id="Cena" data-rule="minlen:3" data-msg="Морате унети најмање 4 карактера" onblur="return proveriCenu()"></textarea>
                     <div class="validate"> </div>
                 </div>
 
@@ -299,13 +303,13 @@
                 <div class="form-group">
                     @Html.Label("Админ")<br />
                     <div class="col-md-6 form-group">
-                        <input type="text" name="IDKorisnika" value="@k.Ime" class="form-control" />
+                        <input type="text" name="IDKorisnika" value="@k.Ime" class="form-control" disabled/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Креирај" class="btn btn-outline-success" />
+                        <input type="submit" value="Креирај" class="btn btn-outline-success" onclick="return proveraOstalihIzdanja()"/>
                     </div>
                 </div>
             </div>

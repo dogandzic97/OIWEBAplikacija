@@ -37,6 +37,9 @@
     <!-- Template Main CSS File -->
     <link href="~/Content/assets/css/style.css" rel="stylesheet">
 
+    <!--VALIDATION FILE-->
+    <script src="~/Content/js/validacija.js"></script>
+
     <!-- =======================================================
     * Template Name: Moderna - v2.0.0
     * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
@@ -303,56 +306,56 @@
                                                           <div class="form-group">
                                                               @Html.Label("Претплатночки број")<br />
                                                               <div class="col-md-6 form-group">
-                                                                  <input type="text" name="PretplatnickiBroj" class="form-control" id="PretplatnickiBroj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                                                                  <input type="text" name="PretplatnickiBroj" class="form-control" id="PretplatnickiBroj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriPretplatnickiBroj()"/>
 
                                                               </div>
                                                           </div>
                                                           <div class="form-group">
                                                               @Html.Label("Назив правног лица")<br />
                                                               <div class="col-md-6 form-group">
-                                                                  <input type="text" name="NazivPravnogLica" class="form-control" id="nazivPravnogLica" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                                                                  <input type="text" name="NazivPravnogLica" class="form-control" id="NazivPravnogLica" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriNazivPravnogLica()"/>
 
                                                               </div>
                                                           </div>
                                                           <div class="form-group">
                                                               @Html.Label("Број текућег рачуна")<br />
                                                               <div class="col-md-6 form-group">
-                                                                  <input type="text" name="BrojTekucegRacuna" class="form-control" id="BrojTekucegRacuna" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                                                                  <input type="text" name="BrojTekucegRacuna" class="form-control" id="BrojTekucegRacuna" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriBrojTekucegRacuna()"/>
 
                                                               </div>
                                                           </div>
                                                           <div class="form-group">
                                                               @Html.Label("ПИБ")<br />
                                                               <div class="col-md-6 form-group">
-                                                                  <input type="text" name="PIB" class="form-control" id="PIB" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                                                                  <input type="text" name="PIB" class="form-control" id="PIB" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriPIB()"/>
 
                                                               </div>
                                                           </div>
                                                           <div class="form-group">
                                                               @Html.Label("Место")<br />
                                                               <div class="col-md-6 form-group">
-                                                                  <input type="text" name="Mesto" class="form-control" id="Mesto" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                                                                  <input type="text" name="Mesto" class="form-control" id="Mesto" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriMesto()"/>
 
                                                               </div>
                                                           </div>
                                                           <div class="form-group">
                                                               @Html.Label("Поштански број")<br />
                                                               <div class="col-md-6 form-group">
-                                                                  <input type="text" name="PostanskiBroj" class="form-control" id="PostanskiBroj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                                                                  <input type="text" name="PostanskiBroj" class="form-control" id="PostanskiBroj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера"onblur="return proveriPostanskiBroj()" />
 
                                                               </div>
                                                           </div>
                                                           <div class="form-group">
                                                               @Html.Label("Улица и број")<br />
                                                               <div class="col-md-6 form-group">
-                                                                  <input type="text" name="UlicaIBroj" class="form-control" id="UlicaIBroj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                                                                  <input type="text" name="UlicaIBroj" class="form-control" id="UlicaIBroj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="proveriUlicaIBroj()"/>
 
                                                               </div>
                                                           </div>
                                                           <div class="form-group">
                                                               @Html.Label("Е-маил")<br />
                                                               <div class="col-md-6 form-group">
-                                                                  <input type="text" name="Email" class="form-control" id="Email" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
+                                                                  <input type="text" name="Email" class="form-control" id="Email" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriEmail()" />
 
                                                               </div>
                                                           </div>

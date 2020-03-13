@@ -39,6 +39,8 @@
     <!-- Template Main CSS File -->
     <link href="~/Content/assets/css/style.css" rel="stylesheet">
 
+    <!--VALIDATION FILE-->
+    <script src="~/Content/js/validacija.js"></script>
     <!-- =======================================================
     * Template Name: Moderna - v2.0.0
     * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
@@ -171,66 +173,65 @@
             {
                 @Html.AntiForgeryToken()
 
-                <div class="form-horizontal">
-                    <h4>Додај нови часопис</h4>
-                    <hr />
-                    @Html.Label("Наслов")<br />
+            <div class="form-horizontal">
+                <h4>Додај нови часопис</h4>
+                <hr />
+                @Html.Label("Наслов")<br />
+                <div class="col-md-6 form-group">
+                    <input type="text" name="Naslov" class="form-control" id="Naslov" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" onblur="return proveriNaslov()" />
+                    @Html.ValidationMessageFor(model => model.Naslov, "", new { @class = "error" })
+                </div>
+
+                @Html.Label("Текст")<br />
+                <div class="col-md-6 form-group">
+                    <textarea name="Tekst" class="form-control" id="Tekst" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" style="height:150px;" onblur="return proveriTekst()"></textarea>
+                    @Html.ValidationMessageFor(model => model.Tekst, "", new { @class = "error" })
+                </div>
+
+                @Html.Label("Садржај")<br />
+                <div class="col-md-6 form-group">
+                    <textarea name="Sadrzaj" class="form-control" id="Sadrzaj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" style="height:150px;" onblur="return proveriSadrzaj()"></textarea>
+                    @Html.ValidationMessageFor(model => model.Sadrzaj, "", new { @class = "error" })
+                </div>
+                @Html.Label("Број издања")<br />
+                <div class="col-md-6 form-group">
+                    <input type="number" name="BrojIzdanja" class="form-control" id="BrojIzdanja" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" style="height:150px;" onblur="return proveriBrojIzdanja()"/>
+                    @Html.ValidationMessageFor(model => model.BrojIzdanja, "", new { @class = "error" })
+                </div>
+
+
+
+                @Html.Label("Датум:")<br />
+                <div class="col-md-6 form-group">
+
                     <div class="col-md-6 form-group">
-                        <input type="text" name="Naslov" class="form-control" id="Naslov" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
-                        <div class="validate"> </div>
+                        <input type="date" name="Datum" id="Datum" class="form-control" placeholder="Datum" data-rule="Datum" data-msg="Убаците валидан мејл" onblur="return proveriDatum()"/>
+                        @Html.ValidationMessageFor(model => model.Datum, "", new { @class = "error" })
                     </div>
+                    <div class="validate"> </div>
+                </div>
 
-                    @Html.Label("Текст")<br />
+
+                <div class="form-group">
+                    @Html.Label("Слика")<br />
                     <div class="col-md-6 form-group">
-                        <textarea name="Tekst" class="form-control" id="Tekst" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" style="height:150px;"></textarea>
-                        <div class="validate"> </div>
-                    </div>
-
-                    @Html.Label("Садржај")<br />
-                    <div class="col-md-6 form-group">
-                        <textarea name="Sadrzaj" class="form-control" id="Sadrzaj" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" style="height:150px;"></textarea>
-                        <div class="validate"> </div>
-                    </div>
-
-                   
-                        @Html.Label("Датум:")<br />
-                        <div class="col-md-6 form-group">
-
-                            <div class="col-md-10">
-                                <input type="date" name="Datum" id="Datum" class="form-control" placeholder="Datum" data-rule="Datum" data-msg="Убаците валидан мејл" />
-
-                            </div>
-                            <div class="validate"> </div>
-                        </div>
-              
-
-                    @Html.Label("Број издања")<br />
-                    <div class="col-md-6 form-group">
-                        <input type="text" name="BrojIzdanja" class="form-control" id="BrojIzdanja" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" />
-                        <div class="validate"> </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        @Html.Label("Слика")<br />
-                        <div class="col-md-6 form-group">
-                            <input type="file" name="Slika" class="form-control" id="Slika" data-msg="Морате унети најмање 4 карактера" />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.Label("Админ")<br />
-                        <div class="col-md-6 form-group">
-                            <input type="text" name="IDKorisnika" value="@k.Ime" class="form-control" />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Креирај" class="btn btn-outline-success" />
-                        </div>
+                        <input type="file" name="Slika" class="form-control" id="Slika" data-msg="Морате унети најмање 4 карактера" />
                     </div>
                 </div>
+
+                <div class="form-group">
+                    @Html.Label("Админ")<br />
+                    <div class="col-md-6 form-group">
+                        <input type="text" name="IDKorisnika" value="@k.Ime" class="form-control" disabled />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Креирај" class="btn btn-outline-success" onclick="return validacijaCasopisi()"/>
+                    </div>
+                </div>
+            </div>
             }
         </div>
 

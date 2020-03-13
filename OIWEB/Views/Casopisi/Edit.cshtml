@@ -37,6 +37,8 @@
     <!-- Template Main CSS File -->
     <link href="~/Content/assets/css/style.css" rel="stylesheet">
 
+    <!--VALIDATION FILE-->
+    <script src="~/Content/js/validacija.js"></script>
     <!-- =======================================================
     * Template Name: Moderna - v2.0.0
     * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
@@ -259,7 +261,7 @@
                     @Html.Label("Наслов:")<br />
                     <div class="col-md-6 form-group">
 
-                        <input type="text" name="Naslov" class="form-control" id="Naslov" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" value="@Model.Naslov" />
+                        <input type="text" name="Naslov" class="form-control" id="Naslov" data-rule="minlen:4" data-msg="Морате унети најмање 4 карактера" value="@Model.Naslov" onblur="return proveriNaslov()"/>
                     </div>
                     <div class="validate"> </div>
                 
@@ -309,7 +311,7 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Сачувај измене" class="btn btn-outline-success" />
+                    <input type="submit" value="Сачувај измене" class="btn btn-outline-success" onclick="return validacijaCasopisi()"/>
                 </div>
             </div>
                 </div>

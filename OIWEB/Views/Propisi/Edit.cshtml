@@ -40,7 +40,8 @@
 
     <!-- Template Main CSS File -->
     <link href="~/Content/assets/css/style.css" rel="stylesheet">
-
+    <!--VALIDATION FILE-->
+    <script src="~/Content/js/validacija.js"></script>
     <!-- =======================================================
     * Template Name: Moderna - v2.0.0
     * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
@@ -275,7 +276,7 @@
                 <div class="form-group">
                     @Html.Label("Број:")<br />
                     <div class="col-md-6 form-group">
-                        <input type="text" name="Broj" class="form-control" id="Broj" data-rule="minlen:4" value="@Model.Broj" data-msg="Морате унети цео број" />
+                        <input type="text" name="Broj" class="form-control" id="Broj" data-rule="minlen:4" value="@Model.Broj" data-msg="Морате унети цео број" onblur="return proverioBroj()"/>
                         <div class="validate"> </div>
                     </div>
                 </div>
@@ -283,7 +284,7 @@
                 <div class="form-group">
                     @Html.Label("Наслов:")<br />
                     <div class="col-md-6 form-group">
-                        <input type="text" name="Naslov" class="form-control" id="Naslov" value="@Model.Naslov" data-rule="minlen:4" data-msg="Морате унети цео број" />
+                        <input type="text" name="Naslov" class="form-control" id="Naslov" value="@Model.Naslov" data-rule="minlen:4" data-msg="Морате унети цео број" onblur="return proveriNaslov()"/>
                         <div class="validate"> </div>
                     </div>
                 </div>
@@ -291,7 +292,7 @@
                 <div class="form-group">
                     @Html.Label("Датум:")<br />
                     <div class="col-md-6 form-group">
-                        <input type="text" name="Datum" class="form-control" id="Datum" value="@Model.Datum" data-rule="minlen:4" data-msg="Морате унети цео број" />
+                        <input type="text" name="Datum" class="form-control" id="Datum" value="@Model.Datum" data-rule="minlen:4" data-msg="Морате унети цео број" onblur="return proveriDatum()"/>
                         <div class="validate"> </div>
                     </div>
                 </div>
@@ -300,7 +301,7 @@
                     <div class="col-md-6 form-group">
                         @foreach (PropisTxt t in tekstovi)
                         {
-                            <textarea name="Tekst" class="form-control" id="Tekst" style="height:150px" data-rule="minlen:4" data-msg="Морате унети цео број">@t.Tekst</textarea>
+                            <textarea name="Tekst" class="form-control" id="Tekst" style="height:150px" data-rule="minlen:4" data-msg="Морате унети цео број" onblur="return proveriTekst()">@t.Tekst</textarea>
                         }
                         <div class="validate"> </div>
                     </div>
