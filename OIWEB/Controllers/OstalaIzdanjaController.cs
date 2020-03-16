@@ -21,6 +21,10 @@ namespace OIWEB.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            if (Session["Korinik"] == null)
+            {
+                return RedirectToAction("Page404");
+            }
             return View();
         }
 
@@ -49,8 +53,12 @@ namespace OIWEB.Controllers
             }
         }
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
+            if(Session["Korisnik"]==null || id == null)
+            {
+                return RedirectToAction("Page404");
+            }
             OstalaIzdanja izdanja = (from o in oi.OstalaIzdanjas
                                      where o.IDOstalihIzdanja == id
                                      select o).Single();
@@ -103,6 +111,11 @@ namespace OIWEB.Controllers
                                      where o.IDOstalihIzdanja == id
                                      select o).Single();
             return View(izdanja);
+        }
+
+        public ActionResult Page404()
+        {
+            return View();
         }
     }
 }

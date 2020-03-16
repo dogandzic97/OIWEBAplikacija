@@ -13,6 +13,10 @@ namespace OIWEB.Controllers
         // GET: Prijava
         public ActionResult Index()
         {
+            if (Session["Korisnik"] == null)
+            {
+                return RedirectToAction("Page404");
+            }
             List<PravnoLice> pravnaLica = (from p in oi.PravnoLices
                                            select p).ToList();
             ViewBag.PravnaLica = pravnaLica;
@@ -24,6 +28,10 @@ namespace OIWEB.Controllers
 
         public ActionResult Details(int id)
         {
+            if (Session["Korisnik"] == null)
+            {
+                return RedirectToAction("Page404");
+            }
             PravnoLice pravnaLica = (from pr in oi.PravnoLices
                                            where pr.IDPravnoLice == id
                                            select pr).Single();
@@ -119,6 +127,11 @@ namespace OIWEB.Controllers
             };
             smtp.EnableSsl = true;
             smtp.Send(msg);
+        }
+
+        public ActionResult Page404()
+        {
+            return View();
         }
     }
 }

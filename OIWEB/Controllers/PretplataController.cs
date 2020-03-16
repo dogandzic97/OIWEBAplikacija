@@ -13,6 +13,10 @@ namespace OIWEB.Controllers
         // GET: Pretplata
         public ActionResult Index()
         {
+            if (Session["Korisnik"] == null)
+            {
+                return RedirectToAction("Page404");
+            }
             List<Casopi> casopis = (from c in oi.Casopis
                                     select c).ToList();
             ViewBag.Casopis = casopis;
@@ -154,10 +158,19 @@ namespace OIWEB.Controllers
 
         public ActionResult Details(int id)
         {
+            if (Session["Korisnik"] == null)
+            {
+                return RedirectToAction("Page404");
+            }
             KontaktOsobe ko = (from k in oi.KontaktOsobes
                                where k.IDNarucilac == id
                                select k).Single();
             return View(ko);
+        }
+
+        public ActionResult Page404()
+        {
+            return View();
         }
 
     }
