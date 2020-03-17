@@ -364,6 +364,14 @@
             </div>
         }
     </div>
+    @if (ViewBag.Msg != null)
+    {
+        <script>
+             function poruka() {
+                swal("Успех", "Порука је успешно послата. Биће вам одговорено у року од највише 24 сата.", "success");
+            }
+        </script>
+    }
     <!-- ======= Footer ======= -->
     <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
 

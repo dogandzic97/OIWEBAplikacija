@@ -21,7 +21,7 @@ namespace OIWEB.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            if (Session["Korinik"] == null)
+            if (Session["Korisnik"] == null)
             {
                 return RedirectToAction("Page404");
             }

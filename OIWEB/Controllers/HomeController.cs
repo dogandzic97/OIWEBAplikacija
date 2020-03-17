@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -11,6 +12,7 @@ namespace OIWEB.Controllers
         ObrazovniInformatorDataContext oi = new ObrazovniInformatorDataContext();
         public ActionResult Index()
         {
+          
             List<Clanci> clanci = (from c in oi.Clancis
                                    select c).ToList();
             var orderClanci = clanci.OrderByDescending(s => s.Datum);
@@ -28,13 +30,35 @@ namespace OIWEB.Controllers
 
             return View();
         }
-
+        [HttpGet]
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
+           
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Contact(FormCollection fc)
+        {
+            MailMessage msg = new MailMessage("mihajlovicandjelija@gmail.com", fc["Sluzba"]);
+
+            msg.Subject = fc["subject"];
+            msg.Body = "Poruka/Pitanje klijenta:   " + fc["message"] + ";      Ime i prezime klijenta: " + fc["name"] + "        Odgovor poslati na mejl: " + fc["email"];
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            // smtp.Host = "relay-hosting.secureserver.net";
+            //smtp.Port = 25;
+            smtp.Credentials = new System.Net.NetworkCredential()
+            {
+                UserName = "mihajlovicandjelija@gmail.com",
+                Password = "Volimtinu1"
+            };
+            smtp.EnableSsl = true;
+            smtp.Send(msg);
+           // string poruka = "Uspeh";
+            return RedirectToAction("Contact");
+        }
+
+
         [HttpGet]
         public ActionResult Create()
         {
@@ -198,6 +222,8 @@ namespace OIWEB.Controllers
             }
         }
 
-      
+        
+
+
     }
 }
