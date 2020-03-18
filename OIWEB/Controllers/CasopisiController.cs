@@ -20,7 +20,14 @@ namespace OIWEB.Controllers
        [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            if (Session["Korisnik"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Page404");
+            }
         }
         [HttpPost]
         public ActionResult Create(FormCollection fc)
@@ -78,8 +85,13 @@ namespace OIWEB.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
+            if(Session["Korisnik"]==null || id == null)
+            {
+                return RedirectToAction("Page404");
+            }
+            
             Casopi casopis = (from c in oi.Casopis
                               where c.IDCasopis == id
                               select c).Single();
@@ -106,6 +118,11 @@ namespace OIWEB.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult Page404()
+        {
+            return View();
         }
 
 

@@ -79,6 +79,10 @@ namespace OIWEB.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            if (Session["Korisnik"] == null)
+            {
+                return RedirectToAction("Page404");
+            }
             List<VrstaSluzbenihGlasila> vrste = (from v in oi.VrstaSluzbenihGlasilas
                                                  select v).ToList();
 
@@ -182,8 +186,12 @@ namespace OIWEB.Controllers
 
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
+            if (Session["Korisnik"] == null || id==null)
+            {
+                return RedirectToAction("Page404");
+            }
             Propi propis = (from p in oi.Propis
                             where p.IDPropisa==id
                             select p).Single();
@@ -223,6 +231,11 @@ namespace OIWEB.Controllers
                 return View();
 
             }
+        }
+
+        public ActionResult Page404()
+        {
+            return View();
         }
     }
 }

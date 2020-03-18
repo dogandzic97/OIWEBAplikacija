@@ -20,6 +20,10 @@ namespace OIWEB.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            if (Session["Korisnik"] == null)
+            {
+                return RedirectToAction("Page404");
+            }
             return View();
         }
 
@@ -58,6 +62,11 @@ namespace OIWEB.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult Page404()
+        {
+            return View();
         }
     }
 }

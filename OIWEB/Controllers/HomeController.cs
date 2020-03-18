@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -11,15 +12,16 @@ namespace OIWEB.Controllers
         ObrazovniInformatorDataContext oi = new ObrazovniInformatorDataContext();
         public ActionResult Index()
         {
-            var clanci = from c in oi.Clancis
-                         orderby c.Datum
-                         select c;
+          
+            List<Clanci> clanci = (from c in oi.Clancis
+                                   select c).ToList();
+            var orderClanci = clanci.OrderByDescending(s => s.Datum);
             
             List<ClanciTxt> text= (from t in oi.ClanciTxts
                                    select t).ToList();
             ViewBag.Tekstovi = text;
 
-            return View(clanci.ToList());
+            return View(orderClanci.ToList());
         }
 
         public ActionResult About()
@@ -28,13 +30,35 @@ namespace OIWEB.Controllers
 
             return View();
         }
-
+        [HttpGet]
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
+           
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Contact(FormCollection fc)
+        {
+            MailMessage msg = new MailMessage("mihajlovicandjelija@gmail.com", fc["Sluzba"]);
+
+            msg.Subject = fc["subject"];
+            msg.Body = "Poruka/Pitanje klijenta:   " + fc["message"] + ";      Ime i prezime klijenta: " + fc["name"] + "        Odgovor poslati na mejl: " + fc["email"];
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            // smtp.Host = "relay-hosting.secureserver.net";
+            //smtp.Port = 25;
+            smtp.Credentials = new System.Net.NetworkCredential()
+            {
+                UserName = "mihajlovicandjelija@gmail.com",
+                Password = "Volimtinu1"
+            };
+            smtp.EnableSsl = true;
+            smtp.Send(msg);
+           // string poruka = "Uspeh";
+            return RedirectToAction("Contact");
+        }
+
+
         [HttpGet]
         public ActionResult Create()
         {
@@ -121,69 +145,85 @@ namespace OIWEB.Controllers
 
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            Clanci clanak = (from c in oi.Clancis
-                             where c.IDClanak == id
-                             select c).Single();
+            if (id != null)
+            {
+                Clanci clanak = (from c in oi.Clancis
+                                 where c.IDClanak == id
+                                 select c).Single();
 
-            ClanciTxt tekst= (from c in oi.ClanciTxts
-                              where c.IDClanak == clanak.IDClanak
-                              select c).Single();
-            ViewBag.ClanciTxt = tekst;
-            List<SpecificnostiBudzetskihKorisnika> specifikacijeBK = (from s in oi.SpecificnostiBudzetskihKorisnikas
-                                                                      select s).ToList();
-            ViewBag.SpecificnostiBudzetskihKorisnika = specifikacijeBK;
-            return View(clanak);
+                ClanciTxt tekst = (from c in oi.ClanciTxts
+                                   where c.IDClanak == clanak.IDClanak
+                                   select c).Single();
+                ViewBag.ClanciTxt = tekst;
+                List<SpecificnostiBudzetskihKorisnika> specifikacijeBK = (from s in oi.SpecificnostiBudzetskihKorisnikas
+                                                                          select s).ToList();
+                ViewBag.SpecificnostiBudzetskihKorisnika = specifikacijeBK;
+                return View(clanak);
+            }
+            else
+            {
+                return RedirectToAction("Create");
+            }
         }
 
         [HttpPost]
-        public ActionResult Edit(int id,FormCollection fc)
+        public ActionResult Edit(int?id,FormCollection fc)
         {
-            Clanci c = (from cl in oi.Clancis
-                        where cl.IDClanak == id
-                        select cl).Single();
-
-            Korisnik k = (Korisnik)Session["Korisnik"];
-            c.IDKorisnik = k.IDKorisnik;
-            c.IDSBK = Convert.ToInt32(fc["IDSBK"]);
-            c.Datum = fc["Datum"];
-            c.Tip = fc["Tip"];
-
-            try
+            if (id != null)
             {
-              oi.SubmitChanges();
+                Clanci c = (from cl in oi.Clancis
+                            where cl.IDClanak == id
+                            select cl).Single();
+
+                Korisnik k = (Korisnik)Session["Korisnik"];
+                c.IDKorisnik = k.IDKorisnik;
+                c.IDSBK = Convert.ToInt32(fc["IDSBK"]);
+                c.Datum = fc["Datum"];
+                c.Tip = fc["Tip"];
+
+                try
+                {
+                    oi.SubmitChanges();
+                }
+                catch (Exception ex)
+                {
+                    List<SpecificnostiBudzetskihKorisnika> specifikacijeBK = (from s in oi.SpecificnostiBudzetskihKorisnikas
+                                                                              select s).ToList();
+                    ViewBag.SpecificnostiBudzetskihKorisnika = specifikacijeBK;
+                    ViewBag.Greska = ex.Message;
+                    return View();
+                }
+
+                ClanciTxt cTxt = (from m in oi.ClanciTxts
+                                  where m.IDClanak == c.IDClanak
+                                  select m).Single();
+                cTxt.Naslov = fc["Naslov"];
+                cTxt.Tekst = fc["Tekst"];
+                try
+                {
+                    oi.SubmitChanges();
+                    return RedirectToAction("Index");
+
+                }
+                catch (Exception ex)
+                {
+                    List<SpecificnostiBudzetskihKorisnika> specifikacijeBK = (from s in oi.SpecificnostiBudzetskihKorisnikas
+                                                                              select s).ToList();
+                    ViewBag.SpecificnostiBudzetskihKorisnika = specifikacijeBK;
+                    ViewBag.Greska = ex.Message;
+                    return View();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                List<SpecificnostiBudzetskihKorisnika> specifikacijeBK = (from s in oi.SpecificnostiBudzetskihKorisnikas
-                                                                          select s).ToList();
-                ViewBag.SpecificnostiBudzetskihKorisnika = specifikacijeBK;
-                ViewBag.Greska = ex.Message;
-                return View();
-            }
-
-            ClanciTxt cTxt =(from m in oi.ClanciTxts
-                             where m.IDClanak==c.IDClanak
-                             select m).Single();
-            cTxt.Naslov = fc["Naslov"];
-            cTxt.Tekst = fc["Tekst"];
-            try
-            {
-                oi.SubmitChanges();
-                return RedirectToAction("Index");
-
-            }
-            catch (Exception ex)
-            {
-                List<SpecificnostiBudzetskihKorisnika> specifikacijeBK = (from s in oi.SpecificnostiBudzetskihKorisnikas
-                                                                          select s).ToList();
-                ViewBag.SpecificnostiBudzetskihKorisnika = specifikacijeBK;
-                ViewBag.Greska = ex.Message;
-                return View();
+                return RedirectToAction("Create");
             }
         }
 
-      
+        
+
+
     }
 }

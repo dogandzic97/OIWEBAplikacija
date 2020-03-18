@@ -14,6 +14,10 @@ namespace OIWEB.Controllers
         // GET: Narudzbenica
         public ActionResult Index()
         {
+            if (Session["Korisnik"] == null)
+            {
+                return RedirectToAction("Page404");
+            }
             List<Narucilac> narucilac = (from n in oi.Narucilacs
                              select n).ToList();
 
@@ -28,8 +32,12 @@ namespace OIWEB.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create(int id)
+        public ActionResult Create(int? id)
         {
+            if (id == null)
+            {
+                return RedirectToAction("Page404");
+            }
             ViewBag.IDIzdanja = id;
             
             return View();
@@ -152,12 +160,21 @@ namespace OIWEB.Controllers
             smtp.Send(msg);
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
+            if (Session["Korisnik"] == null || id == null)
+            {
+                return RedirectToAction("Page404");
+            }
             KontaktOsobe kontaktOsoba = (from ko in oi.KontaktOsobes
                                                 where ko.IDNarucilac == id
                                                 select ko).Single();
             return View(kontaktOsoba);
+        }
+
+        public ActionResult Page404()
+        {
+            return View();
         }
     }
 

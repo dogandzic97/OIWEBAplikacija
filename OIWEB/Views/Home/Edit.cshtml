@@ -37,8 +37,10 @@
     <link href="~/Content/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="~/Content/assets/vendor/aos/aos.css" rel="stylesheet">
 
+
+    <!--404-->
     <!-- Template Main CSS File -->
-    <link href="~/Content/assets/css/style.css" rel="stylesheet">
+    <link href="~/Content/css2/style.css" rel="stylesheet" />
 
     <!--Js Validation-->
     <script src="~/Content/js/validacija.js"></script>
@@ -51,7 +53,7 @@
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
     <style>
-       #hero {
+        #hero {
             width: 100%;
             height: 70vh;
         }
@@ -65,23 +67,22 @@
         #header.header-scrolled {
             background: rgb(123, 87, 140) !important;
             height: auto;
-            width:100%;
+            width: 100%;
         }
 
         a {
             color: #ffffff;
         }
-        #header{
-            width:100%;
-           
-            background:rgb(123, 87, 140) !important;
-            height:auto;
-        
+
+        #header {
+            width: 100%;
+            background: rgb(123, 87, 140) !important;
+            height: auto;
         }
 
-            a:hover {
-                color: rgba(232,227,246,0.8);
-            }
+        a:hover {
+            color: rgba(232,227,246,0.8);
+        }
 
         .section-title h2::after {
             background: rgba(98, 0, 121, 0.6);
@@ -94,13 +95,12 @@
         .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
             color: rgba(232,227,246,0.8);
         }
-  
+
         .nav-menu a {
             color: #ffffff;
-             padding: 23px;
-             
+            padding: 23px;
         }
-     
+
 
             .nav-menu a:hover {
                 color: rgba(232,227,246,0.2) !important;
@@ -174,7 +174,7 @@
             background: rgba(117, 80, 135, 0.8) !important;
         }
 
-     
+
         .blog .blog-pagination li {
             margin: 0 auto;
             color: rgb(123, 87, 140) !important;
@@ -246,17 +246,19 @@
         .testimonials .owl-dot.active {
             background-color: rgb(123, 87, 140) !important;
         }
-        .nav-menu{
-    
-}
-        #naslov{
-             margin: auto;
-  width: 50%;
-  padding: 10px;
+
+        .nav-menu {
+        }
+
+        #naslov {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
         }
     </style>
 </head>
-
+@if (Session["Korisnik"]!=null)
+{
 <body>
     <!--pocetak hedera-->
     <header id="header" class="fixed-top header-transparent">
@@ -528,6 +530,23 @@
     <script src="~/Content/assets/js/main.js"></script>
 
 </body>
+}
+else
+{
+<body>
+    <div id="notfound">
+        <div class="notfound">
+            <div class="notfound-404">
+                <h1>Oops!</h1>
+            </div>
+            <h2>404 - Страница није пронађена</h2>
+            <p>Страница коју сте тражили је или тренутно избрисана, или преименована или не постоји у оквиру нашег сајта</p>
+            <a href="https://localhost:44390/Home/Index">Вратите се на почетну страну</a>
+        </div>
+    </div>
+</body>
+}
+}
 
 </html>
 

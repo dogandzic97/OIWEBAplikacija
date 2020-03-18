@@ -49,6 +49,10 @@ namespace OIWEB.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            if (Session["Korisnik"] == null)
+            {
+                return RedirectToAction("Page404");
+            }
             List<VrsteStrucnogUsavrsavanja> vrste = (from v in oi.VrsteStrucnogUsavrsavanjas
                                                      select v).ToList();
             ViewBag.Vrste = vrste;
@@ -98,8 +102,12 @@ namespace OIWEB.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
+            if(Session["Korisnik"]==null || id == null)
+            {
+                return RedirectToAction("Page404");
+            }
             StrucnoUsavrsavanje usavrsavanje = (from u in oi.StrucnoUsavrsavanjes
                                                 where u.IDUsavrsavanja == id
                                                 select u).Single();
@@ -136,6 +144,11 @@ namespace OIWEB.Controllers
                                                 where u.IDUsavrsavanja == id
                                                 select u).Single();
             return View(usavrsavanje);
+        }
+
+        public ActionResult Page404()
+        {
+            return View();
         }
 
 
