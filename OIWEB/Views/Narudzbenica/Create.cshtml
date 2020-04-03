@@ -38,6 +38,9 @@
     <!--VALIDATION FILE-->
     <script src="~/Content/js/validacija.js"></script>
 
+    <!--SWEET ALERT-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <!-- =======================================================
     * Template Name: Moderna - v2.0.0
     * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
@@ -174,6 +177,11 @@
             padding: 10px;
         }
     </style>
+    <script>
+        function poruka() {
+            swal("Успех", "Порука је успешно послата. Биће вам одговорено у року од највише 24 сата.", "success");
+        }
+    </script>
 </head>
 
 <body>
@@ -358,20 +366,13 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Поручи" class="btn btn-outline-success" onclick="return proveraNarudzbenice()"/>
+                        <input type="submit" value="Поручи" class="btn btn-outline-success" onclick="return [proveraNarudzbenice(), poruka()]"/>
                     </div>
                 </div>
             </div>
         }
     </div>
-    @if (ViewBag.Msg != null)
-    {
-        <script>
-             function poruka() {
-                swal("Успех", "Порука је успешно послата. Биће вам одговорено у року од највише 24 сата.", "success");
-            }
-        </script>
-    }
+
     <!-- ======= Footer ======= -->
     <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
 

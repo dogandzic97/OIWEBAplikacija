@@ -48,13 +48,15 @@ namespace OIWEB.Controllers
         {
             List<Narucilac> narucioci = (from na in oi.Narucilacs
                                 select na).ToList();
-            bool provera = false;
+            bool provera = true;
             foreach(Narucilac naru in narucioci)
             {
-                if (naru.PIB != fc["PIB"])
-                    provera = true;
-                else
+                if (naru.PIB == fc["PIB"])
+                {
                     provera = false;
+                    break;
+                }
+                
             }
             if (provera)
             {
@@ -82,18 +84,16 @@ namespace OIWEB.Controllers
 
             List<KontaktOsobe> kontaktOsobe = (from k in oi.KontaktOsobes
                                                select k).ToList();
-            bool proveraEmail = false;
+            bool proveraEmail = true;
 
             foreach(KontaktOsobe kon in kontaktOsobe)
             {
                 if (kon.Email == fc["Email"])
                 {
-                    proveraEmail = true;
-                }
-                else
-                {
                     proveraEmail = false;
+                    break;
                 }
+              
             }
 
             if (proveraEmail)

@@ -79,7 +79,7 @@ function proveriSadrzaj(){
 		alert('Попуните поље Садржај');
 		return false;
 	}else{
-		alert("OK");
+		
 		return true;
 	}
 }
@@ -91,7 +91,7 @@ function proveriBrojIzdanja(){
 		return false
 	}
 	else{
-		alert('OK');
+		
 		return true;
 	}
 }
@@ -198,7 +198,7 @@ function proveriPretplatnickiBroj(){
 		return false;
 	}
 	else{
-		alert("OK");
+		
 		return true;
 	}
 }
@@ -320,7 +320,7 @@ function proveriEmail(){
 	var patt = /^\w+\@([a-z]+\.)+[a-z]{3}$/;
 	var result = patt.test(email);
 	if(result){
-		alert("ОК");
+		
 		return false;
 	}
 	else{
