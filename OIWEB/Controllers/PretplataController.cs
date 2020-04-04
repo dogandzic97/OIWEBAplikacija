@@ -32,9 +32,9 @@ namespace OIWEB.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create(int id)
+        public ActionResult Create(string id)
         {
-            ViewBag.IDCasopis = id;
+            ViewBag.Msg = id;
             return View();
         }
 
@@ -43,20 +43,17 @@ namespace OIWEB.Controllers
         {
             List<Narucilac> naroucioci = (from na in oi.Narucilacs
                                           select na).ToList();
-            bool provera = false;
+            bool provera = true;
             foreach(Narucilac s in naroucioci)
             {
-                if (s.PIB != fc["PIB"])
-                {
-                    provera = true;
-                }
-                else
+                if (s.PIB == fc["PIB"])
                 {
                     provera = false;
+                    break;
                 }
             }
 
-            if (provera)
+            if (provera==true)
             {
 
                 Narucilac n = new Narucilac();
@@ -82,23 +79,21 @@ namespace OIWEB.Controllers
             Narucilac narucilac = (from na in oi.Narucilacs
                                    where na.PIB == fc["PIB"]
                                    select na).Single();
-            bool proveraMail = false;
+            bool proveraMail = true;
 
             List<KontaktOsobe> kontaktOsobe = (from ko in oi.KontaktOsobes
                                                select ko).ToList();
 
             foreach(KontaktOsobe kontakt in kontaktOsobe)
             {
-                if (kontakt.Email != fc["Email"])
-                {
-                    proveraMail = true;
-                }
-                else
+                if (kontakt.Email == fc["Email"])
                 {
                     proveraMail = false;
+                    break;
                 }
+            
             }
-            if (provera)
+            if (proveraMail==true)
             {
                 KontaktOsobe kontakti = new KontaktOsobe();
                 kontakti.Ime = fc["Ime"];
@@ -111,13 +106,13 @@ namespace OIWEB.Controllers
             Pretplata p = new Pretplata();
 
             p.DatumPocetka = DateTime.Today.ToString();
-            p.DatumKraja = DateTime.Today.ToString() + 1;
+            p.DatumKraja = "a";
             p.Trajanje = fc["Trajanje"];
             p.NacinPlacanja = fc["NacinPlacanja"];
             p.BrojPrimeraka = Convert.ToInt32(fc["BrojPrimeraka"]);
            
             p.IDNarucioc = narucilac.IDNarucioca;
-            p.IDCasopis =Convert.ToInt32(fc["IDCasopis"]);
+            p.IDCasopis = 1;
 
             try
             {
@@ -125,7 +120,8 @@ namespace OIWEB.Controllers
                 oi.SubmitChanges();
                 SaljiMejl(p, narucilac);
                 ViewBag.IDCasopis = fc["IDCasopis"];
-                return View();
+                //  string poruka = "Uspeh";
+                return RedirectToAction("Create/uspeh");
             }
             catch
             {
